@@ -171,6 +171,8 @@ main { padding-block: 10px 120px; display: flex; flex-direction: column; gap: 14
 .seg button { position: relative; overflow: hidden; flex: 1; border: 0; border-radius: 99px; padding: 8px 10px; min-height: 40px; font-size: 14px; font-weight: 650; color: var(--muted); background: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; transition: background .25s, color .25s, box-shadow .25s; }
 .seg button:hover { color: var(--ink); }
 .seg button[aria-pressed="true"] { background: var(--glass-strong); color: var(--ink); box-shadow: 0 2px 10px -3px rgba(14,28,22,0.3); }
+.seg.dcs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 440px) { .seg.dcs { grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 22px; } }
 .soon { font-size: 9.5px; font-weight: 750; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 6px; border-radius: 99px; background: var(--warn-soft); color: var(--warn-ink); }
 .chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip { position: relative; overflow: hidden; border-radius: 99px; padding: 7px 14px; min-height: 36px; font-size: 13px; font-weight: 650; background: var(--glass); border: 1px solid var(--glass-border); color: var(--ink); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: transform .2s var(--ease), background .25s, color .25s; }
@@ -658,7 +660,9 @@ async function loadData() {
     if (c && c.ok) COMMUNITY = (await c.json()).foods || [];
   } catch (e) { loadError = e; }
 }
-const ALL_DCS = [["segundo", "Segundo"], ["tercero", "Tercero"], ["cuarto", "Cuarto"]];
+const ALL_DCS = [["segundo", "Segundo"], ["tercero", "Tercero"], ["cuarto", "Cuarto"], ["latitude", "Latitude"]];
+const OFFICIAL_URL = { segundo: "https://housing.ucdavis.edu/dining/dining-commons/segundo/", tercero: "https://housing.ucdavis.edu/dining/dining-commons/tercero/", cuarto: "https://housing.ucdavis.edu/dining/dining-commons/cuarto/", latitude: "https://housing.ucdavis.edu/dining/latitude/" };
+function placeLabel(dc) { return dc.label || dc.name + " DC"; }
 // A DC is "coming soon" until the scraper has saved at least one dish for it.
 function dcReady(key) { const dc = MENU?.dcs?.[key]; return !!dc && Object.values(dc.days).some(d => Object.values(d.meals).some(l => l.length)); }
 function menuDays() {
@@ -670,7 +674,7 @@ function menuDays() {
 function mealsFor(dcKey, date) { const dc = MENU?.dcs[dcKey]; if (!dc) return null; const day = Object.values(dc.days).find(d => d.date === date); return day ? day.meals : null; }
 function findMenuDish(id) {
   for (const dc of Object.values(MENU?.dcs || {})) for (const day of Object.values(dc.days)) for (const list of Object.values(day.meals)) {
-    const it = list.find(x => x.id === id); if (it) return { ...it, place: dc.name + " DC" };
+    const it = list.find(x => x.id === id); if (it) return { ...it, place: placeLabel(dc) };
   }
   return null;
 }
@@ -947,12 +951,12 @@ function renderMenu() {
   const dcName = ALL_DCS.find(d => d[0] === ui.dc)[1], goal = currentGoal();
 
   let html = `<div class="page-head"><div class="t"><div class="sub">${ui.date ? fmtDate(ui.date, { weekday: "long", month: "long", day: "numeric" }) : ""}${meals && ui.meal ? " · " + MEAL_LABEL[ui.meal] : ""}</div><h1>${dcName}</h1></div></div>
-    <div class="seg" role="group" aria-label="Dining commons">${ALL_DCS.map(([k, n]) => `<button data-act="dc" data-v="${k}" aria-pressed="${ui.dc === k}">${n}${dcReady(k) ? "" : ' <span class="soon">Soon</span>'}</button>`).join("")}</div>`;
+    <div class="seg dcs" role="group" aria-label="Dining commons">${ALL_DCS.map(([k, n]) => `<button data-act="dc" data-v="${k}" aria-pressed="${ui.dc === k}">${n}${dcReady(k) ? "" : ' <span class="soon">Soon</span>'}</button>`).join("")}</div>`;
   if (!ready) {
     return html + `<section class="glass empty"><div class="ic warn">${ICON.clock}</div><h2>${dcName} is coming soon</h2>
-      <p>We're still hooking up ${dcName}'s menu. It shows up here on its own once it's ready.</p><p>Until then, Tercero is live, or log ${dcName} meals with Create a food.</p>
-      <div class="chips" style="justify-content:center;margin-top:6px"><button class="btn" data-act="dc" data-v="tercero">See Tercero's menu</button>
-      <a class="btn ghost" href="${esc(MENU?.dcs?.[ui.dc]?.url || `https://housing.ucdavis.edu/dining/dining-commons/${ui.dc}/`)}" target="_blank" rel="noopener">Official ${dcName} page</a></div></section>`;
+      <p>We're still hooking up ${dcName}'s menu. It shows up here on its own once it's ready.</p><p>Until then, log ${dcName} meals with Create a food.</p>
+      <div class="chips" style="justify-content:center;margin-top:6px">${(() => { const r = ALL_DCS.find(([k]) => k !== ui.dc && dcReady(k)); return r ? `<button class="btn" data-act="dc" data-v="${r[0]}">See ${r[1]}'s menu</button>` : ""; })()}
+      <a class="btn ghost" href="${esc(MENU?.dcs?.[ui.dc]?.url || OFFICIAL_URL[ui.dc])}" target="_blank" rel="noopener">Official ${dcName} page</a></div></section>`;
   }
   html += `<div class="days" role="group" aria-label="Day">${days.map(d => { const dt = parseKey(d.date); return `<button class="daychip" data-act="date" data-v="${d.date}" aria-pressed="${ui.date === d.date}"><span>${d.date === localDateKey() ? "Today" : dt.toLocaleDateString("en-US", { weekday: "short" })}</span><b class="num">${dt.getDate()}</b></button>`; }).join("")}</div>`;
   if (MENU?.sample) html += `<div class="note"><b>Preview.</b> This is a real sample of Tercero's Monday menu. The live site refreshes every morning.</div>`;
@@ -1260,7 +1264,7 @@ function pickerFoods() {
   for (const [dk, dc] of Object.entries(MENU?.dcs || {})) {
     const meals = mealsFor(dk, ui.logDate); if (!meals) continue;
     const seen = new Set();
-    for (const [mealName, list] of Object.entries(meals)) for (const it of list) { if (seen.has(it.id)) continue; seen.add(it.id); out.push({ ...it, place: dc.name + " DC", group: "dc", meal: mealName, hint: `${dc.name} · ${MEAL_LABEL[mealName] || mealName}` }); }
+    for (const [mealName, list] of Object.entries(meals)) for (const it of list) { if (seen.has(it.id)) continue; seen.add(it.id); out.push({ ...it, place: placeLabel(dc), group: "dc", meal: mealName, hint: `${dc.name} · ${MEAL_LABEL[mealName] || mealName}` }); }
   }
   for (const f of state.myFoods) out.push({ ...f, group: "mine", hint: "My food" });
   for (const f of COMMUNITY) out.push({ ...f, group: "community", hint: `Verified · ${f.place}` });

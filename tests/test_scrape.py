@@ -90,3 +90,20 @@ def test_week_dates_start_on_sunday():
 
 def test_empty_page_finds_nothing():
     assert scrape.parse_menu_page("<html><body><h1>Online menus are unavailable</h1></body></html>") == {}
+
+
+def test_keeps_yesterdays_menu_when_a_dc_comes_back_empty():
+    dish = {"name": "Oatmeal", "calories": 15}
+    yesterday = {"dcs": {"cuarto": {"name": "Cuarto", "days": {"monday": {"meals": {"breakfast": [dish]}}}}}}
+    today = {"dcs": {"tercero": {"name": "Tercero", "days": {"monday": {"meals": {"breakfast": [dish]}}}},
+                     "cuarto": {"name": "Cuarto", "days": {}}}}
+    kept = scrape.keep_previous(today, yesterday)
+    assert kept == ["Cuarto"]
+    assert scrape.count_dc(today["dcs"]["cuarto"]) == 1
+    assert scrape.count_dc(today["dcs"]["tercero"]) == 1
+
+
+def test_latitude_is_scraped_and_labelled():
+    assert "latitude" in scrape.DINING_COMMONS
+    out = scrape.build_output({"latitude": {"monday": {"lunch": []}}}, date(2026, 10, 26))
+    assert out["dcs"]["latitude"]["label"] == "Latitude"

@@ -34,6 +34,7 @@ DINING_COMMONS = {
     "segundo": {"name": "Segundo", "url": "https://housing.ucdavis.edu/dining/dining-commons/segundo/"},
     "tercero": {"name": "Tercero", "url": "https://housing.ucdavis.edu/dining/dining-commons/tercero/"},
     "cuarto": {"name": "Cuarto", "url": "https://housing.ucdavis.edu/dining/dining-commons/cuarto/"},
+    "latitude": {"name": "Latitude", "label": "Latitude", "url": "https://housing.ucdavis.edu/dining/latitude/"},
 }
 
 DAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
@@ -46,6 +47,8 @@ OUTPUT_FILE = PROJECT_ROOT / "docs" / "data" / "menu.json"
 # Be polite to the university's server: say who we are and don't rush.
 HEADERS = {"User-Agent": "Arbo/1.0 (student project; daily menu refresh)"}
 SECONDS_BETWEEN_REQUESTS = 2
+DOWNLOAD_TRIES = 3          # try each page up to 3 times before giving up
+SECONDS_BETWEEN_TRIES = 10
 
 DAVIS_TIME = ZoneInfo("America/Los_Angeles")
 
@@ -223,6 +226,7 @@ def build_output(pages, today):
         info = DINING_COMMONS[key]
         output["dcs"][key] = {
             "name": info["name"],
+            "label": info.get("label", info["name"] + " DC"),
             "url": info["url"],
             "days": {
                 day: {"date": week[day], "meals": menu[day]}
@@ -234,12 +238,27 @@ def build_output(pages, today):
 
 
 def count_dishes(output):
-    return sum(
-        len(dishes)
-        for dc in output["dcs"].values()
-        for day in dc["days"].values()
-        for dishes in day["meals"].values()
-    )
+    return sum(count_dc(dc) for dc in output["dcs"].values())
+
+
+def count_dc(dc):
+    return sum(len(dishes) for day in dc["days"].values() for dishes in day["meals"].values())
+
+
+def keep_previous(output, previous):
+    """
+    If a DC came back empty today (its download failed, or its page changed),
+    keep yesterday's copy of that DC instead of showing nothing.
+    Returns the names of the DCs that were kept from before.
+    """
+    kept = []
+    for key, info in DINING_COMMONS.items():
+        today = output["dcs"].get(key)
+        before = (previous or {}).get("dcs", {}).get(key)
+        if (today is None or count_dc(today) == 0) and before and count_dc(before) > 0:
+            output["dcs"][key] = before
+            kept.append(info["name"])
+    return kept
 
 
 # ---------------------------------------------------------------------------
@@ -247,9 +266,19 @@ def count_dishes(output):
 # ---------------------------------------------------------------------------
 
 def download(url):
-    response = requests.get(url, headers=HEADERS, timeout=30)
-    response.raise_for_status()  # stop with an error if the page didn't load
-    return response.text
+    """Download a page, trying again if the server is slow or hiccups."""
+    last_error = None
+    for attempt in range(1, DOWNLOAD_TRIES + 1):
+        try:
+            response = requests.get(url, headers=HEADERS, timeout=60)
+            response.raise_for_status()  # treat 404, 500 etc. as an error
+            return response.text
+        except requests.RequestException as error:
+            last_error = error
+            print(f"    try {attempt} failed: {error}", file=sys.stderr)
+            if attempt < DOWNLOAD_TRIES:
+                time.sleep(SECONDS_BETWEEN_TRIES)
+    raise last_error
 
 
 def main():
@@ -271,18 +300,31 @@ def main():
                 time.sleep(SECONDS_BETWEEN_REQUESTS)
             try:
                 pages[key] = parse_menu_page(download(info["url"]))
-                print(f"{info['name']}: read the menu page")
+                print(f"{info['name']}: downloaded the menu page")
             except requests.RequestException as error:
-                print(f"{info['name']}: could not download ({error})", file=sys.stderr)
+                print(f"{info['name']}: could not download after {DOWNLOAD_TRIES} tries ({error})", file=sys.stderr)
 
     output = build_output(pages, datetime.now(DAVIS_TIME).date())
     if args.sample:
         output["sample"] = True
-    total = count_dishes(output)
 
-    for dc in output["dcs"].values():
-        n = sum(len(d) for day in dc["days"].values() for d in day["meals"].values())
-        print(f"  {dc['name']}: {n} dishes across {len(dc['days'])} days")
+    out_path = Path(args.output)
+    previous = None
+    if out_path.exists() and not args.from_file:
+        try:
+            previous = json.loads(out_path.read_text(encoding="utf-8"))
+        except ValueError:
+            previous = None
+    for name in keep_previous(output, previous):
+        print(f"  {name}: nothing new today, kept the previous menu")
+
+    for key, info in DINING_COMMONS.items():
+        dc = output["dcs"].get(key)
+        if dc is None:
+            print(f"  {info['name']}: no data")
+        else:
+            print(f"  {info['name']}: {count_dc(dc)} dishes across {len(dc['days'])} days")
+    total = count_dishes(output)
 
     # Safety check: if we found nothing, the website changed or is down.
     # Keep yesterday's file instead of replacing it with an empty one, and fail
@@ -292,7 +334,6 @@ def main():
               file=sys.stderr)
         sys.exit(1)
 
-    out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(output, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Saved {total} dishes to {out_path}")
