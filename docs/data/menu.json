@@ -1,10 +1,11 @@
 {
- "generated_at": "2026-10-26T03:04-07:00",
+ "generated_at": "2026-10-26T03:20-07:00",
  "week_of": "2026-10-25",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "dcs": {
   "segundo": {
    "name": "Segundo",
+   "label": "Segundo DC",
    "url": "https://housing.ucdavis.edu/dining/dining-commons/segundo/",
    "days": {
     "sunday": {
@@ -10522,6 +10523,7 @@
   },
   "tercero": {
    "name": "Tercero",
+   "label": "Tercero DC",
    "url": "https://housing.ucdavis.edu/dining/dining-commons/tercero/",
    "days": {
     "monday": {
