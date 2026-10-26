@@ -1,0 +1,39 @@
+# Every morning, GitHub runs the scraper on its own computers and saves the
+# new menu into docs/data/menu.json. The website picks it up automatically.
+name: Update menu
+
+on:
+  schedule:
+    # 13:17 UTC is 6:17 AM in Davis during daylight time (5:17 AM in winter).
+    - cron: "17 13 * * *"
+  workflow_dispatch: # adds a "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write # lets the job save the new menu file back to the repo
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Check the scraper still works
+        run: python -m pytest -q
+
+      - name: Download today's menus
+        run: python scraper/scrape.py
+
+      - name: Save the new menu if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/menu.json
+          git diff --staged --quiet || git commit -m "Update menu $(date -u +%Y-%m-%d)"
+          git push

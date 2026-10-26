@@ -1,0 +1,57 @@
+# The form students fill in when they suggest a food. The website pre-fills it.
+# Each suggestion shows up in your repo's Issues tab for you to check.
+name: Suggest a food
+description: Suggest a food that's missing from Arbo
+title: "[Food] "
+labels: ["food suggestion"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Food name
+      placeholder: Chicken teriyaki bowl
+    validations:
+      required: true
+  - type: input
+    id: place
+    attributes:
+      label: Where is it from?
+      placeholder: CoHo, Latitude, Trader Joe's, homemade...
+    validations:
+      required: true
+  - type: input
+    id: serving
+    attributes:
+      label: Serving size
+      placeholder: 1 bowl (350 g)
+    validations:
+      required: true
+  - type: input
+    id: calories
+    attributes:
+      label: Calories
+    validations:
+      required: true
+  - type: input
+    id: protein
+    attributes:
+      label: Protein (g)
+    validations:
+      required: true
+  - type: input
+    id: carbs
+    attributes:
+      label: Carbs (g)
+    validations:
+      required: true
+  - type: input
+    id: fat
+    attributes:
+      label: Fat (g)
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where did these numbers come from?
+      description: A link to the official nutrition page, or "photo of the label". Suggestions with a source get checked first.
