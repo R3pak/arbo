@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T03:20-07:00",
+ "generated_at": "2026-10-26T12:22-07:00",
  "week_of": "2026-10-25",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "dcs": {
@@ -902,139 +902,6 @@
         "id": "e2d8933521"
        },
        {
-        "name": "Build Your Own Omelette",
-        "description": "Eggs with Assorted Meats, Assorted Vegetables, Cheese, Salsas, and Vegan Options.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 67.95,
-        "fat": 3.47,
-        "carbs": 5.49,
-        "sugar": 2.94,
-        "protein": 4.72,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "zone": "Yellow",
-        "id": "1bc9ab40da"
-       },
-       {
-        "name": "Build Your Own Veggie Omelette",
-        "description": "Assorted Vegan Options, Assorted Vegetables, Cheese, Salsas",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 49.87,
-        "fat": 2.48,
-        "carbs": 5.66,
-        "sugar": 3.16,
-        "protein": 2.13,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "257d202559"
-       },
-       {
-        "name": "Fried Eggs to Order",
-        "description": "Egg fried to your request. *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.",
-        "serving": "2.47 oz",
-        "serving_g": 70.0,
-        "calories": 196.04,
-        "fat": 18.8,
-        "carbs": 0.41,
-        "sugar": 0.21,
-        "protein": 7.11,
-        "allergens": [
-         "Egg"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "0feef75ef0"
-       },
-       {
-        "name": "Scrambled Egg Whites",
-        "description": "Light and fluffy egg whites with a variety of available toppings.",
-        "serving": "4.25 oz",
-        "serving_g": 120.5,
-        "calories": 121.32,
-        "fat": 7.0,
-        "carbs": 0.0,
-        "sugar": 0.0,
-        "protein": 12.34,
-        "allergens": [
-         "Egg"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "f8bc2ad666"
-       },
-       {
-        "name": "Scrambled Tofu",
-        "description": "Scrambled Locally made Organic Hodo Tofu cooked with onions, bell peppers and soy sauce.",
-        "serving": "3 oz",
-        "serving_g": 85.0,
-        "calories": 130.84,
-        "fat": 8.14,
-        "carbs": 4.2,
-        "sugar": 0.75,
-        "protein": 12.93,
-        "allergens": [
-         "Soy",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "6d122a4e0f"
-       },
-       {
-        "name": "Just Egg - Plant Based",
-        "description": "Plant based scrambled egg",
-        "serving": "3.17 oz",
-        "serving_g": 89.9,
-        "calories": 136.6,
-        "fat": 9.77,
-        "carbs": 1.95,
-        "sugar": 0.0,
-        "protein": 9.77,
-        "allergens": [
-         "Soy Lecithin"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "69f2b07181"
-       },
-       {
         "name": "Overnight Oats",
         "description": "Overnight Oats house-made with Greek yogurt, coconut and soy milk.",
         "serving": "1.07 oz",
@@ -1382,7 +1249,7 @@
       "lunch": [
        {
         "name": "Grass-Fed Cheeseburger",
-        "description": "Grass-fed beef patty, grilled and served on a sesame bun with melted American cheese.",
+        "description": "Grass-fed beef patty, grilled and served on a bun with melted American cheese.",
         "serving": "6.41 oz",
         "serving_g": 181.7,
         "calories": 487.81,
@@ -1392,6 +1259,7 @@
         "protein": 27.09,
         "allergens": [
          "Dairy",
+         "Egg",
          "Sesame",
          "Soy Lecithin",
          "Soybean Oil",
@@ -1523,7 +1391,7 @@
        },
        {
         "name": "BYO Mongolian BBQ",
-        "description": "Lo Mein Noodles with fresh toppings including: Garlic, Ginger, Chicken, Tofu, Green Cabbage, Carrots, Peppers, Onions, Celery, Broccoli, and Chicken. ***If you would like your dish cooked on a separate sauté pan, please ask!",
+        "description": "Lo Mein Noodles with fresh toppings including: Chicken, Plant Forward Beef, Tofu and assorted vegetables . ***If you would like your dish cooked on a separate sauté pan, please ask! ***If you would like your dish cooked on a separate sauté pan, please ask!",
         "serving": "100 g",
         "serving_g": 100.0,
         "calories": 93.4,
@@ -1569,7 +1437,7 @@
        },
        {
         "name": "Chipotle Stew",
-        "description": "Potato, squash, corn and carrots simmered in chili sauce. Served with avocado, tortilla strips, vegan sour cream and almond brittle",
+        "description": "Potato, squash, corn and carrots simmered in chili sauce. Served with avocado, tortilla strips, an dvegan sour cream",
         "serving": "15.06 oz",
         "serving_g": 426.9,
         "calories": 260.39,
@@ -1749,7 +1617,7 @@
        },
        {
         "name": "Adobada Pork Tacos",
-        "description": "Marinated pork taco with tomatillo salsa, cabbage slaw, and crushed pork rinds",
+        "description": "Marinated pork taco with tomatillo salsa, and cabbage slaw",
         "serving": "5.76 oz",
         "serving_g": 163.3,
         "calories": 235.11,
@@ -10531,8 +10399,8 @@
      "meals": {
       "breakfast": [
        {
-        "name": "Build Your Own Omelette",
-        "description": "Eggs with Assorted Meats, Assorted Vegetables, Cheese, Salsas, and Vegan Options.",
+        "name": "Build Your Own Omelette || Fried Eggs to Order",
+        "description": "Eggs with Assorted Meats, Assorted Vegetables, Cheese, Salsas, and Vegan Options. And eggs fried to your request. *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.",
         "serving": "100 g",
         "serving_g": 100.0,
         "calories": 67.95,
@@ -10544,13 +10412,14 @@
          "Dairy",
          "Egg",
          "Soy",
+         "Soy Lecithin",
          "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": false,
         "tags": [],
         "zone": "Yellow",
-        "id": "1bc9ab40da"
+        "id": "543479d7a9"
        },
        {
         "name": "Build Your Own Veggie Omelette",
@@ -10621,7 +10490,7 @@
         "id": "f8bc2ad666"
        },
        {
-        "name": "Scrambled Tofu",
+        "name": "Scrambled Tofu || Just Egg (Plant-Based)",
         "description": "Scrambled Locally made Organic Hodo Tofu cooked with onions, bell peppers and soy sauce.",
         "serving": "3 oz",
         "serving_g": 85.0,
@@ -10632,6 +10501,7 @@
         "protein": 12.93,
         "allergens": [
          "Soy",
+         "Soy Lecithin",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
@@ -10640,7 +10510,7 @@
          "vegan"
         ],
         "zone": "Yellow",
-        "id": "6d122a4e0f"
+        "id": "16c93f6397"
        },
        {
         "name": "Just Egg - Plant Based",
@@ -10687,7 +10557,7 @@
         "id": "946ceda70e"
        },
        {
-        "name": "Scrambled Egg",
+        "name": "Scrambled Egg || Sticky Rice",
         "description": "Softly scrambled cage-free eggs.",
         "serving": "3.05 oz",
         "serving_g": 86.5,
@@ -10705,7 +10575,7 @@
          "vegetarian"
         ],
         "zone": "Blue",
-        "id": "dbfa26ad02"
+        "id": "4c08fd237c"
        },
        {
         "name": "Pork Sausage Patties",
@@ -10724,18 +10594,40 @@
         "id": "a9869c51e3"
        },
        {
-        "name": "Seasoned Wedge Fries",
-        "description": "Crispy deep-fried potato wedges.",
-        "serving": "3.98 oz",
-        "serving_g": 112.8,
-        "calories": 272.53,
-        "fat": 19.43,
-        "carbs": 24.29,
-        "sugar": 0.0,
-        "protein": 2.7,
+        "name": "Bacon Egg and Cheese Muffin",
+        "description": "A tasty English muffin breakfast sandwich with eggs, cheese, and bacon.",
+        "serving": "5.88 oz",
+        "serving_g": 166.7,
+        "calories": 496.32,
+        "fat": 35.79,
+        "carbs": 24.25,
+        "sugar": 2.18,
+        "protein": 23.0,
         "allergens": [
+         "Dairy",
+         "Egg",
+         "Soy Lecithin",
          "Soybean Oil",
+         "Vinegar",
          "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [],
+        "zone": "Blue",
+        "id": "946ceda70e"
+       },
+       {
+        "name": "Diced Hash Browns",
+        "description": "Crispy hash brown potatoes.",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 259.58,
+        "fat": 16.07,
+        "carbs": 25.74,
+        "sugar": 0.02,
+        "protein": 2.71,
+        "allergens": [
+         "Soybean Oil"
         ],
         "shared_fryer": true,
         "tags": [
@@ -10743,7 +10635,7 @@
          "vegan"
         ],
         "zone": "Blue",
-        "id": "4660c00c3a"
+        "id": "e2d8933521"
        },
        {
         "name": "Overnight Oats",
@@ -11116,8 +11008,8 @@
         "id": "bd5e4187d0"
        },
        {
-        "name": "Buffalo Chickpea Sandwich",
-        "description": "House-made buffalo chickpea patty on a sesame bun",
+        "name": "Chipotle Black Bean Burger",
+        "description": "",
         "serving": "5.9 oz",
         "serving_g": 167.3,
         "calories": 375.94,
@@ -11127,6 +11019,7 @@
         "protein": 12.81,
         "allergens": [
          "Sesame",
+         "Soy",
          "Soybean Oil",
          "Vinegar",
          "Wheat/Gluten"
@@ -11137,7 +11030,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "b80b213210"
+        "id": "0cab75807c"
        },
        {
         "name": "Shoestring Potatoes",
@@ -11196,25 +11089,6 @@
         ],
         "zone": "Yellow",
         "id": "a08852f911"
-       },
-       {
-        "name": "Herb Roasted Red Potatoes",
-        "description": "Roasted red potatoes tossed with herbs and lemon juice",
-        "serving": "3.32 oz",
-        "serving_g": 94.1,
-        "calories": 73.67,
-        "fat": 1.25,
-        "carbs": 14.45,
-        "sugar": 1.18,
-        "protein": 1.72,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "5490c9f1d5"
        },
        {
         "name": "Pepperoni Pizza",
@@ -11284,6 +11158,26 @@
         "tags": [],
         "zone": "Blue",
         "id": "d6a1ca618a"
+       },
+       {
+        "name": "Savory Yellow Curry",
+        "description": "Persian rice and veggies in a yellow curry sauce",
+        "serving": "8.33 oz",
+        "serving_g": 236.2,
+        "calories": 378.93,
+        "fat": 13.41,
+        "carbs": 57.86,
+        "sugar": 3.38,
+        "protein": 8.1,
+        "allergens": [
+         "Alcohol"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "vegan"
+        ],
+        "zone": "Blue",
+        "id": "91d6dce385"
        },
        {
         "name": "Savory Yellow Curry",
