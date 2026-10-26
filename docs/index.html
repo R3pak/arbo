@@ -1147,9 +1147,15 @@ function renderProgress() {
 }
 
 /* ----- Plan ----- */
-function renderPlan() {
+// The form is drawn once. Typing only redraws the results next to it, so the box you're typing in is never replaced.
+function planNumbers() {
   const c = ui.calc, kg = c.units === "us" ? c.lb * 0.453592 : c.kg, cm = c.units === "us" ? (c.ft * 12 + c.inch) * 2.54 : c.cm;
-  const valid = c.age >= 16 && c.age <= 80 && kg >= 30 && kg <= 300 && cm >= 120 && cm <= 230;
+  if (!(c.age >= 16 && c.age <= 80 && kg >= 30 && kg <= 300 && cm >= 120 && cm <= 230)) return { valid: false };
+  const b = bmr({ sex: c.sex, age: c.age, kg, cm }), tdee = b * ACTIVITY.find(a => a.key === c.activity).mult;
+  return { valid: true, b, tdee, goals: goalCalories(tdee, c.sex, c.pace) };
+}
+function renderPlan() {
+  const c = ui.calc;
   const form = `<section class="glass pad" style="display:flex;flex-direction:column;gap:12px" aria-label="About you">
     <div class="seg" role="group" aria-label="Units"><button data-act="units" data-v="us" aria-pressed="${c.units === "us"}">US · lb, ft</button><button data-act="units" data-v="metric" aria-pressed="${c.units === "metric"}">Metric · kg, cm</button></div>
     <div class="form-grid">
@@ -1163,26 +1169,36 @@ function renderPlan() {
       <label class="field full">Activity<select id="c-act">${ACTIVITY.map(a => `<option value="${a.key}" ${c.activity === a.key ? "selected" : ""}>${a.label} · ${a.desc}</option>`).join("")}</select></label>
     </div></section>`;
   const head = `<div class="page-head"><div class="t"><div class="sub">Your calories, then your goal</div><h1>Plan</h1></div></div>`;
-  if (!valid) return head + `<div class="grid-2"><div class="col">${form}</div><div class="col"><section class="glass empty"><h2>Fill in your details</h2><p>Age 16–80, plus a realistic height and weight.</p></section>${manualTargets()}</div></div>`;
-
-  const b = bmr({ sex: c.sex, age: c.age, kg, cm }), tdee = b * ACTIVITY.find(a => a.key === c.activity).mult, goals = goalCalories(tdee, c.sex, c.pace);
-  const pg = ui.planGoal || state.phase?.goal || "cut", gl = goals[pg], m = macroGrams(gl.kcal, c.split), sp = SPLITS[c.split];
+  return head + `<div class="grid-2"><div class="col">${form}<div class="col" id="plan-left">${planLeft()}</div></div><div class="col" id="plan-right">${planRight()}</div></div>`;
+}
+function planLeft() {
+  const n = planNumbers();
+  if (!n.valid) return "";
+  return `<section class="glass dark-card maint" aria-label="Maintenance">
+      <div><b data-count="${Math.round(n.tdee)}" data-key="tdee" style="font-size:42px;color:var(--mint)">${kcal(n.tdee)}</b><span>Maintenance · cal</span></div>
+      <div><b data-count="${Math.round(n.b)}" data-key="bmr" style="font-size:27px">${kcal(n.b)}</b><span>BMR · at rest</span></div></section>
+    <section class="glass pad"><div class="label" style="margin-bottom:4px">Maintenance by activity</div><table class="act"><tbody>${ACTIVITY.map(a => `<tr class="${a.key === ui.calc.activity ? "on" : ""}"><td>${a.label}</td><td>${kcal(n.b * a.mult)} cal</td></tr>`).join("")}</tbody></table></section>`;
+}
+function planRight() {
+  const n = planNumbers(), c = ui.calc;
+  if (!n.valid) return `<section class="glass empty"><h2>Fill in your details</h2><p>Age 16–80, plus a realistic height and weight.</p></section>` + manualTargets() + fineprint();
+  const pg = ui.planGoal || state.phase?.goal || "cut", gl = n.goals[pg], m = macroGrams(gl.kcal, c.split), sp = SPLITS[c.split];
   const current = state.phase && state.phase.goal === pg && state.targets?.calories === gl.kcal;
   const rateTxt = gl.rate ? `${gl.rate > 0 ? "Gain" : "Lose"} about ${wFmt(Math.abs(gl.rate), useMetric() ? 2 : 1)} ${wUnit()} a week` : "Hold your weight steady";
-  const leftCol = form + `<section class="glass dark-card maint" aria-label="Maintenance">
-      <div><b data-count="${Math.round(tdee)}" data-key="tdee" style="font-size:42px;color:var(--mint)">${kcal(tdee)}</b><span>Maintenance · cal</span></div>
-      <div><b data-count="${Math.round(b)}" data-key="bmr" style="font-size:27px">${kcal(b)}</b><span>BMR · at rest</span></div></section>
-    <section class="glass pad"><div class="label" style="margin-bottom:4px">Maintenance by activity</div><table class="act"><tbody>${ACTIVITY.map(a => `<tr class="${a.key === c.activity ? "on" : ""}"><td>${a.label}</td><td>${kcal(b * a.mult)} cal</td></tr>`).join("")}</tbody></table></section>`;
-  const rightCol = `<div class="seg" role="group" aria-label="Goal">${Object.entries(goals).map(([k, x]) => `<button data-act="plan-goal" data-v="${k}" aria-pressed="${pg === k}">${x.label}</button>`).join("")}</div>
+  return `<div class="seg" role="group" aria-label="Goal">${Object.entries(n.goals).map(([k, x]) => `<button data-act="plan-goal" data-v="${k}" aria-pressed="${pg === k}">${x.label}</button>`).join("")}</div>
     <section class="glass target" aria-label="Your targets">
       <div><div class="kcal"><span data-count="${gl.kcal}" data-key="goalkcal">${kcal(gl.kcal)}</span><small> cal a day</small></div><div class="small muted" style="margin-top:4px">${rateTxt}</div></div>
       <div class="splitbar" aria-hidden="true"><i style="width:${sp.p * 100}%;background:var(--p)"></i><i style="width:${sp.f * 100}%;background:var(--f)"></i><i style="width:${sp.c * 100}%;background:var(--c)"></i></div>
       <div class="tri"><div><b class="kp">${m.protein}g</b><span>Protein</span></div><div><b class="kf">${m.fat}g</b><span>Fat</span></div><div><b class="kc">${m.carbs}g</b><span>Carbs</span></div></div>
       ${gl.note ? `<div class="warnline">${esc(gl.note)}</div>` : ""}
       <div class="chips">${Object.entries(PACES).map(([k, p]) => `<button class="chip" data-act="pace" data-v="${k}" aria-pressed="${c.pace === k}">${p.label} ±${p.delta}</button>`).join("")}${Object.entries(SPLITS).map(([k, s]) => `<button class="chip" data-act="split" data-v="${k}" aria-pressed="${c.split === k}">${s.label}</button>`).join("")}</div>
-      <button class="btn block ${current ? "soft" : ""}" data-act="start-phase" data-v="${pg}" data-kcal="${gl.kcal}" data-rate="${gl.rate}" data-tdee="${Math.round(tdee)}">${current ? "This is your current plan" : { cut: "Start my cut", bulk: "Start my bulk", maintain: "Start maintaining" }[pg]}</button>
+      <button class="btn block ${current ? "soft" : ""}" data-act="start-phase" data-v="${pg}" data-kcal="${gl.kcal}" data-rate="${gl.rate}" data-tdee="${Math.round(n.tdee)}">${current ? "This is your current plan" : { cut: "Start my cut", bulk: "Start my bulk", maintain: "Start maintaining" }[pg]}</button>
     </section>` + manualTargets() + fineprint();
-  return head + `<div class="grid-2"><div class="col">${leftCol}</div><div class="col">${rightCol}</div></div>`;
+}
+function refreshPlan() {
+  const l = $("#plan-left"), r = $("#plan-right");
+  if (!l || !r) { render(); return; }
+  l.innerHTML = planLeft(); r.innerHTML = planRight(); runEffects();
 }
 function manualTargets() {
   const t = state.targets || { calories: "", protein: "", carbs: "", fat: "" };
@@ -1390,9 +1406,9 @@ document.addEventListener("click", e => {
     case "create": openCreate(picker.q); break;
     case "log-new": if (pendingNew) openAmount(pendingNew, ui.logDate, picker.meal); break;
     case "units": ui.calc.units = v; saveProfile(); render(); break;
-    case "split": ui.calc.split = v; saveProfile(); render(); break;
-    case "pace": ui.calc.pace = v; saveProfile(); render(); break;
-    case "plan-goal": ui.planGoal = v; render(); break;
+    case "split": ui.calc.split = v; saveProfile(); refreshPlan(); break;
+    case "pace": ui.calc.pace = v; saveProfile(); refreshPlan(); break;
+    case "plan-goal": ui.planGoal = v; refreshPlan(); break;
     case "start-phase": {
       const kc = Number(el.dataset.kcal);
       state.targets = { goal: v, calories: kc, split: ui.calc.split, ...macroGrams(kc, ui.calc.split) };
@@ -1425,8 +1441,7 @@ document.addEventListener("input", e => {
     if (key === "ft" || key === "inch") ui.calc.cm = Math.round((ui.calc.ft * 12 + ui.calc.inch) * 2.54);
     if (key === "cm") { const tot = Math.round(ui.calc.cm / 2.54); ui.calc.ft = Math.floor(tot / 12); ui.calc.inch = tot % 12; }
     saveProfile();
-    if (e.target.tagName === "INPUT") { const pos = e.target.selectionStart; render(); const box = document.getElementById(id); if (box) { box.focus(); try { box.setSelectionRange(pos, pos); } catch (_) {} } }
-    else render();
+    refreshPlan();
   }
 });
 document.addEventListener("change", e => { if (e.target.id === "menu-sort") { ui.sort = e.target.value; sfx("toggle"); render(); } });
