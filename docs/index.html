@@ -465,7 +465,7 @@ footer.foot .wrap { padding-block: 0 120px; }
 
 <footer class="foot"><div class="wrap fine">
   <p><b>Arbo is a student project and isn't affiliated with UC Davis.</b> Menu and nutrition numbers come from the UC Davis Dining Services online menus and can be wrong or change on the day. If you have a food allergy, always confirm with DC staff.</p>
-  <p>Everything you log stays in this browser on this device. Clearing your browser data erases it. <span id="foot-updated"></span></p>
+  <p>Everything you log stays in this browser on this device; clearing your browser data erases it. Arbo counts visits anonymously with GoatCounter (no cookies, no personal data, never what you eat or weigh). <span id="foot-updated"></span></p>
 </div></footer>
 
 <nav class="dock" aria-label="Sections" id="dock-tabs"></nav>
@@ -656,6 +656,22 @@ function toast(msg) {
   t.className = "toast"; t.setAttribute("role", "status"); t.textContent = msg;
   document.body.appendChild(t); setTimeout(() => t.remove(), 2400);
 }
+
+/* =========================================================================
+   Anonymous visit counting (GoatCounter). Only counts are sent: which tab was
+   opened and that an action happened. Never food, weights or targets.
+   Your dashboard: https://r3pak.goatcounter.com
+   ========================================================================= */
+const gcQueue = [];
+function gcSend(data) {
+  try {
+    if (window.goatcounter && typeof window.goatcounter.count === "function") window.goatcounter.count(data);
+    else gcQueue.push(data);
+  } catch (e) { /* counting must never break the app */ }
+}
+function gcFlush() { while (gcQueue.length) gcSend(gcQueue.shift()); }
+function trackView() { gcSend({ path: location.pathname.replace(/\/$/, "") + "/" + ui.view, title: ui.view[0].toUpperCase() + ui.view.slice(1) }); }
+function track(name) { gcSend({ path: name, title: name, event: true }); }
 
 /* =========================================================================
    Loading the menu data (made by the Python scraper)
@@ -1265,6 +1281,7 @@ function confirmAdd() {
   if (!(k > 0)) { toast("Enter an amount above zero"); return; }
   const amount = pending.mode === "grams" ? `${Math.round(pending.grams)} g` : `${pending.servings} × ${f.serving || "serving"}`;
   addEntry(pending.dateKey, makeEntry(f, k, pending.meal, amount));
+  track(String(f.id || "").startsWith("m-") ? "log-own-food" : String(f.id || "").startsWith("c-") ? "log-verified-food" : "log-dc-dish");
   closeSheet(); sfx("success"); toast(`Added to ${MEAL_LABEL[pending.meal]}`); render();
 }
 let picker = { meal: "snacks", q: "" };
@@ -1325,7 +1342,7 @@ function afterCreate(food) {
   pendingNew = food; const url = suggestUrl(food);
   openSheet(`<div class="sheet-head"><h2>Saved to My foods</h2><button class="round ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
     <p style="margin:0">Want everyone to find <b>${esc(food.name)}</b>? Suggest it, and once the numbers are checked it shows up under Verified foods.</p>
-    ${url ? `<a class="btn soft" href="${esc(url)}" target="_blank" rel="noopener">Suggest it for everyone</a><p class="small muted" style="margin:-4px 0 0">Opens a short form on GitHub with your numbers filled in.</p>` : `<p class="small muted" style="margin:0">Suggestions aren't switched on for this copy of Arbo yet.</p>`}
+    ${url ? `<a class="btn soft" data-act="suggest" href="${esc(url)}" target="_blank" rel="noopener">Suggest it for everyone</a><p class="small muted" style="margin:-4px 0 0">Opens a short form on GitHub with your numbers filled in.</p>` : `<p class="small muted" style="margin:0">Suggestions aren't switched on for this copy of Arbo yet.</p>`}
     <button class="btn block" data-act="log-new">Log it now</button>`, "Saved", "#layer .btn.block");
 }
 
@@ -1392,7 +1409,7 @@ document.addEventListener("click", e => {
     case "add-plate": {
       const slot = SLOT_FOR_MEAL[ui.meal] || "snacks";
       el.dataset.ids.split(",").forEach(id => { const f = findMenuDish(id); if (f) addEntry(localDateKey(), makeEntry(f, 1, slot, `1 × ${f.serving}`)); });
-      sfx("success"); toast(`Plate added to ${MEAL_LABEL[slot]}`); render(); break;
+      track("add-plate"); sfx("success"); toast(`Plate added to ${MEAL_LABEL[slot]}`); render(); break;
     }
     case "scrim": case "close": closeSheet(); break;
     case "mode": pending.mode = v; renderAmountSheet(); break;
@@ -1427,16 +1444,17 @@ document.addEventListener("click", e => {
       state.targets = { goal: v, calories: kc, split: ui.calc.split, ...macroGrams(kc, ui.calc.split) };
       const same = state.phase && state.phase.goal === v;
       state.phase = { goal: v, start: same ? state.phase.start : localDateKey(), rate: Number(el.dataset.rate), tdee: Number(el.dataset.tdee), pace: ui.calc.pace };
-      saveState(); sfx("success"); toast(v === "cut" ? "Cut started" : v === "bulk" ? "Bulk started" : "Maintenance started"); render(); break;
+      track("start-" + v); saveState(); sfx("success"); toast(v === "cut" ? "Cut started" : v === "bulk" ? "Bulk started" : "Maintenance started"); render(); break;
     }
-    case "apply-adjust": {
+    case "apply-adjust": { track("apply-adjustment");
       const kc = Number(v), split = state.targets.split || "moderate", keepP = state.targets.protein, s = SPLITS[split], fShare = s.f / (s.f + s.c), rest = kc - keepP * 4;
       state.targets = { ...state.targets, calories: kc, protein: keepP, fat: Math.round(rest * fShare / 9), carbs: Math.round(rest * (1 - fShare) / 4) };
       saveState(); sfx("success"); toast(`Target changed to ${kcal(kc)} cal`); render(); break;
     }
     case "del-weight": state.weights = state.weights.filter(w => w.date !== v); saveState(); sfx("remove"); render(); break;
     case "end-phase": state.phase = null; saveState(); toast("Phase ended"); render(); break;
-    case "load-demo": loadDemo(); break;
+    case "load-demo": track("example-month"); loadDemo(); break;
+    case "suggest": track("suggest-food"); break;
     case "clear-demo": clearDemo(); break;
   }
 });
@@ -1469,13 +1487,13 @@ document.addEventListener("submit", e => {
     const num = s => Math.max(0, Number($(s).value) || 0);
     const food = { id: "m-" + uid(), name: $("#n-name").value.trim(), place: $("#n-place").value.trim(), serving: $("#n-serving").value.trim() || "1 serving", serving_g: null, calories: num("#n-cal"), protein: num("#n-p"), carbs: num("#n-c"), fat: num("#n-f") };
     if (!food.name) { toast("Give the food a name"); return; }
-    state.myFoods.unshift(food); saveState(); sfx("success"); afterCreate(food);
+    state.myFoods.unshift(food); saveState(); track("create-food"); sfx("success"); afterCreate(food);
   } else if (id === "weigh-form") {
     const val = Number($("#w-val").value), date = $("#w-date").value || localDateKey();
     if (!(val > 0)) { toast("Enter your weight"); return; }
     state.weights = state.weights.filter(w => w.date !== date);
     state.weights.push({ date, lb: Math.round(wToLb(val) * 10) / 10 });
-    saveState(); sfx("success"); toast("Weigh-in saved"); render();
+    track("weigh-in"); saveState(); sfx("success"); toast("Weigh-in saved"); render();
   }
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#layer").innerHTML) closeSheet(); });
@@ -1485,9 +1503,11 @@ function saveProfile() { state.profile = { ...ui.calc }; saveState(); }
    Tabs: the part after # in the address (#today, #menu, #calendar, ...)
    ========================================================================= */
 function readHash() { const h = location.hash.replace("#", ""); ui.view = TABS.some(([k]) => k === h) ? h : "today"; }
-window.addEventListener("hashchange", () => { const was = ui.view; readHash(); closeSheet(); if (was !== ui.view) sfx("nav"); render(); window.scrollTo(0, 0); });
+window.addEventListener("hashchange", () => { const was = ui.view; readHash(); closeSheet(); if (was !== ui.view) { sfx("nav"); trackView(); } render(); window.scrollTo(0, 0); });
 readHash();
+trackView();
 loadData().then(render);
 </script>
+<script data-goatcounter="https://r3pak.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}' async src="//gc.zgo.at/count.js" onload="gcFlush()"></script>
 </body>
 </html>
