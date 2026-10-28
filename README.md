@@ -1,4 +1,4 @@
-# Arbo
+# arbo
 
 A website for UC Davis students: every dining commons dish with its macros, a food log, cut and bulk phases, and a TDEE / macro calculator.
 
