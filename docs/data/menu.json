@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T11:47-07:00",
+ "generated_at": "2026-10-28T16:07-07:00",
  "week_of": "2026-10-25",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -3364,120 +3364,6 @@
       ],
       "lunch": [
        {
-        "name": "Chili Cheese Miller's Locally-Made Hot Dog",
-        "description": "",
-        "serving": "7.15 oz",
-        "serving_g": 202.7,
-        "calories": 538.37,
-        "fat": 36.67,
-        "carbs": 32.03,
-        "sugar": 7.18,
-        "protein": 24.63,
-        "allergens": [
-         "Dairy",
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "zone": "Red",
-        "id": "d785e79f3a"
-       },
-       {
-        "name": "Mediterranean Burger",
-        "description": "",
-        "serving": "11.94 oz",
-        "serving_g": 338.5,
-        "calories": 582.85,
-        "fat": 32.06,
-        "carbs": 57.95,
-        "sugar": 11.58,
-        "protein": 15.94,
-        "allergens": [
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "ee6240c207"
-       },
-       {
-        "name": "Shoestring Potatoes",
-        "description": "Crispy thin-cut potato fries.",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 286.08,
-        "fat": 17.41,
-        "carbs": 31.06,
-        "sugar": 0.01,
-        "protein": 2.7,
-        "allergens": [
-         "Soybean Oil"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "6e0f1222b6"
-       },
-       {
-        "name": "Spaghetti and House Made Meatballs",
-        "description": "Spaghetti topped with rich savory Meatballs, smothered in our house-made Roasted Tomato Sauce that uses our own Aggie-Grown Russell Ranch Tomatoes. Finished with Shaved Parmesan Cheese.",
-        "serving": "11.71 oz",
-        "serving_g": 332.0,
-        "calories": 643.93,
-        "fat": 32.73,
-        "carbs": 65.47,
-        "sugar": 6.14,
-        "protein": 23.84,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Yellow",
-        "id": "95cf0e592b"
-       },
-       {
-        "name": "Spaghetti and House Made Meatballs",
-        "description": "Spaghetti topped with rich savory Meatballs, smothered in our house-made Roasted Tomato Sauce that uses our own Aggie-Grown Russell Ranch Tomatoes. Finished with Shaved Parmesan Cheese.",
-        "serving": "11.71 oz",
-        "serving_g": 332.0,
-        "calories": 643.93,
-        "fat": 32.73,
-        "carbs": 65.47,
-        "sugar": 6.14,
-        "protein": 23.84,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Yellow",
-        "id": "95cf0e592b"
-       },
-       {
         "name": "Sausage and Onion Pizza",
         "description": "Fresh pizza topped with cheese, sausage, and onion.",
         "serving": "3.68 oz",
@@ -3744,23 +3630,25 @@
         "id": "0e1f447dfc"
        },
        {
-        "name": "Spiced Lentils",
-        "description": "Lentils seasoned with a variety of warm spices",
-        "serving": "5.17 oz",
-        "serving_g": 146.6,
-        "calories": 149.16,
-        "fat": 2.08,
-        "carbs": 31.54,
-        "sugar": 0.0,
-        "protein": 10.98,
-        "allergens": [],
+        "name": "Chipotle Pinto Beans",
+        "description": "Pinto beans simmered with sautéed onions, bell peppers and chipotle peppers.",
+        "serving": "4.8 oz",
+        "serving_g": 136.1,
+        "calories": 121.74,
+        "fat": 2.29,
+        "carbs": 18.96,
+        "sugar": 1.24,
+        "protein": 5.86,
+        "allergens": [
+         "Vinegar"
+        ],
         "shared_fryer": false,
         "tags": [
          "halal",
          "vegan"
         ],
         "zone": "Purple",
-        "id": "1cf085debf"
+        "id": "f584993991"
        },
        {
         "name": "Al Pastor Braised Carrots",
@@ -3784,25 +3672,23 @@
         "id": "56b6f66149"
        },
        {
-        "name": "Mexican Rice",
-        "description": "Long grain rice cooked with tomatoes, onions, carrots, corn, and peppers.",
-        "serving": "2.13 oz",
-        "serving_g": 60.4,
-        "calories": 106.54,
-        "fat": 2.55,
-        "carbs": 18.84,
-        "sugar": 0.67,
-        "protein": 1.75,
-        "allergens": [
-         "Vinegar"
-        ],
+        "name": "Cilantro Rice",
+        "description": "Long grain rice toasted with cilantro and other spices",
+        "serving": "3 oz",
+        "serving_g": 85.0,
+        "calories": 144.94,
+        "fat": 3.73,
+        "carbs": 25.2,
+        "sugar": 0.39,
+        "protein": 2.31,
+        "allergens": [],
         "shared_fryer": false,
         "tags": [
          "halal",
          "vegan"
         ],
         "zone": "Purple",
-        "id": "3cba524cf6"
+        "id": "0d22d5ca86"
        },
        {
         "name": "Raspberry Brownie Cheesecake Bar",
@@ -3877,28 +3763,6 @@
         "tags": [],
         "zone": "Red",
         "id": "d84235a1a5"
-       },
-       {
-        "name": "Mushroom Street Taco",
-        "description": "Mushrooms sautéed with onions and peppers, served over corn tortillas and drizzled with our cilantro-cashew sauce.",
-        "serving": "5.25 oz",
-        "serving_g": 148.8,
-        "calories": 104.42,
-        "fat": 3.47,
-        "carbs": 17.07,
-        "sugar": 2.53,
-        "protein": 3.75,
-        "allergens": [
-         "Soy",
-         "Tree Nuts"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "dbbf2e6b96"
        },
        {
         "name": "Shoestring Potatoes",
@@ -4010,6 +3874,28 @@
         "id": "f9cd770a24"
        },
        {
+        "name": "Mushroom Street Taco",
+        "description": "Mushrooms sautéed with soyrizo, onions and peppers, served over corn tortillas and drizzled with our cilantro-cashew sauce.",
+        "serving": "5.25 oz",
+        "serving_g": 148.8,
+        "calories": 104.42,
+        "fat": 3.47,
+        "carbs": 17.07,
+        "sugar": 2.53,
+        "protein": 3.75,
+        "allergens": [
+         "Soy",
+         "Tree Nuts"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal",
+         "vegan"
+        ],
+        "zone": "Blue",
+        "id": "dbbf2e6b96"
+       },
+       {
         "name": "Salad Bar",
         "description": "Build your own delicious Salad from a variety of Greens, Toppings, & Dressings",
         "serving": "100 g",
@@ -4056,97 +3942,6 @@
         "pork": "options",
         "zone": "Green",
         "id": "9dd1508f22"
-       },
-       {
-        "name": "Tuna Salad",
-        "description": "Tuna with celery, onion, relish, and mayonnaise.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 264.48,
-        "fat": 19.73,
-        "carbs": 1.63,
-        "sugar": 0.88,
-        "protein": 20.8,
-        "allergens": [
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Green",
-        "id": "9c62d05855"
-       },
-       {
-        "name": "Traditional Hummus",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 249.99,
-        "fat": 16.07,
-        "carbs": 17.86,
-        "sugar": 3.57,
-        "protein": 7.14,
-        "allergens": [
-         "Sesame"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "1468908118"
-       },
-       {
-        "name": "Smoked Cheddar & Bacon Potato Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 207.0,
-        "fat": 15.71,
-        "carbs": 12.86,
-        "sugar": 1.43,
-        "protein": 0.0,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Green",
-        "id": "e042c760da"
-       },
-       {
-        "name": "Lemon Linguine Pasta Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 100.0,
-        "fat": 4.29,
-        "carbs": 12.86,
-        "sugar": 1.43,
-        "protein": 3.57,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "966f0b58a1"
        },
        {
         "name": "Mexican Chicken Tortilla Soup",
@@ -4223,25 +4018,6 @@
         ],
         "zone": "Purple",
         "id": "9facff30d6"
-       },
-       {
-        "name": "Garlicky Greens",
-        "description": "",
-        "serving": "7 oz",
-        "serving_g": 198.4,
-        "calories": 340.79,
-        "fat": 28.4,
-        "carbs": 23.08,
-        "sugar": 1.33,
-        "protein": 3.55,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "2b896afb05"
        },
        {
         "name": "Carrot Cake",
@@ -13058,7 +12834,7 @@
        },
        {
         "name": "Quesabirria Tacos",
-        "description": "Mexican Style street tacos featuring Beef cooked in a rich and spicy broth served with Rice and Beans.",
+        "description": "Mexican Style street tacos featuring Beef cooked in a rich and spicy broth served with Rice.",
         "serving": "11.75 oz",
         "serving_g": 333.1,
         "calories": 546.86,
@@ -13068,6 +12844,7 @@
         "protein": 24.08,
         "allergens": [
          "Dairy",
+         "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": false,
@@ -13087,6 +12864,7 @@
         "protein": 1.03,
         "allergens": [
          "Dairy",
+         "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": true,
@@ -13109,6 +12887,7 @@
         "protein": 2.46,
         "allergens": [
          "Soy",
+         "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": false,
@@ -13131,6 +12910,7 @@
         "protein": 2.46,
         "allergens": [
          "Soy",
+         "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": false,
@@ -13355,25 +13135,6 @@
         ],
         "zone": "Purple",
         "id": "507f8d242f"
-       },
-       {
-        "name": "Assorted Root Vegetables",
-        "description": "",
-        "serving": "2.4 oz",
-        "serving_g": 68.0,
-        "calories": 65.46,
-        "fat": 5.7,
-        "carbs": 3.35,
-        "sugar": 1.6,
-        "protein": 1.88,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "75cf21c2a1"
        },
        {
         "name": "Creamy Polenta",
@@ -13671,7 +13432,7 @@
        },
        {
         "name": "Build Your Own Grass-Fed Burger",
-        "description": "Choice of beef or vegan patties with toppings of your choice on a sesame or brioche bun, and a variety of toppings!",
+        "description": "Choice of beef or vegan patties with toppings of your choice. Served on a Brioche bun.",
         "serving": "100 g",
         "serving_g": 100.0,
         "calories": 162.81,
@@ -13697,7 +13458,7 @@
        },
        {
         "name": "Burger Bar",
-        "description": "Choice of vegan patties with toppings of your choice on a sesame or brioche bun, and a variety of toppings!",
+        "description": "Vegan Patty with toppings of your choice on a brioche bun, and a variety of toppings!",
         "serving": "100 g",
         "serving_g": 100.0,
         "calories": 153.06,
@@ -13917,26 +13678,28 @@
         "id": "abb735ddd3"
        },
        {
-        "name": "Lentils with Thyme",
-        "description": "",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 136.25,
-        "fat": 2.93,
-        "carbs": 26.69,
-        "sugar": 0.67,
-        "protein": 8.95,
-        "allergens": [],
+        "name": "Savory White Beans",
+        "description": "White beans with celery, tomatoes, and herbs.",
+        "serving": "6.71 oz",
+        "serving_g": 190.2,
+        "calories": 154.79,
+        "fat": 2.11,
+        "carbs": 24.82,
+        "sugar": 0.36,
+        "protein": 8.14,
+        "allergens": [
+         "Vinegar"
+        ],
         "shared_fryer": false,
         "tags": [
          "halal",
          "vegan"
         ],
         "zone": "Purple",
-        "id": "876bd42b54"
+        "id": "507f8d242f"
        },
        {
-        "name": "Grilled Asparagus",
+        "name": "Assorted Vegetables",
         "description": "",
         "serving": "4 oz",
         "serving_g": 113.4,
@@ -13952,10 +13715,10 @@
          "vegan"
         ],
         "zone": "Purple",
-        "id": "f245b1b6bd"
+        "id": "1bc13090bd"
        },
        {
-        "name": "Roasted Yukon Potatoes",
+        "name": "Roasted Yukon Gold Potatoes",
         "description": "",
         "serving": "3.76 oz",
         "serving_g": 106.6,
@@ -13971,7 +13734,7 @@
          "vegan"
         ],
         "zone": "Purple",
-        "id": "4fe78080f1"
+        "id": "ed6368abef"
        },
        {
         "name": "Carrot Cake",
@@ -20740,7 +20503,7 @@
        },
        {
         "name": "Spicy Chicken Sandwich",
-        "description": "Breaded and fried chicken breast fillet nestled in a soft brioche bun and topped with crisp crinkle-cut dill pickles, all drizzled with our house Cajun mayo and a fresh Cajun slaw, delivering a spicy kick with every bite!",
+        "description": "Breaded and fried chicken breast fillet nestled in a soft bun and topped with crisp crinkle-cut dill pickles, all drizzled with our house Cajun mayo and a fresh Cajun slaw, delivering a spicy kick with every bite!",
         "serving": "11.58 oz",
         "serving_g": 328.3,
         "calories": 813.04,
@@ -21189,7 +20952,7 @@
        },
        {
         "name": "Orange Chicken with Locally Grown Sticky Rice",
-        "description": "Asian-inspired allergy- friendly orange chicken",
+        "description": "Asian-inspired orange chicken",
         "serving": "8 oz",
         "serving_g": 226.8,
         "calories": 374.24,
@@ -21198,7 +20961,9 @@
         "sugar": 10.98,
         "protein": 15.85,
         "allergens": [
-         "Vinegar"
+         "Soy",
+         "Vinegar",
+         "Wheat/Gluten"
         ],
         "shared_fryer": false,
         "tags": [
@@ -22696,6 +22461,7 @@
         "sugar": 0.0,
         "protein": 3.68,
         "allergens": [
+         "Dairy",
          "Soybean Oil",
          "Wheat/Gluten"
         ],
