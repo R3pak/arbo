@@ -1,39 +1,70 @@
-# Every morning, GitHub runs the scraper on its own computers and saves the
-# new menu into docs/data/menu.json. The website picks it up automatically.
+# Checks the DC menus for changes and saves them into docs/data/menu.json.
+#
+# When it checks (Davis time):
+#   6:00 AM every day, to load the day's menu
+#   every hour while the DCs are open (7 AM to 10 PM, Monday to Friday)
+#   every 30 minutes in the last hour of each meal (10–11 AM, 4–5 PM,
+#   7–8 PM for Latitude, 9–10 PM), when the DCs swap dishes out
+#
+# GitHub only understands UTC time, which doesn't follow daylight saving, so
+# the job starts every 30 minutes and scraper/should_run.py checks the Davis
+# time and skips the runs we don't want. To change the times, edit should_run.py.
 name: Update menu
 
 on:
   schedule:
-    # 13:17 UTC is 6:17 AM in Davis during daylight time (5:17 AM in winter).
-    - cron: "17 13 * * *"
+    - cron: "5 0-5,13-23 * * *"
+    - cron: "35 0-5,13-23 * * *"
   workflow_dispatch: # adds a "Run workflow" button on the Actions tab
 
 permissions:
   contents: write # lets the job save the new menu file back to the repo
 
+# Never run two checks at once (they'd both try to save at the same time).
+concurrency:
+  group: update-menu
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+          cache: pip
+
+      - name: Is this a time we want to check?
+        id: gate
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+        run: python scraper/should_run.py
 
       - name: Install packages
+        if: steps.gate.outputs.run == 'true'
         run: pip install -r requirements.txt
 
       - name: Check the scraper still works
+        if: steps.gate.outputs.run == 'true'
         run: python -m pytest -q
 
-      - name: Download today's menus
+      - name: Download the latest menus
+        if: steps.gate.outputs.run == 'true'
         run: python scraper/scrape.py
 
       - name: Save the new menu if it changed
+        if: steps.gate.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/menu.json
-          git diff --staged --quiet || git commit -m "Update menu $(date -u +%Y-%m-%d)"
+          if git diff --staged --quiet; then
+            echo "No dishes changed, nothing to save."
+            exit 0
+          fi
+          git commit -m "Update menu $(TZ=America/Los_Angeles date '+%a %b %-d, %-I:%M %p')"
+          git pull --rebase
           git push

@@ -319,9 +319,15 @@ label.field { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px
 .plate { padding: 16px 18px; border-radius: 26px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(150deg, color-mix(in srgb, var(--blob-a) 70%, transparent), var(--glass) 65%); }
 .plate h2 { margin: 2px 0 0; font-family: var(--font-display); font-size: 21px; font-weight: 700; letter-spacing: -0.025em; }
 .plate .why { font-size: 13px; color: var(--muted); margin-top: 2px; }
-.plate-item { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; }
-.plate-item span:first-child { font-weight: 600; min-width: 0; }
-.plate-item span:last-child { color: var(--muted); white-space: nowrap; }
+.plate-item { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 4px 10px; align-items: center; font-size: 14px; }
+.plate-item .pi-name { font-weight: 600; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.plate-item .pi-num { color: var(--muted); white-space: nowrap; }
+@media (max-width: 440px) { .plate-item { grid-template-columns: minmax(0, 1fr) auto; } .plate-item .pi-num { grid-column: 1; grid-row: 2; } .plate-item .swap { grid-column: 2; grid-row: 1 / span 2; } }
+.swap { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 5px; min-height: 34px; padding: 5px 11px; border-radius: 99px; border: 1px solid var(--glass-border); background: var(--glass-strong); color: var(--ink); font-size: 12.5px; font-weight: 650; transition: transform .2s var(--ease), border-color .2s; }
+.swap:hover { transform: translateY(-1px); border-color: var(--accent); }
+.swap svg { width: 14px; height: 14px; transition: transform .35s var(--ease); }
+.swap:hover svg { transform: rotate(180deg); }
+.slot { display: contents; }
 .plate-foot { display: flex; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
 .plate-foot div { flex: 1; font-size: 13.5px; }
 .zone-head { display: flex; align-items: center; gap: 9px; margin: 6px 4px -4px; }
@@ -346,6 +352,7 @@ label.field { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px
 .tag.pick { background: var(--accent); color: var(--accent-ink); }
 .tag.flag { background: var(--warn-soft); color: var(--warn-ink); }
 .tag.plain { background: var(--line); color: var(--muted); }
+.tag.pork { background: var(--off-soft); color: var(--off-ink); }
 .dish details { font-size: 13.5px; }
 .dish summary { color: var(--muted); cursor: pointer; font-weight: 600; width: fit-content; list-style: none; }
 .dish summary::-webkit-details-marker { display: none; }
@@ -416,6 +423,12 @@ table.act tr.on td { color: var(--accent); font-weight: 750; }
 .result .name { font-weight: 600; }
 .result .meta { font-size: 12.5px; color: var(--muted); }
 .result .rc { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-weight: 650; font-variant-numeric: tabular-nums; }
+.result .meta .tag { font-size: 11px; padding: 1px 7px; margin-left: 4px; }
+.resultrow { display: grid; grid-template-columns: minmax(0, 1fr) 54px; gap: 6px; }
+.resultrow.solo { grid-template-columns: minmax(0, 1fr); }
+.quick { position: relative; overflow: hidden; border-radius: 16px; border: 1px solid var(--glass-border); background: var(--accent-soft); color: var(--accent); font-weight: 750; font-size: 14px; transition: transform .2s var(--ease), background .2s, color .2s; }
+.quick:hover { transform: scale(1.05); }
+.quick.done { background: var(--accent); color: var(--accent-ink); }
 .toast { position: fixed; left: 50%; z-index: 30; transform: translateX(-50%); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); background: var(--dock); color: #EEF6F1; padding: 11px 18px; border-radius: 99px; font-weight: 650; font-size: 14px; max-width: calc(100% - 32px); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 14px 30px -12px rgba(0,0,0,0.45); }
 @media (min-width: 1000px) { .toast { bottom: 28px; left: calc(50% + 134px); } }
 .rip { position: absolute; border-radius: 50%; pointer-events: none; background: currentColor; opacity: .28; transform: scale(0); animation: rip .55s ease-out forwards; }
@@ -435,7 +448,7 @@ footer.foot .wrap { padding-block: 0 120px; }
   .backdrop .b1 { animation: drift1 22s ease-in-out infinite; }
   .backdrop .b2 { animation: drift2 26s ease-in-out infinite; }
   .backdrop .b3 { animation: drift3 30s ease-in-out infinite; }
-  main.enter > * { animation: rise .55s var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
+  main.enter > *, main.enter > .slot > * { animation: rise .55s var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
   .toast { animation: toastin .25s var(--ease); }
   .sheet { animation: sheetin .32s var(--ease); }
 }
@@ -497,6 +510,7 @@ const ICON = {
   left: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
   right: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>',
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>',
+  swap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/></svg>',
   clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
   soundOn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
   soundOff: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>'
@@ -679,12 +693,40 @@ function track(name) { gcSend({ path: name, title: name, event: true }); }
 let MENU = null, COMMUNITY = [], loadError = null;
 async function loadData() {
   try {
-    const [m, c] = await Promise.all([fetch("data/menu.json", { cache: "no-cache" }), fetch("data/community.json", { cache: "no-cache" }).catch(() => null)]);
+    const [m, c] = await Promise.all([fetch(menuUrl(), { cache: "no-cache" }), fetch("data/community.json", { cache: "no-cache" }).catch(() => null)]);
     if (!m.ok) throw new Error(`menu.json returned ${m.status}`);
     MENU = await m.json();
     if (c && c.ok) COMMUNITY = (await c.json()).foods || [];
   } catch (e) { loadError = e; }
 }
+// The "?v=" part changes every 5 minutes, so phones don't keep showing an old copy of the menu.
+function menuUrl() { return `data/menu.json?v=${Math.floor(Date.now() / 300000)}`; }
+
+// LIVE MENU: the scraper checks the DCs every hour (every 30 minutes near the end of a meal).
+// While Arbo is open, look for a newer menu every 10 minutes and whenever you come back to the app.
+let menuRefreshPending = false;
+async function refreshMenuData() {
+  if (!MENU || document.visibilityState === "hidden") return;
+  try {
+    const r = await fetch(menuUrl(), { cache: "no-cache" });
+    if (!r.ok) return;
+    const fresh = await r.json();
+    if (fresh.generated_at === MENU.generated_at) return;
+    MENU = fresh; loadError = null;
+    if (ui.view === "menu") toast("Menu updated: the DC changed some dishes");
+    applyMenuRefresh();
+  } catch (e) { /* offline: try again next time */ }
+}
+function applyMenuRefresh() {
+  // Don't redraw the page while someone is typing in it; wait until they finish.
+  if (document.activeElement?.matches?.("#app input, #app select")) { menuRefreshPending = true; return; }
+  menuRefreshPending = false;
+  render();
+}
+setInterval(refreshMenuData, 10 * 60 * 1000);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") refreshMenuData(); });
+document.addEventListener("focusout", () => { if (menuRefreshPending) setTimeout(applyMenuRefresh, 250); });
+
 const ALL_DCS = [["segundo", "Segundo"], ["tercero", "Tercero"], ["cuarto", "Cuarto"], ["latitude", "Latitude"]];
 const OFFICIAL_URL = { segundo: "https://housing.ucdavis.edu/dining/dining-commons/segundo/", tercero: "https://housing.ucdavis.edu/dining/dining-commons/tercero/", cuarto: "https://housing.ucdavis.edu/dining/dining-commons/cuarto/", latitude: "https://housing.ucdavis.edu/dining/latitude/" };
 function placeLabel(dc) { return dc.label || dc.name + " DC"; }
@@ -875,10 +917,68 @@ function suggestPlate(items, goal, budget) {
 }
 
 /* =========================================================================
+   DIET FILTERS AND PORK
+   The scraper reads every dish's ingredients and marks it:
+     "yes" has pork · "options" a build-your-own station where some choices
+     have pork · "maybe" contains gelatin, which is often pork
+   Dishes the DC labels halal, vegetarian or vegan never count as pork.
+   ========================================================================= */
+const FILTERS = [["nopork", "No pork"], ["halal", "Halal"], ["vegetarian", "Vegetarian"], ["vegan", "Vegan"]];
+const PORK_NAME = /\b(pork|bacon|ham|sausage|pepperoni|salami|chorizo|prosciutto|pancetta|carnitas)\b/i;
+const NOT_PORK_NAME = /\b(turkey|chicken|beef|soy|vegan|veggie|plant[- ]based|halal)\b[\s-]*(bacon|sausage|pepperoni|chorizo|ham|salami)/i;
+function porkStatus(it) {
+  if (it.tags?.some(t => t === "halal" || t === "vegetarian" || t === "vegan")) return null;
+  if (MENU?.pork_checked) return it.pork || null;
+  // Older menu files weren't checked for pork, so fall back to the dish name.
+  if (!PORK_NAME.test(it.name) || NOT_PORK_NAME.test(it.name)) return null;
+  return /\b(build your own|byo)\b|\bbar\b/i.test(it.name) ? "options" : "yes";
+}
+function porkTag(it) {
+  const p = porkStatus(it);
+  if (p === "yes") return `<span class="tag pork">Pork</span>`;
+  if (p === "options") return `<span class="tag pork">Some options have pork</span>`;
+  if (p === "maybe") return `<span class="tag pork" title="Gelatin is often made from pork">May contain pork</span>`;
+  return "";
+}
+function passesDiet(it) {
+  for (const f of ui.filters) {
+    if (f === "nopork") { const p = porkStatus(it); if (p === "yes" || p === "maybe") return false; }
+    else if (!(it.tags.includes(f) || (f === "vegetarian" && it.tags.includes("vegan")))) return false;
+  }
+  return true;
+}
+// Suggested plates and swaps must be safe as served, so they also skip
+// build-your-own stations with pork options when "No pork" is on.
+function plateSafe(it) { return passesDiet(it) && !(ui.filters.has("nopork") && porkStatus(it) === "options"); }
+function filterSummary() { return FILTERS.filter(([k]) => ui.filters.has(k)).map(([, n]) => n.toLowerCase()).join(", "); }
+
+/* ----- Plate swaps ----- */
+let plateEdit = null; // { key, ids } once you've swapped or removed a dish
+function plateKey() { return [ui.dc, ui.date, ui.meal, currentGoal(), [...ui.filters].sort().join("+")].join("|"); }
+function currentPlate(c) {
+  if (plateEdit && plateEdit.key === plateKey()) {
+    const byId = new Map(c.all.map(it => [it.id, it]));
+    // If the DC took a dish off the menu since you swapped it in, it drops off your plate too.
+    return { items: plateEdit.ids.filter(id => byId.has(id)).map(id => byId.get(id)), edited: true };
+  }
+  return { items: suggestPlate(c.all.filter(plateSafe), c.goal, c.budget), edited: false };
+}
+// The closest dishes to the one you're swapping out: similar calories and similar protein.
+function swapOptions(c, cur, plateIds) {
+  const seen = new Set(plateIds);
+  return c.all.filter(it => {
+    if (seen.has(it.id)) return false;
+    seen.add(it.id);
+    return plateSafe(it) && it.serving !== "100 g" && !dataWarning(it) && it.calories >= 60 && (c.goal === "bulk" || it.zone !== "Pink");
+  }).map(it => ({ it, d: Math.abs(it.calories - cur.calories) / 40 + Math.abs(it.protein - cur.protein) / 4 }))
+    .sort((a, b) => a.d - b.d).slice(0, 6).map(x => x.it);
+}
+
+/* =========================================================================
    Page state
    ========================================================================= */
 const ui = {
-  view: "today", dc: state.prefs.dc || "tercero", date: null, meal: mealForNow(), filters: new Set(), sort: "zone", search: "",
+  view: "today", dc: state.prefs.dc || "tercero", date: null, meal: mealForNow(), filters: new Set(state.prefs.filters || []), sort: "zone", search: "",
   logDate: localDateKey(), calMonth: localDateKey().slice(0, 7), calSel: localDateKey(), planGoal: null,
   calc: Object.assign({ units: "us", sex: "male", age: 19, ft: 5, inch: 10, cm: 178, lb: 160, kg: 72.6, activity: "moderate", split: "moderate", pace: "standard" }, state.profile || {})
 };
@@ -905,7 +1005,7 @@ function render() {
     [...app.children].forEach((c, i) => c.style.setProperty("--i", i));
     lastView = ui.view;
   }
-  if (MENU) $("#foot-updated").textContent = `Menus last updated ${new Date(MENU.generated_at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}.`;
+  if (MENU) $("#foot-updated").textContent = `Menu last changed ${new Date(MENU.generated_at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}.`;
   runEffects();
 }
 function demoBanner() { return state.demo ? `<div class="note"><b>Example data.</b> This is a made-up month so you can see how Arbo works. <button class="linkbtn" data-act="clear-demo">Clear it and start fresh</button></div>` : ""; }
@@ -966,60 +1066,87 @@ function renderToday() {
 }
 
 /* ----- Menu ----- */
-function renderMenu() {
-  if (loadError) return `<section class="glass empty"><div class="ic warn">${ICON.clock}</div><h2>The menus didn't load</h2><p>Check your connection and <button class="linkbtn" data-act="reload">try again</button>.</p></section>`;
+// Drawn in parts: typing in the search box only redraws the plate and the dish list, never the box itself.
+function menuContext() {
   const days = menuDays();
   if (!ui.date || !days.some(d => d.date === ui.date)) ui.date = pickDefaultDate();
   if (!dcReady(ui.dc) && !state.prefs.dcChosen) { const r = ALL_DCS.find(([k]) => dcReady(k)); if (r) ui.dc = r[0]; }
   const ready = dcReady(ui.dc), meals = ready ? mealsFor(ui.dc, ui.date) : null, mealNames = meals ? Object.keys(meals) : [];
   if (meals && !meals[ui.meal]) ui.meal = mealNames.includes(mealForNow()) ? mealForNow() : mealNames[0];
   const dcName = ALL_DCS.find(d => d[0] === ui.dc)[1], goal = currentGoal();
-
-  let html = `<div class="page-head"><div class="t"><div class="sub">${ui.date ? fmtDate(ui.date, { weekday: "long", month: "long", day: "numeric" }) : ""}${meals && ui.meal ? " · " + MEAL_LABEL[ui.meal] : ""}</div><h1>${dcName}</h1></div></div>
-    <div class="seg dcs" role="group" aria-label="Dining commons">${ALL_DCS.map(([k, n]) => `<button data-act="dc" data-v="${k}" aria-pressed="${ui.dc === k}">${n}${dcReady(k) ? "" : ' <span class="soon">Soon</span>'}</button>`).join("")}</div>`;
-  if (!ready) {
-    return html + `<section class="glass empty"><div class="ic warn">${ICON.clock}</div><h2>${dcName} is coming soon</h2>
-      <p>We're still hooking up ${dcName}'s menu. It shows up here on its own once it's ready.</p><p>Until then, log ${dcName} meals with Create a food.</p>
-      <div class="chips" style="justify-content:center;margin-top:6px">${(() => { const r = ALL_DCS.find(([k]) => k !== ui.dc && dcReady(k)); return r ? `<button class="btn" data-act="dc" data-v="${r[0]}">See ${r[1]}'s menu</button>` : ""; })()}
-      <a class="btn ghost" href="${esc(MENU?.dcs?.[ui.dc]?.url || OFFICIAL_URL[ui.dc])}" target="_blank" rel="noopener">Official ${dcName} page</a></div></section>`;
-  }
-  html += `<div class="days" role="group" aria-label="Day">${days.map(d => { const dt = parseKey(d.date); return `<button class="daychip" data-act="date" data-v="${d.date}" aria-pressed="${ui.date === d.date}"><span>${d.date === localDateKey() ? "Today" : dt.toLocaleDateString("en-US", { weekday: "short" })}</span><b class="num">${dt.getDate()}</b></button>`; }).join("")}</div>`;
-  if (MENU?.sample) html += `<div class="note"><b>Preview.</b> This is a real sample of Tercero's Monday menu. The live site refreshes every morning.</div>`;
-  if (!meals) return html + `<section class="glass empty"><div class="ic">${ICON.clock}</div><h2>No menu for this day</h2><p>The DCs close on weekends during the school year, or the menu isn't posted yet.</p></section>`;
-  html += `<div class="seg" role="group" aria-label="Meal">${mealNames.map(m => `<button data-act="meal" data-v="${m}" aria-pressed="${ui.meal === m}">${MEAL_LABEL[m] || m}</button>`).join("")}</div>`;
-
-  const all = meals[ui.meal] || [], picks = topPicks(all, goal);
+  const all = meals ? (meals[ui.meal] || []) : [];
   const budget = ui.date === localDateKey() ? plateBudget(ui.meal) : Math.round((state.targets?.calories || 2100) / 3);
-  const plate = suggestPlate(all, goal, budget);
-  const filtered = ui.search || ui.filters.size;
-  let top = "";
-  if (plate.length >= 2 && !filtered) {
-    const pt = plate.reduce((t, it) => ({ cal: t.cal + it.calories, p: t.p + it.protein }), { cal: 0, p: 0 });
-    const head = { cut: "Most protein for your cut", bulk: "Built for your bulk", maintain: "A balanced plate" }[goal];
-    top = `<section class="glass plate lift" aria-label="Suggested plate"><div><div class="label" style="color:var(--accent)">Your plate</div><h2>${head}</h2>
-        <div class="why">${state.targets ? `Fits the ${kcal(budget)} cal you have left for ${MEAL_LABEL[ui.meal].toLowerCase()}` : "Set targets on the Plan tab and this fits your calories"}</div></div>
-      <div style="display:flex;flex-direction:column;gap:6px">${plate.map(it => `<div class="plate-item"><span>${esc(it.name)}</span><span class="num">${kcal(it.calories)} cal · <span class="kp">${g(it.protein)}g P</span></span></div>`).join("")}</div>
-      <div class="plate-foot"><div class="num"><b style="font-size:15px">${kcal(pt.cal)} cal</b> · <span class="kp" style="font-weight:650">${g(pt.p)}g protein</span></div>
-        <button class="btn sm" data-act="add-plate" data-ids="${plate.map(p => p.id).join(",")}">${ICON.plus} Add plate</button></div></section>`;
+  return { days, ready, meals, mealNames, dcName, goal, all, budget };
+}
+function renderMenu() {
+  if (loadError) return `<section class="glass empty"><div class="ic warn">${ICON.clock}</div><h2>The menus didn't load</h2><p>Check your connection and <button class="linkbtn" data-act="reload">try again</button>.</p></section>`;
+  const c = menuContext();
+  let html = `<div class="page-head"><div class="t"><div class="sub">${ui.date ? fmtDate(ui.date, { weekday: "long", month: "long", day: "numeric" }) : ""}${c.meals && ui.meal ? " · " + MEAL_LABEL[ui.meal] : ""}</div><h1>${c.dcName}</h1></div></div>
+    <div class="seg dcs" role="group" aria-label="Dining commons">${ALL_DCS.map(([k, n]) => `<button data-act="dc" data-v="${k}" aria-pressed="${ui.dc === k}">${n}${dcReady(k) ? "" : ' <span class="soon">Soon</span>'}</button>`).join("")}</div>`;
+  if (!c.ready) {
+    return html + `<section class="glass empty"><div class="ic warn">${ICON.clock}</div><h2>${c.dcName} is coming soon</h2>
+      <p>We're still hooking up ${c.dcName}'s menu. It shows up here on its own once it's ready.</p><p>Until then, log ${c.dcName} meals with Create a food.</p>
+      <div class="chips" style="justify-content:center;margin-top:6px">${(() => { const r = ALL_DCS.find(([k]) => k !== ui.dc && dcReady(k)); return r ? `<button class="btn" data-act="dc" data-v="${r[0]}">See ${r[1]}'s menu</button>` : ""; })()}
+      <a class="btn ghost" href="${esc(MENU?.dcs?.[ui.dc]?.url || OFFICIAL_URL[ui.dc])}" target="_blank" rel="noopener">Official ${c.dcName} page</a></div></section>`;
   }
-  html += top + `<div class="toolbar"><div class="searchbox">${ICON.search}<input type="search" id="menu-search" placeholder="Search dishes" value="${esc(ui.search)}" aria-label="Search dishes"></div>
-      <select id="menu-sort" aria-label="Sort dishes"><option value="zone" ${ui.sort === "zone" ? "selected" : ""}>By station</option><option value="goal" ${ui.sort === "goal" ? "selected" : ""}>Best for my ${goal}</option><option value="protein" ${ui.sort === "protein" ? "selected" : ""}>Most protein</option><option value="low" ${ui.sort === "low" ? "selected" : ""}>Fewest calories</option></select></div>
-    <div class="chips" role="group" aria-label="Diet filters">${["vegan", "vegetarian", "halal"].map(f => `<button class="chip" data-act="filter" data-v="${f}" aria-pressed="${ui.filters.has(f)}">${f[0].toUpperCase() + f.slice(1)}</button>`).join("")}</div>`;
-
-  let items = all.filter(it => [...ui.filters].every(f => it.tags.includes(f) || (f === "vegetarian" && it.tags.includes("vegan"))) && (!ui.search || it.name.toLowerCase().includes(ui.search.toLowerCase())));
-  if (!items.length) return html + `<section class="glass empty"><h2>No dishes match</h2><p>Try removing a filter or clearing the search.</p></section>`;
+  html += `<div class="days" role="group" aria-label="Day">${c.days.map(d => { const dt = parseKey(d.date); return `<button class="daychip" data-act="date" data-v="${d.date}" aria-pressed="${ui.date === d.date}"><span>${d.date === localDateKey() ? "Today" : dt.toLocaleDateString("en-US", { weekday: "short" })}</span><b class="num">${dt.getDate()}</b></button>`; }).join("")}</div>`;
+  if (MENU?.sample) html += `<div class="note"><b>Preview.</b> This is a real sample of Tercero's Monday menu. The live site checks for changes every hour while the DCs are open.</div>`;
+  if (!c.meals) return html + `<section class="glass empty"><div class="ic">${ICON.clock}</div><h2>No menu for this day</h2><p>The DCs close on weekends during the school year, or the menu isn't posted yet.</p></section>`;
+  html += `<div class="seg" role="group" aria-label="Meal">${c.mealNames.map(m => `<button data-act="meal" data-v="${m}" aria-pressed="${ui.meal === m}">${MEAL_LABEL[m] || m}</button>`).join("")}</div>`;
+  html += `<div class="slot" id="plate-slot">${plateHtml(c)}</div>
+    <div class="toolbar"><div class="searchbox">${ICON.search}<input type="search" id="menu-search" placeholder="Search dishes" value="${esc(ui.search)}" aria-label="Search dishes" autocomplete="off"></div>
+      <select id="menu-sort" aria-label="Sort dishes"><option value="zone" ${ui.sort === "zone" ? "selected" : ""}>By station</option><option value="goal" ${ui.sort === "goal" ? "selected" : ""}>Best for my ${c.goal}</option><option value="protein" ${ui.sort === "protein" ? "selected" : ""}>Most protein</option><option value="low" ${ui.sort === "low" ? "selected" : ""}>Fewest calories</option></select></div>
+    <div class="chips" role="group" aria-label="Diet filters">${FILTERS.map(([k, n]) => `<button class="chip" data-act="filter" data-v="${k}" aria-pressed="${ui.filters.has(k)}">${n}</button>`).join("")}</div>
+    <div class="slot" id="dish-list">${dishListHtml(c)}</div>`;
+  return html;
+}
+function refreshMenuParts() {
+  const plate = $("#plate-slot"), list = $("#dish-list");
+  if (ui.view !== "menu" || !plate || !list) { render(); return; }
+  const c = menuContext();
+  plate.innerHTML = plateHtml(c); list.innerHTML = dishListHtml(c);
+}
+function plateHtml(c) {
+  if (ui.search.trim() || !c.all.length) return "";
+  const { items, edited } = currentPlate(c);
+  if (!edited && items.length < 2) return "";
+  const pt = items.reduce((t, it) => ({ cal: t.cal + it.calories, p: t.p + it.protein }), { cal: 0, p: 0 });
+  const head = { cut: "Most protein for your cut", bulk: "Built for your bulk", maintain: "A balanced plate" }[c.goal];
+  const meal = MEAL_LABEL[ui.meal].toLowerCase();
+  let why = !state.targets ? "Set targets on the Plan tab and this fits your calories"
+    : pt.cal <= c.budget * 1.08 || !items.length ? `Fits the ${kcal(c.budget)} cal you have left for ${meal}`
+    : `${kcal(pt.cal - c.budget)} cal over the ${kcal(c.budget)} you have left for ${meal}`;
+  if (ui.filters.size) why += ` · ${filterSummary()}`;
+  const rows = items.map(it => `<div class="plate-item"><div class="pi-name">${esc(it.name)}${porkTag(it)}</div>
+      <span class="pi-num num">${kcal(it.calories)} cal · <span class="kp">${g(it.protein)}g P</span></span>
+      <button class="swap" data-act="swap-open" data-id="${it.id}" aria-label="Swap ${esc(it.name)} for something else">${ICON.swap}Swap</button></div>`).join("");
+  return `<section class="glass plate lift" aria-label="Suggested plate">
+    <div style="display:flex;gap:10px;align-items:flex-start"><div style="flex:1;min-width:0"><div class="label" style="color:var(--accent)">Your plate</div><h2>${head}</h2><div class="why">${why}</div></div>
+      ${edited ? `<button class="linkbtn small" data-act="reset-plate">Reset</button>` : ""}</div>
+    ${items.length ? `<div style="display:flex;flex-direction:column;gap:8px">${rows}</div>
+      <div class="plate-foot"><div class="num"><b style="font-size:15px">${kcal(pt.cal)} cal</b> · <span class="kp" style="font-weight:650">${g(pt.p)}g protein</span></div>
+        <button class="btn sm" data-act="add-plate" data-ids="${items.map(it => it.id).join(",")}">${ICON.plus} Add plate</button></div>`
+      : `<p class="small muted" style="margin:0">Your plate is empty. <button class="linkbtn" data-act="reset-plate">Get a new suggestion</button></p>`}
+  </section>`;
+}
+function dishListHtml(c) {
+  const q = ui.search.trim().toLowerCase();
+  let items = c.all.filter(it => passesDiet(it) && (!q || it.name.toLowerCase().includes(q)));
+  if (!items.length) return `<section class="glass empty"><h2>No dishes match</h2><p>${q ? `Nothing called "${esc(ui.search.trim())}" here. Try another word or remove a filter.` : "Nothing at this meal fits your filters. Try removing one."}</p></section>`;
+  const picks = topPicks(c.all.filter(plateSafe), c.goal);
+  let html = "";
   if (ui.sort === "zone") {
     const groups = {}; for (const it of items) (groups[it.zone] ||= []).push(it);
-    for (const [zone, list] of Object.entries(groups)) html += `<div class="zone-head"><i style="background:var(${ZONE_VAR[zone] || "--muted"})"></i><h3>${esc(zone)} zone</h3><span>${list.length}</span></div><div class="dishes">${list.map(it => dishCard(it, picks.has(it.id), goal)).join("")}</div>`;
+    for (const [zone, list] of Object.entries(groups)) html += `<div class="zone-head"><i style="background:var(${ZONE_VAR[zone] || "--muted"})"></i><h3>${esc(zone)} zone</h3><span>${list.length}</span></div><div class="dishes">${list.map(it => dishCard(it, picks.has(it.id), c.goal)).join("")}</div>`;
   } else {
-    const key = { goal: i => -(pickable(i, goal) ? pickScore(i, goal) + 1000 : pickScore(i, goal)), protein: i => -i.protein, low: i => i.calories }[ui.sort];
-    html += `<div class="dishes">${[...items].sort((a, b) => key(a) - key(b)).map(it => dishCard(it, picks.has(it.id), goal)).join("")}</div>`;
+    const key = { goal: i => -(pickable(i, c.goal) ? pickScore(i, c.goal) + 1000 : pickScore(i, c.goal)), protein: i => -i.protein, low: i => i.calories }[ui.sort];
+    html += `<div class="dishes">${[...items].sort((a, b) => key(a) - key(b)).map(it => dishCard(it, picks.has(it.id), c.goal)).join("")}</div>`;
   }
   return html;
 }
 function dishCard(it, isPick, goal) {
   const warn = dataWarning(it), perBar = it.serving === "100 g", pc = it.protein * 4, cc = it.carbs * 4, fc = it.fat * 9;
-  const tags = [isPick ? `<span class="tag pick">Top pick for your ${goal}</span>` : "", ...it.tags.map(t => `<span class="tag">${t[0].toUpperCase() + t.slice(1)}</span>`), warn ? `<span class="tag flag" title="${esc(warn)}">Check numbers</span>` : ""].join("");
+  const tags = [isPick ? `<span class="tag pick">Top pick for your ${goal}</span>` : "", porkTag(it), ...it.tags.map(t => `<span class="tag">${t[0].toUpperCase() + t.slice(1)}</span>`), warn ? `<span class="tag flag" title="${esc(warn)}">Check numbers</span>` : ""].join("");
   return `<article class="glass dish lift">
     <div class="row1"><div style="flex:1;min-width:0"><div class="name">${esc(it.name)}</div>
       <div class="serve num"><i style="background:var(${ZONE_VAR[it.zone] || "--muted"})"></i>${esc(it.zone)} zone · ${esc(it.serving || "")}${it.serving_g && !perBar ? ` · ${Math.round(it.serving_g)} g` : ""}${perBar ? " · weigh or estimate" : ""}</div></div>
@@ -1032,7 +1159,19 @@ function dishCard(it, isPick, goal) {
       <p>Sugar ${g(it.sugar)} g${warn ? `. <b>Heads up:</b> ${esc(warn)}.` : ""}</p></details>
   </article>`;
 }
-
+function openSwap(id) {
+  const c = menuContext(), plate = currentPlate(c).items, cur = plate.find(x => x.id === id);
+  if (!cur) return;
+  const opts = swapOptions(c, cur, plate.map(x => x.id));
+  const row = o => {
+    const dCal = o.calories - cur.calories, dP = o.protein - cur.protein;
+    return `<button class="result" data-act="swap-pick" data-from="${cur.id}" data-to="${o.id}"><span class="name">${esc(o.name)}</span><span class="rc">${kcal(o.calories)}</span>
+      <span class="meta num"><span style="color:var(${ZONE_VAR[o.zone] || "--muted"})">●</span> ${esc(o.zone)} · ${signed(dCal, 0)} cal · <span class="${dP >= 0 ? "kp" : ""}">${signed(dP, 0)} g protein</span>${porkTag(o)}</span></button>`;
+  };
+  openSheet(`<div class="sheet-head"><h2>Swap ${esc(cur.name)}<small>Closest matches at ${c.dcName} for ${MEAL_LABEL[ui.meal].toLowerCase()}${ui.filters.size ? `, ${filterSummary()}` : ""}</small></h2><button class="round ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
+    ${opts.length ? `<div class="results">${opts.map(row).join("")}</div>` : `<div class="empty"><h2>Nothing similar</h2><p>No other dishes at this meal fit your filters.</p></div>`}
+    <button class="btn ghost" data-act="swap-remove" data-id="${cur.id}">Remove from plate</button>`, "Swap " + cur.name, "#layer .result, #layer .btn");
+}
 /* ----- Calendar ----- */
 function renderCalendar() {
   const [y, m] = ui.calMonth.split("-").map(Number), first = new Date(y, m - 1, 1), last = new Date(y, m, 0);
@@ -1250,10 +1389,15 @@ function fineprint() {
    ========================================================================= */
 function closeSheet() { $("#layer").innerHTML = ""; }
 function openSheet(inner, label, focusSel) {
-  const wasOpen = !!$("#layer").innerHTML;
-  $("#layer").innerHTML = `<div class="scrim" data-act="scrim"><div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(label)}">${inner}</div></div>`;
-  if (!wasOpen) sfx("open");
-  const f = $(focusSel || "#layer input, #layer .btn"); if (f) f.focus();
+  const open = $("#layer .sheet");
+  if (open) {
+    // Already showing a sheet: swap its contents in place so it doesn't slide in again.
+    open.innerHTML = inner; open.setAttribute("aria-label", label); open.scrollTop = 0;
+  } else {
+    $("#layer").innerHTML = `<div class="scrim" data-act="scrim"><div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(label)}">${inner}</div></div>`;
+    sfx("open");
+  }
+  const f = $(focusSel || "#layer input, #layer .btn"); if (f) f.focus({ preventScroll: true });
 }
 let pending = null;
 function openAmount(food, dateKey, meal) {
@@ -1296,25 +1440,39 @@ function pickerFoods() {
   for (const f of COMMUNITY) out.push({ ...f, group: "community", hint: `Verified · ${f.place}` });
   return out;
 }
-function renderPicker() {
-  const q = picker.q.toLowerCase(), all = pickerFoods();
-  const row = f => `<button class="result" data-act="pick" data-key="${esc(f.group)}|${esc(f.id)}"><span class="name">${esc(f.name)}</span><span class="rc">${kcal(f.calories)}</span><span class="meta">${esc(f.hint || f.place || "")}${f.serving ? " · " + esc(f.serving) : ""}</span></button>`;
-  let body;
+function pickerRow(f) {
+  const key = `${esc(f.group)}|${esc(f.id)}`;
+  // "+1" logs one serving straight away. Build-your-own stations (listed per 100 g) need an amount, so they don't get one.
+  const quick = f.serving === "100 g" ? "" : `<button class="quick" data-act="quick-add" data-key="${key}" aria-label="Add 1 serving of ${esc(f.name)}">+1</button>`;
+  return `<div class="resultrow${quick ? "" : " solo"}"><button class="result" data-act="pick" data-key="${key}"><span class="name">${esc(f.name)}</span><span class="rc">${kcal(f.calories)}</span><span class="meta">${esc(f.hint || f.place || "")}${f.serving ? " · " + esc(f.serving) : ""}</span></button>${quick}</div>`;
+}
+function pickerBody() {
+  const q = picker.q.trim().toLowerCase(), all = pickerFoods();
   if (q) {
     const m = all.filter(f => f.name.toLowerCase().includes(q) || (f.place || "").toLowerCase().includes(q)).slice(0, 40);
-    body = m.length ? `<div class="results">${m.map(row).join("")}</div>` : `<div class="empty"><h2>Nothing found for "${esc(picker.q)}"</h2><p>Create it and it's saved for next time.</p></div>`;
-  } else {
-    const rec = recentFoods(), dcNow = all.filter(f => f.group === "dc" && SLOT_FOR_MEAL[f.meal] === picker.meal).slice(0, 10);
-    body = [rec.length ? `<div class="label">Recent</div><div class="results">${rec.map(f => row({ ...f, group: "recent", hint: f.place })).join("")}</div>` : "",
-      dcNow.length ? `<div class="label">${MEAL_LABEL[picker.meal]} at the DCs</div><div class="results">${dcNow.map(row).join("")}</div>` : "",
-      state.myFoods.length ? `<div class="label">My foods</div><div class="results">${state.myFoods.map(f => row({ ...f, group: "mine", hint: "My food" })).join("")}</div>` : "",
-      COMMUNITY.length ? `<div class="label">Verified foods</div><div class="results">${COMMUNITY.map(f => row({ ...f, group: "community", hint: "Verified · " + f.place })).join("")}</div>` : ""].join("");
+    return m.length ? `<div class="results">${m.map(pickerRow).join("")}</div>` : `<div class="empty"><h2>Nothing found for "${esc(picker.q.trim())}"</h2><p>Create it and it's saved for next time.</p></div>`;
   }
+  const rec = recentFoods(), dcNow = all.filter(f => f.group === "dc" && SLOT_FOR_MEAL[f.meal] === picker.meal).slice(0, 10);
+  return [rec.length ? `<div class="label">Recent</div><div class="results">${rec.map(f => pickerRow({ ...f, group: "recent", hint: f.place })).join("")}</div>` : "",
+    dcNow.length ? `<div class="label">${MEAL_LABEL[picker.meal]} at the DCs</div><div class="results">${dcNow.map(pickerRow).join("")}</div>` : "",
+    state.myFoods.length ? `<div class="label">My foods</div><div class="results">${state.myFoods.map(f => pickerRow({ ...f, group: "mine", hint: "My food" })).join("")}</div>` : "",
+    COMMUNITY.length ? `<div class="label">Verified foods</div><div class="results">${COMMUNITY.map(f => pickerRow({ ...f, group: "community", hint: "Verified · " + f.place })).join("")}</div>` : ""].join("");
+}
+function renderPicker() {
   openSheet(`<div class="sheet-head"><h2>Add to ${MEAL_LABEL[picker.meal].toLowerCase()}</h2><button class="round ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
-    <div class="searchbox">${ICON.search}<input type="search" id="pick-q" placeholder="DC dishes, your foods, verified foods" value="${esc(picker.q)}" aria-label="Search foods"></div>
+    <div class="searchbox">${ICON.search}<input type="search" id="pick-q" placeholder="DC dishes, your foods, verified foods" value="${esc(picker.q)}" aria-label="Search foods" autocomplete="off"></div>
     <button class="btn soft" data-act="create">${ICON.plus} Create a food</button>
-    <div style="display:flex;flex-direction:column;gap:10px">${body}</div>`, "Add food", "#pick-q");
-  const input = $("#pick-q"); input.setSelectionRange(input.value.length, input.value.length);
+    <p class="small muted" style="margin:-4px 2px 0">Tap a food to choose the amount, or <b>+1</b> to add one serving right away.</p>
+    <div id="pick-body" style="display:flex;flex-direction:column;gap:10px">${pickerBody()}</div>`, "Add food", "#pick-q");
+}
+function quickAdd(el) {
+  const f = resolvePick(el.dataset.key);
+  if (!f) return;
+  addEntry(ui.logDate, makeEntry(f, 1, picker.meal, `1 × ${f.serving || "serving"}`));
+  track("quick-add"); sfx("success"); toast(`Added 1 × ${f.name}`);
+  el.classList.add("done"); el.textContent = "✓";
+  setTimeout(() => { if (el.isConnected) { el.classList.remove("done"); el.textContent = "+1"; } }, 1300);
+  render(); // updates the meal list behind the sheet
 }
 function resolvePick(key) {
   const [group, id] = key.split("|");
@@ -1396,7 +1554,7 @@ document.addEventListener("click", e => {
   if (!el || el.disabled) return;
   const act = el.dataset.act, v = el.dataset.v;
   if (act === "scrim" && e.target !== el) return;
-  const quiet = ["scrim", "close", "confirm-add", "remove", "del-weight", "add-plate", "start-phase", "load-demo", "picker", "create", "pick", "add-dish", "log-new"];
+  const quiet = ["scrim", "close", "confirm-add", "remove", "del-weight", "add-plate", "start-phase", "load-demo", "picker", "create", "pick", "add-dish", "log-new", "quick-add", "swap-open", "swap-pick", "swap-remove"];
   if (!quiet.includes(act)) sfx(["filter", "sound", "units", "pace", "split", "mode"].includes(act) ? "toggle" : "click");
   switch (act) {
     case "reload": location.reload(); break;
@@ -1404,7 +1562,22 @@ document.addEventListener("click", e => {
     case "dc": ui.dc = v; state.prefs.dc = v; state.prefs.dcChosen = true; saveState(); render(); break;
     case "date": ui.date = v; render(); break;
     case "meal": ui.meal = v; render(); break;
-    case "filter": ui.filters.has(v) ? ui.filters.delete(v) : ui.filters.add(v); render(); break;
+    case "filter": ui.filters.has(v) ? ui.filters.delete(v) : ui.filters.add(v); state.prefs.filters = [...ui.filters]; saveState(); render(); break;
+    case "swap-open": openSwap(el.dataset.id); break;
+    case "swap-pick": {
+      const c = menuContext(), ids = currentPlate(c).items.map(it => it.id), i = ids.indexOf(el.dataset.from);
+      if (i >= 0) ids[i] = el.dataset.to;
+      plateEdit = { key: plateKey(), ids };
+      const to = c.all.find(it => it.id === el.dataset.to);
+      closeSheet(); track("swap-dish"); sfx("success"); toast(`Swapped in ${to ? to.name : "a new dish"}`); refreshMenuParts(); break;
+    }
+    case "swap-remove": {
+      const c = menuContext();
+      plateEdit = { key: plateKey(), ids: currentPlate(c).items.map(it => it.id).filter(id => id !== el.dataset.id) };
+      closeSheet(); sfx("remove"); refreshMenuParts(); break;
+    }
+    case "reset-plate": plateEdit = null; refreshMenuParts(); break;
+    case "quick-add": quickAdd(el); break;
     case "add-dish": { const f = findMenuDish(el.dataset.id); if (f) openAmount(f, localDateKey(), ui.meal); break; }
     case "add-plate": {
       const slot = SLOT_FOR_MEAL[ui.meal] || "snacks";
@@ -1460,8 +1633,8 @@ document.addEventListener("click", e => {
 });
 document.addEventListener("input", e => {
   const id = e.target.id;
-  if (id === "menu-search") { ui.search = e.target.value; const pos = e.target.selectionStart; render(); const box = $("#menu-search"); box.focus(); box.setSelectionRange(pos, pos); }
-  else if (id === "pick-q") { picker.q = e.target.value; renderPicker(); }
+  if (id === "menu-search") { ui.search = e.target.value; refreshMenuParts(); }
+  else if (id === "pick-q") { picker.q = e.target.value; $("#pick-body").innerHTML = pickerBody(); }
   else if (id === "amt") { const n = Number(e.target.value); if (pending.mode === "grams") pending.grams = n; else pending.servings = n; $("#amt-preview").innerHTML = previewHtml(pending.food, pendingFactor()); }
   else if (id === "amt-meal") { pending.meal = e.target.value; }
   else if (id.startsWith("c-")) {
@@ -1475,7 +1648,7 @@ document.addEventListener("input", e => {
     refreshPlan();
   }
 });
-document.addEventListener("change", e => { if (e.target.id === "menu-sort") { ui.sort = e.target.value; sfx("toggle"); render(); } });
+document.addEventListener("change", e => { if (e.target.id === "menu-sort") { ui.sort = e.target.value; sfx("toggle"); refreshMenuParts(); } });
 document.addEventListener("submit", e => {
   e.preventDefault();
   const id = e.target.id;

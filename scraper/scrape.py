@@ -9,7 +9,8 @@ What this file does, in plain words:
 Run it yourself with:   python scraper/scrape.py
 Run it on a saved page: python scraper/scrape.py --from-file tercero=path/to/page.html
 
-GitHub runs this automatically every morning (see .github/workflows/update-menu.yml).
+GitHub runs this every hour while the DCs are open, and every 30 minutes in the
+last hour of each meal (see .github/workflows/update-menu.yml and should_run.py).
 """
 
 import argparse
@@ -45,7 +46,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = PROJECT_ROOT / "docs" / "data" / "menu.json"
 
 # Be polite to the university's server: say who we are and don't rush.
-HEADERS = {"User-Agent": "Arbo/1.0 (student project; daily menu refresh)"}
+HEADERS = {"User-Agent": "Arbo/1.0 (student project; checks the menu hourly while the DCs are open)"}
 SECONDS_BETWEEN_REQUESTS = 2
 DOWNLOAD_TRIES = 3          # try each page up to 3 times before giving up
 SECONDS_BETWEEN_TRIES = 10
@@ -100,6 +101,50 @@ def is_heading(element):
 
 
 # ---------------------------------------------------------------------------
+# Does a dish have pork?
+# ---------------------------------------------------------------------------
+# We read the dish's name, description and full ingredient list.
+#   "yes"     the dish has pork in it
+#   "options" a build-your-own station where SOME choices have pork (bacon, ham...)
+#   "maybe"   it has gelatin, which is often made from pork
+#   None      no pork found
+# Words like "sausage", "pepperoni" and "chorizo" are NOT on the list on purpose:
+# chicken sausage, halal pepperoni and soy chorizo exist. Real pork versions
+# list "pork" in their ingredients, so we catch them that way instead.
+
+PORK_WORDS = r"pork|bacon|hams?|lard|prosciutto|pancetta|guanciale|mortadella|capicola|coppa"
+NOT_PORK_BEFORE = re.compile(
+    r"\b(turkey|beef|chicken|veggie|vegan|vegetarian|plant[- ]based|soy|tofu|tempeh|imitation|meatless)[\s-]*$", re.I)
+GELATIN = re.compile(r"\bgelatine?\b", re.I)
+SAFE_GELATIN_BEFORE = re.compile(r"\b(kosher|beef|fish|halal|plant|vegan|agar)\b[\w\s-]{0,12}$", re.I)
+BUILD_YOUR_OWN = re.compile(
+    r"\b(build[- ]your[- ]own|byo)\b|\b(salad|deli|taco|omelet+e?|pasta|burrito|nacho|sandwich|wrap|waffle|pancake"
+    r"|oatmeal|yogurt|parfait|potato|toppings?|stir[- ]fry|noodle|rice|grain|poke)\s+bar\b", re.I)
+
+
+def find_pork(text):
+    """Return the pork words found in the text, e.g. {"bacon", "ham"}."""
+    found = set()
+    for match in re.finditer(rf"\b({PORK_WORDS})\b", text, re.I):
+        word = match.group(1).lower()
+        before = text[max(0, match.start() - 25):match.start()]
+        if word != "pork" and NOT_PORK_BEFORE.search(before):
+            continue  # turkey bacon, beef ham, ...
+        found.add("ham" if word == "hams" else word)
+    return found
+
+
+def pork_status(name, description="", ingredients=""):
+    text = f"{name} {description} {ingredients}"
+    if find_pork(text):
+        return "options" if BUILD_YOUR_OWN.search(name) else "yes"
+    for match in GELATIN.finditer(text):
+        if not SAFE_GELATIN_BEFORE.search(text[max(0, match.start() - 30):match.start()]):
+            return "maybe"
+    return None
+
+
+# ---------------------------------------------------------------------------
 # Reading one dish
 # ---------------------------------------------------------------------------
 
@@ -141,6 +186,9 @@ def parse_dish(name, block_text, tags):
     else:
         allergens = [a.strip() for a in contains_text.split(",") if a.strip()]
 
+    ingredients_match = re.search(r"Ingredients\s*:\s*(.*)$", block_text)
+    ingredients = ingredients_match.group(1) if ingredients_match else ""
+
     serving_match = re.search(r"Serving Size\s*:\s*([\d.]+\s*[a-zA-Z]+)", block_text)
     serving, serving_g = parse_serving(serving_match.group(1) if serving_match else None)
 
@@ -158,6 +206,9 @@ def parse_dish(name, block_text, tags):
         "shared_fryer": "shared fryer" in block_text.lower(),
         "tags": tags,
     }
+    pork = pork_status(name, description, ingredients)
+    if pork:
+        dish["pork"] = pork
     # A dish with no calories listed isn't useful for tracking.
     return dish if dish["calories"] is not None else None
 
@@ -220,6 +271,7 @@ def build_output(pages, today):
         "generated_at": datetime.now(DAVIS_TIME).isoformat(timespec="minutes"),
         "week_of": week["sunday"],
         "source": "UC Davis Student Housing and Dining Services online menus",
+        "pork_checked": True,   # tells the website every dish was checked for pork
         "dcs": {},
     }
     for key, menu in pages.items():
@@ -243,6 +295,14 @@ def count_dishes(output):
 
 def count_dc(dc):
     return sum(len(dishes) for day in dc["days"].values() for dishes in day["meals"].values())
+
+
+def same_menu(a, b):
+    """True if two menu files have the same dishes (ignoring when they were made)."""
+    if not a or not b:
+        return False
+    strip = lambda m: {k: v for k, v in m.items() if k != "generated_at"}
+    return strip(a) == strip(b)
 
 
 def keep_previous(output, previous):
@@ -333,6 +393,12 @@ def main():
         print("Found 0 dishes. Keeping the existing menu.json. The menu page may have changed.",
               file=sys.stderr)
         sys.exit(1)
+
+    # Checking every hour would make a new commit every hour if we always saved.
+    # Only save when a dish was actually added, removed or changed.
+    if same_menu(previous, output):
+        print("No changes since the last check. Leaving menu.json as it is.")
+        return
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(output, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")

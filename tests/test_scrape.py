@@ -107,3 +107,44 @@ def test_latitude_is_scraped_and_labelled():
     assert "latitude" in scrape.DINING_COMMONS
     out = scrape.build_output({"latitude": {"monday": {"lunch": []}}}, date(2026, 10, 26))
     assert out["dcs"]["latitude"]["label"] == "Latitude"
+
+
+# ---------------------------------------------------------------------------
+# Pork detection
+# ---------------------------------------------------------------------------
+
+def test_pork_on_the_real_menu():
+    menu = load_menu()
+    pork = {d["name"]: d.get("pork") for meal in menu["monday"].values() for d in meal}
+    assert pork["Pork Sausage Patties"] == "yes"
+    assert pork["Bacon Egg and Cheese Muffin"] == "yes"
+    assert pork["Smoked Cheddar & Bacon Potato Salad"] == "yes"
+    # build-your-own stations: you can pick around the bacon and ham
+    assert pork["Build Your Own Omelette"] == "options"
+    assert pork["Build Your Own Grilled Cheese"] == "options"
+    assert pork["Deli Bar"] == "options"
+    # look like pork but aren't
+    assert pork["Build Your Own Veggie Omelette"] is None   # soy chorizo
+    assert pork["Pepperoni Pizza"] is None                  # halal pepperoni
+    assert pork["Taco Bar with Chicken"] is None            # soyrizo
+    assert pork["Grass-Fed Cheeseburger"] is None           # "Hamburger" bun is not ham
+    assert pork["BYO Parfait"] is None                      # kosher gelatin
+    assert pork["Scrambled Egg"] is None
+
+
+def test_pork_tricky_words():
+    assert scrape.pork_status("Turkey Bacon Club") is None
+    assert scrape.pork_status("Ham and Swiss Croissant") == "yes"
+    assert scrape.pork_status("Graham Cracker Crust") is None
+    assert scrape.pork_status("Strawberry Mousse", ingredients="cream, sugar, gelatin") == "maybe"
+    assert scrape.pork_status("Panna Cotta", ingredients="cream, beef gelatin") is None
+    assert scrape.pork_status("Carnitas Tacos", ingredients="seasoned pork shoulder") == "yes"
+
+
+def test_unchanged_menu_is_not_saved_again():
+    a = {"generated_at": "2026-10-27T10:05-07:00", "dcs": {"tercero": {"days": {}}}}
+    b = {"generated_at": "2026-10-27T11:05-07:00", "dcs": {"tercero": {"days": {}}}}
+    c = {"generated_at": "2026-10-27T11:05-07:00", "dcs": {"tercero": {"days": {"monday": {}}}}}
+    assert scrape.same_menu(a, b)
+    assert not scrape.same_menu(a, c)
+    assert not scrape.same_menu(None, a)
