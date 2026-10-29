@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T16:07-07:00",
+ "generated_at": "2026-10-28T19:47-07:00",
  "week_of": "2026-10-25",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -3807,6 +3807,27 @@
         "id": "6f80a5fcbe"
        },
        {
+        "name": "Seared Salmon with Creamy Polenta",
+        "description": "Seared salmon filets prepared simply with lemon and seasoned with salt and pepper on top of polenta",
+        "serving": "6.68 oz",
+        "serving_g": 189.4,
+        "calories": 320.38,
+        "fat": 21.27,
+        "carbs": 5.32,
+        "sugar": 0.95,
+        "protein": 25.91,
+        "allergens": [
+         "Dairy",
+         "Fish"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal"
+        ],
+        "zone": "Yellow",
+        "id": "6f80a5fcbe"
+       },
+       {
         "name": "Sausage and Onion Pizza",
         "description": "Fresh pizza topped with cheese, sausage, and onion.",
         "serving": "3.68 oz",
@@ -3875,7 +3896,7 @@
        },
        {
         "name": "Mushroom Street Taco",
-        "description": "Mushrooms sautéed with soyrizo, onions and peppers, served over corn tortillas and drizzled with our cilantro-cashew sauce.",
+        "description": "Mushrooms sautéed with soyrizo, onions and peppers, served over corn tortillas",
         "serving": "5.25 oz",
         "serving_g": 148.8,
         "calories": 104.42,
@@ -3884,8 +3905,7 @@
         "sugar": 2.53,
         "protein": 3.75,
         "allergens": [
-         "Soy",
-         "Tree Nuts"
+         "Soy"
         ],
         "shared_fryer": false,
         "tags": [
@@ -13678,27 +13698,6 @@
         "id": "abb735ddd3"
        },
        {
-        "name": "Savory White Beans",
-        "description": "White beans with celery, tomatoes, and herbs.",
-        "serving": "6.71 oz",
-        "serving_g": 190.2,
-        "calories": 154.79,
-        "fat": 2.11,
-        "carbs": 24.82,
-        "sugar": 0.36,
-        "protein": 8.14,
-        "allergens": [
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "507f8d242f"
-       },
-       {
         "name": "Assorted Vegetables",
         "description": "",
         "serving": "4 oz",
@@ -13716,25 +13715,6 @@
         ],
         "zone": "Purple",
         "id": "1bc13090bd"
-       },
-       {
-        "name": "Roasted Yukon Gold Potatoes",
-        "description": "",
-        "serving": "3.76 oz",
-        "serving_g": 106.6,
-        "calories": 132.05,
-        "fat": 3.66,
-        "carbs": 23.17,
-        "sugar": 0.79,
-        "protein": 2.75,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "ed6368abef"
        },
        {
         "name": "Carrot Cake",
