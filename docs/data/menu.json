@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T16:14-07:00",
+ "generated_at": "2026-10-29T19:54-07:00",
  "week_of": "2026-10-25",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -4854,7 +4854,9 @@
         "carbs": 8.31,
         "sugar": 5.06,
         "protein": 15.09,
-        "allergens": [],
+        "allergens": [
+         "Dairy"
+        ],
         "shared_fryer": false,
         "tags": [],
         "pork": "yes",
@@ -13812,68 +13814,6 @@
       ],
       "lunch": [
        {
-        "name": "Fried Chicken Sandwich",
-        "description": "Crispy, fried chicken on a potato bun.",
-        "serving": "7.63 oz",
-        "serving_g": 216.3,
-        "calories": 585.05,
-        "fat": 29.05,
-        "carbs": 54.64,
-        "sugar": 6.32,
-        "protein": 27.41,
-        "allergens": [
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": true,
-        "tags": [],
-        "zone": "Red",
-        "id": "77ebe7dd69"
-       },
-       {
-        "name": "Beyond Burger",
-        "description": "Plant-based \"Beyond Meat\" patty with vegan mayo, lettuce, tomato and onion.",
-        "serving": "6.51 oz",
-        "serving_g": 184.6,
-        "calories": 533.53,
-        "fat": 35.31,
-        "carbs": 30.64,
-        "sugar": 2.93,
-        "protein": 24.82,
-        "allergens": [
-         "Sesame",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "f9812aa54f"
-       },
-       {
-        "name": "Assorted Kettle Chips",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 293.7,
-        "fat": 18.22,
-        "carbs": 30.37,
-        "sugar": 0.0,
-        "protein": 4.05,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "fc04408813"
-       },
-       {
         "name": "Jalapeño Kettle Chips",
         "description": "",
         "serving": "2 oz",
@@ -14068,28 +14008,27 @@
         "id": "1468908118"
        },
        {
-        "name": "Picnic Potato Salad",
+        "name": "Smoked Cheddar & Bacon Potato Salad",
         "description": "",
         "serving": "100 g",
         "serving_g": 100.0,
-        "calories": 143.0,
-        "fat": 9.29,
-        "carbs": 14.29,
+        "calories": 207.0,
+        "fat": 15.71,
+        "carbs": 12.86,
         "sugar": 1.43,
-        "protein": 1.43,
+        "protein": 0.0,
         "allergens": [
+         "Dairy",
          "Egg",
          "Soy",
          "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
+        "tags": [],
+        "pork": "yes",
         "zone": "Green",
-        "id": "f708162980"
+        "id": "e042c760da"
        },
        {
         "name": "Jalapeño Popper Pasta Salad",
@@ -14420,7 +14359,7 @@
         "id": "04a33c3542"
        },
        {
-        "name": "Chicken Tagine",
+        "name": "Chicken Tagine and Cous Cous",
         "description": "A North African-inspired stew of chicken simmered in ginger, turmeric, and saffron with onions, garlic and olives.",
         "serving": "13.59 oz",
         "serving_g": 385.3,
@@ -14435,7 +14374,7 @@
         "shared_fryer": false,
         "tags": [],
         "zone": "Yellow",
-        "id": "efd4053d0f"
+        "id": "dd4ba763a9"
        },
        {
         "name": "Cheesy Garlic Bread",
@@ -14619,52 +14558,51 @@
         "id": "1468908118"
        },
        {
-        "name": "Picnic Potato Salad",
+        "name": "Smoked Cheddar & Bacon Potato Salad",
         "description": "",
         "serving": "100 g",
         "serving_g": 100.0,
-        "calories": 143.0,
-        "fat": 9.29,
-        "carbs": 14.29,
+        "calories": 207.0,
+        "fat": 15.71,
+        "carbs": 12.86,
         "sugar": 1.43,
-        "protein": 1.43,
+        "protein": 0.0,
         "allergens": [
+         "Dairy",
          "Egg",
          "Soy",
          "Soybean Oil",
          "Vinegar"
         ],
         "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
+        "tags": [],
+        "pork": "yes",
         "zone": "Green",
-        "id": "f708162980"
+        "id": "e042c760da"
        },
        {
-        "name": "Jalapeño Popper Pasta Salad",
+        "name": "Thai Lemongrass Pasta Salad",
         "description": "",
         "serving": "100 g",
         "serving_g": 100.0,
-        "calories": 386.0,
-        "fat": 32.86,
-        "carbs": 17.86,
-        "sugar": 0.71,
-        "protein": 5.0,
+        "calories": 143.0,
+        "fat": 4.29,
+        "carbs": 23.57,
+        "sugar": 3.57,
+        "protein": 2.86,
         "allergens": [
-         "Dairy",
-         "Egg",
          "Soy",
          "Soybean Oil",
          "Vinegar",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
+        "tags": [
+         "halal",
+         "vegan"
+        ],
         "zone": "Green",
-        "id": "1127867730"
+        "id": "e3ffa402a0"
        },
        {
         "name": "Turkey Chili with Beans",
