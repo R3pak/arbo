@@ -50,7 +50,7 @@ HEADERS = {"User-Agent": "Arbo/1.0 (student project; checks the menu hourly whil
 SECONDS_BETWEEN_REQUESTS = 8   # the dining site seems to throttle quick back-to-back requests
 DOWNLOAD_TRIES = 3              # try each page up to 3 times before giving up
 SECONDS_BETWEEN_TRIES = 15
-SECONDS_BEFORE_SECOND_PASS = 45  # pages that failed (or came back empty) get one more round at the end
+SECONDS_BEFORE_SECOND_PASS = 90  # pages that failed (or came back empty) get one more round at the end
 
 DAVIS_TIME = ZoneInfo("America/Los_Angeles")
 
@@ -345,17 +345,37 @@ def keep_previous(output, previous):
 # Running the scraper
 # ---------------------------------------------------------------------------
 
+# One connection that's reused for every page, the way a browser does it.
+# Opening a fresh connection for each page (and each retry) looks like many
+# separate visitors to the site's firewall, which then starts cutting us off.
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+
+
+def fetch_order(now):
+    """Start with a different DC each hour, so the same one isn't always last in line."""
+    keys = list(DINING_COMMONS)
+    k = now.hour % len(keys)
+    return keys[k:] + keys[:k]
+
+
 def download(url):
     """Download a page, trying again if the server is slow or hiccups."""
+    global SESSION
     last_error = None
     for attempt in range(1, DOWNLOAD_TRIES + 1):
         try:
-            response = requests.get(url, headers=HEADERS, timeout=60)
+            response = SESSION.get(url, timeout=60)
             response.raise_for_status()  # treat 404, 500 etc. as an error
             return response.text
         except requests.RequestException as error:
             last_error = error
             print(f"    try {attempt} failed: {error}", file=sys.stderr)
+            if isinstance(error, requests.ConnectionError):
+                # The server hung up on this connection; start a clean one for the next try.
+                SESSION.close()
+                SESSION = requests.Session()
+                SESSION.headers.update(HEADERS)
             if attempt < DOWNLOAD_TRIES:
                 time.sleep(SECONDS_BETWEEN_TRIES)
     raise last_error
@@ -376,7 +396,7 @@ def main():
             key, path = pair.split("=", 1)
             pages[key] = parse_menu_page(Path(path).read_text(encoding="utf-8"))
     else:
-        todo = list(DINING_COMMONS)
+        todo = fetch_order(datetime.now(DAVIS_TIME))
         for round_no in (1, 2):
             if round_no == 2:
                 if not todo:

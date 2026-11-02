@@ -174,3 +174,10 @@ def test_failed_dc_is_not_copied_into_a_new_week():
     new = {"week_of": "2026-11-01", "dcs": {}}
     assert scrape.keep_previous(new, old) == []
     assert "tercero" not in new["dcs"]
+
+
+def test_fetch_order_rotates_every_hour():
+    from datetime import datetime
+    orders = {tuple(scrape.fetch_order(datetime(2026, 11, 2, h))) for h in range(8, 12)}
+    assert len(orders) == 4                                   # four different starting DCs
+    assert all(sorted(o) == sorted(scrape.DINING_COMMONS) for o in orders)
