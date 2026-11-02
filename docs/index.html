@@ -219,6 +219,7 @@ label.field { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px
 .form-grid .full { grid-column: 1 / -1; }
 .pair { display: flex; gap: 8px; } .pair > * { flex: 1; min-width: 0; }
 .searchbox { position: relative; flex: 1 1 200px; min-width: 0; }
+.sheet .searchbox { flex: none; } /* inside the pop-up the search box sits in a column, so it must not stretch */
 .searchbox svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted); }
 .searchbox input { padding-left: 40px; border-radius: 99px; }
 .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -1090,6 +1091,8 @@ function renderMenu() {
       <a class="btn ghost" href="${esc(MENU?.dcs?.[ui.dc]?.url || OFFICIAL_URL[ui.dc])}" target="_blank" rel="noopener">Official ${c.dcName} page</a></div></section>`;
   }
   html += `<div class="days" role="group" aria-label="Day">${c.days.map(d => { const dt = parseKey(d.date); return `<button class="daychip" data-act="date" data-v="${d.date}" aria-pressed="${ui.date === d.date}"><span>${d.date === localDateKey() ? "Today" : dt.toLocaleDateString("en-US", { weekday: "short" })}</span><b class="num">${dt.getDate()}</b></button>`; }).join("")}</div>`;
+  const latest = c.days.length ? c.days[c.days.length - 1].date : null;
+  if (latest && latest < localDateKey()) html += `<div class="note"><b>This week's menu isn't in yet.</b> The DC hasn't posted it, or Arbo hasn't picked it up. Arbo checks again within the hour. These are last week's menus.</div>`;
   if (MENU?.sample) html += `<div class="note"><b>Preview.</b> This is a real sample of Tercero's Monday menu. The live site checks for changes every hour while the DCs are open.</div>`;
   if (!c.meals) return html + `<section class="glass empty"><div class="ic">${ICON.clock}</div><h2>No menu for this day</h2><p>The DCs close on weekends during the school year, or the menu isn't posted yet.</p></section>`;
   html += `<div class="seg" role="group" aria-label="Meal">${c.mealNames.map(m => `<button data-act="meal" data-v="${m}" aria-pressed="${ui.meal === m}">${MEAL_LABEL[m] || m}</button>`).join("")}</div>`;

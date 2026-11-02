@@ -9,18 +9,27 @@ the time in Davis and only says "yes" at the times we actually want:
   * every hour while the DCs are open (7 AM to 10 PM, Monday to Friday)
   * every 30 minutes in the last hour of each meal, because that's when the
     DCs swap dishes out (e.g. eggs come off so pasta can go on)
+  * every hour from 7 AM to 9 PM on weekends (Segundo stays open, and the DCs
+    post the next week's menu over the weekend)
+  * ANY time, if the saved menu is still last week's. This is the safety net:
+    GitHub sometimes starts jobs an hour late or skips them, and this makes sure
+    a missed check is caught up on the very next run.
 
 To change the times, edit the settings just below.
 """
 
+import json
 import os
 import sys
+from pathlib import Path
 from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 DAVIS = ZoneInfo("America/Los_Angeles")
 
 DAILY_CHECK = time(6, 0)                 # every day, open or not
+WEEKEND_HOURS = (time(7, 0), time(22, 0))  # hourly checks on Saturday and Sunday
+MENU_FILE = Path(__file__).resolve().parent.parent / "docs" / "data" / "menu.json"
 OPEN_DAYS = {0, 1, 2, 3, 4}              # Monday to Friday (Python counts Monday as 0)
 OPENS, CLOSES = time(7, 0), time(22, 0)  # earliest opening and latest closing of any DC
 
@@ -39,7 +48,9 @@ def wanted(slot):
     if t == DAILY_CHECK:
         return True, "morning menu load"
     if slot.weekday() not in OPEN_DAYS:
-        return False, "the DCs are closed today"
+        if WEEKEND_HOURS[0] <= t < WEEKEND_HOURS[1] and slot.minute == 0:
+            return True, "hourly weekend check"
+        return False, "outside weekend check hours"
     if not (OPENS <= t < CLOSES):
         return False, "the DCs are closed right now"
     if slot.minute == 0:
@@ -49,6 +60,20 @@ def wanted(slot):
         if meal_end - timedelta(hours=1) <= slot < meal_end:
             return True, f"last hour before {meal_end:%-I:%M %p}"
     return False, "half-hour checks only happen in the last hour of a meal"
+
+
+def week_start(day):
+    """The Sunday that starts the week containing this date."""
+    return day - timedelta(days=(day.weekday() + 1) % 7)
+
+
+def menu_is_stale(now_davis, menu_file=MENU_FILE):
+    """True if the saved menu is from an earlier week than today's (or unreadable)."""
+    try:
+        saved_week = json.loads(Path(menu_file).read_text(encoding="utf-8"))["week_of"]
+    except (OSError, ValueError, KeyError):
+        return True
+    return saved_week < week_start(now_davis.date()).isoformat()
 
 
 def intended_slot(now_utc, schedule):
@@ -69,8 +94,11 @@ def main():
     if event != "schedule":
         decision, reason, label = True, f"started by hand ({event or 'local run'})", ""
     else:
-        slot = intended_slot(datetime.now(timezone.utc), os.environ["SCHEDULE"])
+        now = datetime.now(timezone.utc)
+        slot = intended_slot(now, os.environ["SCHEDULE"])
         decision, reason = wanted(slot)
+        if not decision and menu_is_stale(now.astimezone(DAVIS)):
+            decision, reason = True, "the saved menu is from last week, catching up"
         label = f"{slot:%a %-I:%M %p} Davis time: "
     print(f"{label}{'checking the menu' if decision else 'skipping'} ({reason})")
     output = os.environ.get("GITHUB_OUTPUT")

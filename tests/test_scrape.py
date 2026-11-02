@@ -148,3 +148,29 @@ def test_unchanged_menu_is_not_saved_again():
     assert scrape.same_menu(a, b)
     assert not scrape.same_menu(a, c)
     assert not scrape.same_menu(None, a)
+
+
+# ---------------------------------------------------------------------------
+# New week safety
+# ---------------------------------------------------------------------------
+
+def _menu(week_of, dates, dishes):
+    return {"week_of": week_of, "dcs": {"tercero": {"name": "Tercero", "days": {
+        "monday": {"date": dates[0], "meals": {"lunch": dishes}},
+        "tuesday": {"date": dates[1], "meals": {"lunch": dishes}}}}}}
+
+
+def test_old_menu_is_not_stamped_with_new_dates():
+    old = _menu("2026-10-25", ["2026-10-26", "2026-10-27"], [{"name": "Oatmeal"}])
+    same_food_new_dates = _menu("2026-11-01", ["2026-11-02", "2026-11-03"], [{"name": "Oatmeal"}])
+    new_food = _menu("2026-11-01", ["2026-11-02", "2026-11-03"], [{"name": "Pesto Penne"}])
+    assert scrape.new_week_not_posted(same_food_new_dates, old)
+    assert not scrape.new_week_not_posted(new_food, old)
+    assert not scrape.new_week_not_posted(same_food_new_dates, same_food_new_dates)
+
+
+def test_failed_dc_is_not_copied_into_a_new_week():
+    old = _menu("2026-10-25", ["2026-10-26", "2026-10-27"], [{"name": "Oatmeal"}])
+    new = {"week_of": "2026-11-01", "dcs": {}}
+    assert scrape.keep_previous(new, old) == []
+    assert "tercero" not in new["dcs"]

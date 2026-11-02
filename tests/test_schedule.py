@@ -34,10 +34,9 @@ def test_every_30_minutes_in_the_last_hour_of_each_meal():
         assert not yes(at(tue, h, 30))
 
 
-def test_weekends_only_get_the_morning_check():
+def test_weekends_get_the_morning_check():
     sat, sun = 31, 25
     assert yes(at(sat, 6, 0)) and yes(at(sun, 6, 0))
-    assert not yes(at(sat, 12, 0)) and not yes(at(sun, 10, 30))
 
 
 def test_late_github_runs_still_count_for_the_right_slot():
@@ -47,3 +46,17 @@ def test_late_github_runs_still_count_for_the_right_slot():
     # After daylight saving ends, 18:05 UTC is 10:00 AM in Davis.
     slot = should_run.intended_slot(datetime(2026, 12, 1, 18, 12, tzinfo=timezone.utc), "5 0-5,13-23 * * *")
     assert (slot.hour, slot.minute) == (10, 0)
+
+
+def test_weekends_get_hourly_checks_now():
+    sat, sun = 31, 25
+    assert yes(at(sat, 12, 0)) and yes(at(sun, 9, 0)) and yes(at(sun, 21, 0))
+    assert not yes(at(sun, 10, 30)) and not yes(at(sat, 23, 0))
+
+
+def test_stale_menu_is_caught_up_any_time(tmp_path):
+    f = tmp_path / "menu.json"
+    f.write_text('{"week_of": "2026-10-25"}')
+    assert should_run.menu_is_stale(at(25, 3, 0), f) is False   # still the same week
+    assert should_run.menu_is_stale(datetime(2026, 11, 2, 1, 30, tzinfo=DAVIS), f) is True   # Monday of the next week
+    assert should_run.menu_is_stale(at(27, 3, 0), tmp_path / "missing.json") is True

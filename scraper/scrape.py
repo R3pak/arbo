@@ -305,6 +305,24 @@ def same_menu(a, b):
     return strip(a) == strip(b)
 
 
+def dishes_only(menu_file):
+    """Each DC's dishes by weekday name, without dates or timestamps."""
+    return {key: {day: info["meals"] for day, info in dc["days"].items()}
+            for key, dc in (menu_file or {}).get("dcs", {}).items()}
+
+
+def new_week_not_posted(output, previous):
+    """
+    The DC website doesn't print dates, so the scraper labels days with this
+    week's dates. Right after Sunday starts a new week, the website may still be
+    showing last week's food. If we got back exactly last week's dishes, the new
+    week isn't posted yet, and we must not stamp last week's food with new dates.
+    """
+    return (previous is not None
+            and output["week_of"] != previous.get("week_of")
+            and dishes_only(output) == dishes_only(previous))
+
+
 def keep_previous(output, previous):
     """
     If a DC came back empty today (its download failed, or its page changed),
@@ -315,7 +333,8 @@ def keep_previous(output, previous):
     for key, info in DINING_COMMONS.items():
         today = output["dcs"].get(key)
         before = (previous or {}).get("dcs", {}).get(key)
-        if (today is None or count_dc(today) == 0) and before and count_dc(before) > 0:
+        same_week = (previous or {}).get("week_of") == output.get("week_of")
+        if (today is None or count_dc(today) == 0) and before and count_dc(before) > 0 and same_week:
             output["dcs"][key] = before
             kept.append(info["name"])
     return kept
@@ -350,6 +369,7 @@ def main():
     args = parser.parse_args()
 
     pages = {}
+    downloaded = 0
     if args.from_file:
         for pair in args.from_file:
             key, path = pair.split("=", 1)
@@ -360,6 +380,7 @@ def main():
                 time.sleep(SECONDS_BETWEEN_REQUESTS)
             try:
                 pages[key] = parse_menu_page(download(info["url"]))
+                downloaded += 1
                 print(f"{info['name']}: downloaded the menu page")
             except requests.RequestException as error:
                 print(f"{info['name']}: could not download after {DOWNLOAD_TRIES} tries ({error})", file=sys.stderr)
@@ -375,6 +396,24 @@ def main():
             previous = json.loads(out_path.read_text(encoding="utf-8"))
         except ValueError:
             previous = None
+    # If every download failed, say so loudly (the job turns red and GitHub emails
+    # you) instead of quietly keeping an old menu.
+    if not args.from_file and downloaded == 0:
+        print("Could not download any menu page. Keeping the existing menu.json.", file=sys.stderr)
+        sys.exit(1)
+
+    if new_week_not_posted(output, previous):
+        print("The DC website still shows last week's menu. Leaving menu.json alone until the new week is posted.")
+        return
+
+    # Same check per DC: a DC still showing last week's food keeps its old (correctly dated) copy.
+    if previous and output["week_of"] != previous.get("week_of"):
+        before, now = dishes_only(previous), dishes_only(output)
+        for key in list(output["dcs"]):
+            if key in before and now.get(key) == before[key]:
+                output["dcs"][key] = previous["dcs"][key]
+                print(f"  {DINING_COMMONS[key]['name']}: still last week's menu on the website, kept it with last week's dates")
+
     for name in keep_previous(output, previous):
         print(f"  {name}: nothing new today, kept the previous menu")
 
