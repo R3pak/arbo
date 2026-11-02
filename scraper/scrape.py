@@ -47,9 +47,10 @@ OUTPUT_FILE = PROJECT_ROOT / "docs" / "data" / "menu.json"
 
 # Be polite to the university's server: say who we are and don't rush.
 HEADERS = {"User-Agent": "Arbo/1.0 (student project; checks the menu hourly while the DCs are open)"}
-SECONDS_BETWEEN_REQUESTS = 2
-DOWNLOAD_TRIES = 3          # try each page up to 3 times before giving up
-SECONDS_BETWEEN_TRIES = 10
+SECONDS_BETWEEN_REQUESTS = 8   # the dining site seems to throttle quick back-to-back requests
+DOWNLOAD_TRIES = 3              # try each page up to 3 times before giving up
+SECONDS_BETWEEN_TRIES = 15
+SECONDS_BEFORE_SECOND_PASS = 45  # pages that failed (or came back empty) get one more round at the end
 
 DAVIS_TIME = ZoneInfo("America/Los_Angeles")
 
@@ -375,15 +376,35 @@ def main():
             key, path = pair.split("=", 1)
             pages[key] = parse_menu_page(Path(path).read_text(encoding="utf-8"))
     else:
-        for i, (key, info) in enumerate(DINING_COMMONS.items()):
-            if i:
-                time.sleep(SECONDS_BETWEEN_REQUESTS)
-            try:
-                pages[key] = parse_menu_page(download(info["url"]))
+        todo = list(DINING_COMMONS)
+        for round_no in (1, 2):
+            if round_no == 2:
+                if not todo:
+                    break
+                print(f"Trying again in {SECONDS_BEFORE_SECOND_PASS} s: {', '.join(DINING_COMMONS[k]['name'] for k in todo)}")
+                time.sleep(SECONDS_BEFORE_SECOND_PASS)
+            failed = []
+            for i, key in enumerate(todo):
+                info = DINING_COMMONS[key]
+                if i:
+                    time.sleep(SECONDS_BETWEEN_REQUESTS)
+                try:
+                    html = download(info["url"])
+                except requests.RequestException as error:
+                    print(f"{info['name']}: could not download after {DOWNLOAD_TRIES} tries ({error})", file=sys.stderr)
+                    failed.append(key)
+                    continue
+                menu = parse_menu_page(html)
+                dishes = sum(len(d) for meals in menu.values() for d in meals.values())
+                if dishes == 0:
+                    # A real menu page always has dishes on some day; an empty one is usually an error page.
+                    print(f"{info['name']}: page downloaded but no dishes found ({len(html):,} characters)", file=sys.stderr)
+                    failed.append(key)
+                    continue
+                pages[key] = menu
                 downloaded += 1
-                print(f"{info['name']}: downloaded the menu page")
-            except requests.RequestException as error:
-                print(f"{info['name']}: could not download after {DOWNLOAD_TRIES} tries ({error})", file=sys.stderr)
+                print(f"{info['name']}: {dishes} dishes")
+            todo = failed
 
     output = build_output(pages, datetime.now(DAVIS_TIME).date())
     if args.sample:
