@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T12:03-08:00",
+ "generated_at": "2026-11-03T16:35-08:00",
  "week_of": "2026-11-01",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -2377,77 +2377,6 @@
       ],
       "lunch": [
        {
-        "name": "Korean Fried Chicken Sandwich",
-        "description": "Tempura fried Chicken on a Brioche Bun topped with Kimchi, Pickled Cucumbers and a Spicy Mayo",
-        "serving": "9.81 oz",
-        "serving_g": 278.1,
-        "calories": 685.23,
-        "fat": 30.54,
-        "carbs": 79.21,
-        "sugar": 20.16,
-        "protein": 13.96,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": true,
-        "tags": [],
-        "zone": "Red",
-        "id": "e8d6503c02"
-       },
-       {
-        "name": "Falafel Burger",
-        "description": "Deep-fried chickpea patties dressed with cucumber mint spread and harissa pickled onions, served on a toasted bun.",
-        "serving": "10.44 oz",
-        "serving_g": 296.0,
-        "calories": 560.62,
-        "fat": 26.84,
-        "carbs": 67.21,
-        "sugar": 11.04,
-        "protein": 14.32,
-        "allergens": [
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "50b2311be6"
-       },
-       {
-        "name": "Curly Fries",
-        "description": "Crispy deep-fried seasoned curly cut potato fries.",
-        "serving": "4.4 oz",
-        "serving_g": 124.7,
-        "calories": 313.17,
-        "fat": 20.78,
-        "carbs": 28.35,
-        "sugar": 0.0,
-        "protein": 2.69,
-        "allergens": [
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "aa5fbee302"
-       },
-       {
         "name": "Combo Pizza",
         "description": "Pizza with all the fixings! Including pepperoni, salami, cheese, and a variety of vegetables.",
         "serving": "3.65 oz",
@@ -2489,91 +2418,6 @@
         "tags": [],
         "zone": "Yellow",
         "id": "607023f9ac"
-       },
-       {
-        "name": "Franky's Pork Belly Taco",
-        "description": "",
-        "serving": "6.53 oz",
-        "serving_g": 185.1,
-        "calories": 651.5,
-        "fat": 56.61,
-        "carbs": 22.01,
-        "sugar": 1.57,
-        "protein": 14.18,
-        "allergens": [
-         "Dairy"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Yellow",
-        "id": "ded3fdcd00"
-       },
-       {
-        "name": "Franky's Pork Belly Taco",
-        "description": "",
-        "serving": "6.53 oz",
-        "serving_g": 185.1,
-        "calories": 651.5,
-        "fat": 56.61,
-        "carbs": 22.01,
-        "sugar": 1.57,
-        "protein": 14.18,
-        "allergens": [
-         "Dairy"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Yellow",
-        "id": "ded3fdcd00"
-       },
-       {
-        "name": "Pork Soup Dumpling with Khao Soi Yellow Curry",
-        "description": "",
-        "serving": "0.57 lb",
-        "serving_g": 258.5,
-        "calories": 488.27,
-        "fat": 32.4,
-        "carbs": 38.06,
-        "sugar": 7.21,
-        "protein": 14.87,
-        "allergens": [
-         "Alcohol",
-         "Peanut Oil",
-         "Sesame",
-         "Soy",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Blue",
-        "id": "c0bca50761"
-       },
-       {
-        "name": "Yellow Curry Jackfruit Dumplings",
-        "description": "",
-        "serving": "8.62 oz",
-        "serving_g": 244.4,
-        "calories": 492.68,
-        "fat": 30.23,
-        "carbs": 46.68,
-        "sugar": 9.77,
-        "protein": 12.54,
-        "allergens": [
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Blue",
-        "id": "1a440c4454"
        },
        {
         "name": "Salad Selections",
@@ -2956,26 +2800,29 @@
         "id": "20da38ca5d"
        },
        {
-        "name": "Garlic Breadsticks",
-        "description": "",
-        "serving": "1.56 oz",
-        "serving_g": 44.2,
-        "calories": 110.56,
-        "fat": 0.92,
-        "carbs": 23.03,
-        "sugar": 0.0,
-        "protein": 3.68,
+        "name": "Spicy Louisiana Pasta",
+        "description": "Delicious and spicy Cajun-inspired creamy pasta with blackened shrimp and pork Andouille sausage.",
+        "serving": "8.92 oz",
+        "serving_g": 252.9,
+        "calories": 372.69,
+        "fat": 19.02,
+        "carbs": 30.88,
+        "sugar": 4.4,
+        "protein": 20.36,
         "allergens": [
-         "Soybean Oil",
+         "Dairy",
+         "Fish",
+         "Shellfish",
+         "Soy",
+         "Soy Lecithin",
+         "Vinegar",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
+        "tags": [],
+        "pork": "yes",
         "zone": "Yellow",
-        "id": "72c021d78d"
+        "id": "20da38ca5d"
        },
        {
         "name": "Combo Pizza",
@@ -3094,75 +2941,6 @@
         "id": "9dd1508f22"
        },
        {
-        "name": "Tuna Salad",
-        "description": "Tuna with celery, onion, relish, and mayonnaise.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 264.59,
-        "fat": 19.73,
-        "carbs": 1.66,
-        "sugar": 0.89,
-        "protein": 20.8,
-        "allergens": [
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Green",
-        "id": "9c62d05855"
-       },
-       {
-        "name": "Sriracha Macaroni Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 250.0,
-        "fat": 15.71,
-        "carbs": 23.57,
-        "sugar": 1.43,
-        "protein": 3.57,
-        "allergens": [
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "d1aa5b24d4"
-       },
-       {
-        "name": "Traditional Hummus",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 249.99,
-        "fat": 16.07,
-        "carbs": 17.86,
-        "sugar": 3.57,
-        "protein": 7.14,
-        "allergens": [
-         "Sesame"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "1468908118"
-       },
-       {
         "name": "Grandma Mary's Chicken Soup",
         "description": "",
         "serving": "100 g",
@@ -3180,30 +2958,6 @@
         "tags": [],
         "zone": "Green",
         "id": "96c0fb127e"
-       },
-       {
-        "name": "Picnic Potato Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 143.0,
-        "fat": 9.29,
-        "carbs": 14.29,
-        "sugar": 1.43,
-        "protein": 1.43,
-        "allergens": [
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "f708162980"
        },
        {
         "name": "Carrot Spiced Soup",
@@ -3262,7 +3016,7 @@
         "id": "a08852f911"
        },
        {
-        "name": "Charred Carrots",
+        "name": "Assorted Vegetables",
         "description": "",
         "serving": "3.08 oz",
         "serving_g": 87.3,
@@ -3278,7 +3032,7 @@
          "vegan"
         ],
         "zone": "Purple",
-        "id": "db3514a99e"
+        "id": "6c184f1e13"
        },
        {
         "name": "Roasted Fingerling Potatoes",
@@ -12545,22 +12299,22 @@
         "id": "f4d331ebeb"
        },
        {
-        "name": "Roasted Rosemary Garlic Chicken",
-        "description": "Oven-roasted chicken seasoned with rosemary and garlic.",
-        "serving": "8.97 oz",
-        "serving_g": 254.3,
-        "calories": 439.47,
-        "fat": 29.55,
-        "carbs": 1.73,
-        "sugar": 0.05,
-        "protein": 44.04,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
+        "name": "Tinga de Pollo",
+        "description": "",
+        "serving": "100 g",
+        "serving_g": 100.0,
+        "calories": 120.0,
+        "fat": 5.0,
+        "carbs": 5.0,
+        "sugar": 2.0,
+        "protein": 16.0,
+        "allergens": [
+         "Vinegar"
         ],
+        "shared_fryer": false,
+        "tags": [],
         "zone": "Purple",
-        "id": "abb735ddd3"
+        "id": "c2107f0903"
        },
        {
         "name": "Choley Beans",
@@ -12582,15 +12336,15 @@
         "id": "353ddfd016"
        },
        {
-        "name": "Roasted Brussels Sprouts",
-        "description": "Brussels Sprouts roasted and lightly seasoned",
-        "serving": "3.2 oz",
-        "serving_g": 90.7,
-        "calories": 74.81,
-        "fat": 4.47,
-        "carbs": 8.12,
-        "sugar": 2.0,
-        "protein": 3.07,
+        "name": "Assorted Vegetables",
+        "description": "",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 84.9,
+        "fat": 7.16,
+        "carbs": 4.88,
+        "sugar": 2.13,
+        "protein": 2.57,
         "allergens": [],
         "shared_fryer": false,
         "tags": [
@@ -12598,18 +12352,18 @@
          "vegan"
         ],
         "zone": "Purple",
-        "id": "595370f2fd"
+        "id": "1bc13090bd"
        },
        {
-        "name": "Steamed Quinoa",
-        "description": "Steamed tri-colored quinoa.",
-        "serving": "0.82 oz",
-        "serving_g": 23.2,
-        "calories": 36.78,
-        "fat": 0.61,
-        "carbs": 6.41,
+        "name": "Locally Grown Sticky Rice",
+        "description": "",
+        "serving": "3.62 oz",
+        "serving_g": 102.6,
+        "calories": 199.24,
+        "fat": 0.32,
+        "carbs": 43.91,
         "sugar": 0.0,
-        "protein": 1.41,
+        "protein": 3.66,
         "allergens": [],
         "shared_fryer": false,
         "tags": [
@@ -12617,7 +12371,7 @@
          "vegan"
         ],
         "zone": "Purple",
-        "id": "59bc73bec2"
+        "id": "9facff30d6"
        },
        {
         "name": "New York Cheesecake Bar",
@@ -12808,6 +12562,25 @@
         "id": "db6d69bb83"
        },
        {
+        "name": "Sea Salt or Jalapeño Kettle Chips",
+        "description": "",
+        "serving": "2 oz",
+        "serving_g": 56.7,
+        "calories": 293.7,
+        "fat": 18.22,
+        "carbs": 30.37,
+        "sugar": 0.0,
+        "protein": 4.05,
+        "allergens": [],
+        "shared_fryer": false,
+        "tags": [
+         "halal",
+         "vegan"
+        ],
+        "zone": "Red",
+        "id": "5c1a95b9bd"
+       },
+       {
         "name": "Sea Salt Kettle Chips",
         "description": "",
         "serving": "2 oz",
@@ -12935,7 +12708,7 @@
         "id": "aa22b04d35"
        },
        {
-        "name": "Puerco en Chile Verde",
+        "name": "Costillas de Puerco",
         "description": "Mexican dish made with tender pork simmered in tangy tomatillo salsa verde.",
         "serving": "12.95 oz",
         "serving_g": 367.1,
@@ -12949,7 +12722,7 @@
         "tags": [],
         "pork": "yes",
         "zone": "Blue",
-        "id": "5c93a968af"
+        "id": "00c5210ad5"
        },
        {
         "name": "Arroz Blanco",
@@ -13008,6 +12781,31 @@
         ],
         "zone": "Blue",
         "id": "b643728b5e"
+       },
+       {
+        "name": "\"Chicken\" Pancit",
+        "description": "",
+        "serving": "4.55 oz",
+        "serving_g": 129.0,
+        "calories": 336.47,
+        "fat": 17.71,
+        "carbs": 33.59,
+        "sugar": 4.48,
+        "protein": 10.47,
+        "allergens": [
+         "Alcohol",
+         "Sesame",
+         "Soy",
+         "Soybean Oil",
+         "Vinegar",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "vegan"
+        ],
+        "zone": "Blue",
+        "id": "338895c2c7"
        },
        {
         "name": "\"Chicken\" Pancit",
@@ -20521,55 +20319,6 @@
         "id": "bd5e4187d0"
        },
        {
-        "name": "Grass-Fed Cuarto Pimento Cheeseburger",
-        "description": "",
-        "serving": "11.4 oz",
-        "serving_g": 323.2,
-        "calories": 1074.69,
-        "fat": 80.05,
-        "carbs": 49.67,
-        "sugar": 7.05,
-        "protein": 38.52,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Red",
-        "id": "d889cb526b"
-       },
-       {
-        "name": "Chipotle Black Bean Burger",
-        "description": "",
-        "serving": "7.67 oz",
-        "serving_g": 217.4,
-        "calories": 578.96,
-        "fat": 37.29,
-        "carbs": 51.66,
-        "sugar": 6.07,
-        "protein": 19.9,
-        "allergens": [
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "db6d69bb83"
-       },
-       {
         "name": "Shoestring Potatoes",
         "description": "Crispy thin-cut potato fries.",
         "serving": "4 oz",
@@ -20589,24 +20338,6 @@
         ],
         "zone": "Red",
         "id": "6e0f1222b6"
-       },
-       {
-        "name": "Roasted Rosemary Garlic Chicken",
-        "description": "Oven-roasted chicken seasoned with rosemary and garlic.",
-        "serving": "8.97 oz",
-        "serving_g": 254.3,
-        "calories": 439.47,
-        "fat": 29.55,
-        "carbs": 1.73,
-        "sugar": 0.05,
-        "protein": 44.04,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Yellow",
-        "id": "abb735ddd3"
        },
        {
         "name": "Southwest Tofu",
@@ -20674,25 +20405,6 @@
         ],
         "zone": "Blue",
         "id": "d5d356dd07"
-       },
-       {
-        "name": "Franky's Pork Belly Taco",
-        "description": "",
-        "serving": "6.53 oz",
-        "serving_g": 185.1,
-        "calories": 651.5,
-        "fat": 56.61,
-        "carbs": 22.01,
-        "sugar": 1.57,
-        "protein": 14.18,
-        "allergens": [
-         "Dairy"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Blue",
-        "id": "ded3fdcd00"
        },
        {
         "name": "Salad Bar",
@@ -26402,68 +26114,73 @@
         "id": "f7556900e3"
        },
        {
-        "name": "Fish and Chips",
-        "description": "Flakey fried beer-battered cod served with crispy fries, tartar sauce, and wedges of lemon.",
-        "serving": "10.03 oz",
-        "serving_g": 284.3,
-        "calories": 785.45,
-        "fat": 64.38,
-        "carbs": 38.13,
-        "sugar": 2.47,
-        "protein": 12.11,
+        "name": "Garlic Loaf",
+        "description": "",
+        "serving": "100 g",
+        "serving_g": 100.0,
+        "calories": 298.24,
+        "fat": 4.39,
+        "carbs": 54.39,
+        "sugar": 0.0,
+        "protein": 8.77,
         "allergens": [
-         "Alcohol",
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar",
          "Wheat/Gluten"
         ],
-        "shared_fryer": true,
-        "tags": [],
-        "zone": "Blue",
-        "id": "59a1d1532f"
-       },
-       {
-        "name": "Yangnyeom Chicken",
-        "description": "",
-        "serving": "4.24 oz",
-        "serving_g": 120.2,
-        "calories": 71.65,
-        "fat": 14.7,
-        "carbs": 24.69,
-        "sugar": 10.75,
-        "protein": 19.89,
-        "allergens": [
-         "Alcohol",
-         "Sesame",
-         "Soy",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "zone": "Green",
-        "id": "76bcb917cb"
-       },
-       {
-        "name": "Locally Grown Jasmine Rice",
-        "description": "",
-        "serving": "2.92 oz",
-        "serving_g": 82.8,
-        "calories": 147.73,
-        "fat": 0.26,
-        "carbs": 32.37,
-        "sugar": 0.05,
-        "protein": 2.89,
-        "allergens": [],
         "shared_fryer": false,
         "tags": [
          "halal",
          "vegan"
         ],
+        "zone": "Blue",
+        "id": "487dbb374c"
+       },
+       {
+        "name": "Lemon Shortcake",
+        "description": "",
+        "serving": "3.85 oz",
+        "serving_g": 109.1,
+        "calories": 346.07,
+        "fat": 18.63,
+        "carbs": 41.26,
+        "sugar": 30.62,
+        "protein": 3.99,
+        "allergens": [
+         "Dairy",
+         "Egg",
+         "Soybean Oil",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal",
+         "vegetarian"
+        ],
         "zone": "Green",
-        "id": "7daf463a74"
+        "id": "ed5d16ebce"
+       },
+       {
+        "name": "Tuxedo Truffle Mousse Cake",
+        "description": "",
+        "serving": "3.85 oz",
+        "serving_g": 109.1,
+        "calories": 386.38,
+        "fat": 23.96,
+        "carbs": 38.6,
+        "sugar": 27.95,
+        "protein": 5.33,
+        "allergens": [
+         "Alcohol",
+         "Dairy",
+         "Egg",
+         "Soy Lecithin",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "vegetarian"
+        ],
+        "zone": "Green",
+        "id": "9bade91489"
        }
       ],
       "dinner": [
@@ -26488,55 +26205,15 @@
         "id": "2d9bc0068f"
        },
        {
-        "name": "Arroz Mexicano",
-        "description": "Long grain rice prepared with Onion, Celery, Peppers, Achiote, Carrots, Corn, and Tomato.",
-        "serving": "3 oz",
-        "serving_g": 85.0,
-        "calories": 148.55,
-        "fat": 3.6,
-        "carbs": 25.8,
-        "sugar": 1.03,
-        "protein": 2.46,
-        "allergens": [
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "a1d59b902f"
-       },
-       {
-        "name": "Grandma Mary's Chicken Soup",
+        "name": "Arroz Amarillo Cubano",
         "description": "",
         "serving": "100 g",
         "serving_g": 100.0,
-        "calories": 53.0,
-        "fat": 0.61,
-        "carbs": 6.94,
-        "sugar": 1.22,
-        "protein": 5.31,
-        "allergens": [
-         "Egg",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "zone": "Red",
-        "id": "96c0fb127e"
-       },
-       {
-        "name": "Carrot Spiced Soup",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 48.0,
-        "fat": 1.54,
-        "carbs": 7.49,
-        "sugar": 3.08,
-        "protein": 0.88,
+        "calories": 377.33,
+        "fat": 5.59,
+        "carbs": 72.26,
+        "sugar": 3.19,
+        "protein": 6.85,
         "allergens": [],
         "shared_fryer": false,
         "tags": [
@@ -26544,11 +26221,11 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "f4d331ebeb"
+        "id": "2c5be67bc9"
        },
        {
-        "name": "Housemade Chicken Shawarma",
-        "description": "",
+        "name": "Housemade Chicken Shawarma Plate",
+        "description": "Seasoned chicken with basmati rice, garlic naan, afghan salad and a lemon yogurt sauce.",
         "serving": "10.5 oz",
         "serving_g": 297.7,
         "calories": 398.01,
@@ -26566,11 +26243,11 @@
          "halal"
         ],
         "zone": "Yellow",
-        "id": "156dcfd4de"
+        "id": "0c796d0032"
        },
        {
         "name": "Falafel Plate",
-        "description": "",
+        "description": "Falafel with bastmai sauce, garlic naan and afghan salad.",
         "serving": "8.91 oz",
         "serving_g": 252.6,
         "calories": 366.36,
@@ -26590,27 +26267,8 @@
         "id": "887761e3b2"
        },
        {
-        "name": "Locally Grown Basmati Rice",
-        "description": "Locally Grown Steamed Basmati Rice",
-        "serving": "4.09 oz",
-        "serving_g": 115.9,
-        "calories": 206.92,
-        "fat": 0.37,
-        "carbs": 45.34,
-        "sugar": 0.07,
-        "protein": 4.05,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "f7556900e3"
-       },
-       {
-        "name": "Currywurst",
-        "description": "Classic street food from Germany featuring Roasted Bockwurst in a spicy Tomato Curry sauce.",
+        "name": "Currywurst & Fries",
+        "description": "Classic street food from Germany featuring Roasted Bockwurst in a spicy Tomato Curry sauce & fries.",
         "serving": "8.07 oz",
         "serving_g": 228.8,
         "calories": 428.03,
@@ -26626,11 +26284,11 @@
          "Soybean Oil",
          "Vinegar"
         ],
-        "shared_fryer": false,
+        "shared_fryer": true,
         "tags": [],
         "pork": "yes",
         "zone": "Blue",
-        "id": "fb2e9e1734"
+        "id": "9099d17749"
        },
        {
         "name": "Weinkraut",
@@ -26654,7 +26312,7 @@
        },
        {
         "name": "Yangnyeom Chicken",
-        "description": "",
+        "description": "Spicy korean fried chicken",
         "serving": "4.24 oz",
         "serving_g": 120.2,
         "calories": 71.65,
@@ -26694,77 +26352,6 @@
         "id": "9facff30d6"
        },
        {
-        "name": "Baklava",
-        "description": "",
-        "serving": "2.96 oz",
-        "serving_g": 83.9,
-        "calories": 365.03,
-        "fat": 14.59,
-        "carbs": 51.08,
-        "sugar": 19.46,
-        "protein": 6.08,
-        "allergens": [
-         "Dairy",
-         "Soybean Oil",
-         "Tree Nuts",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "2dbc0f2a7a"
-       },
-       {
-        "name": "Cream Puffs",
-        "description": "",
-        "serving": "1.33 oz",
-        "serving_g": 37.7,
-        "calories": 135.74,
-        "fat": 10.56,
-        "carbs": 8.04,
-        "sugar": 4.52,
-        "protein": 2.01,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "4556012b8a"
-       },
-       {
-        "name": "Tiramisu",
-        "description": "",
-        "serving": "1.56 oz",
-        "serving_g": 44.2,
-        "calories": 141.85,
-        "fat": 7.09,
-        "carbs": 17.11,
-        "sugar": 13.35,
-        "protein": 1.67,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "c211886ddd"
-       },
-       {
         "name": "Lemon Shortcake",
         "description": "",
         "serving": "3.85 oz",
@@ -26785,77 +26372,8 @@
          "halal",
          "vegetarian"
         ],
-        "zone": "Pink",
+        "zone": "Green",
         "id": "ed5d16ebce"
-       },
-       {
-        "name": "Tuxedo Truffle Mousse Cake",
-        "description": "",
-        "serving": "3.85 oz",
-        "serving_g": 109.1,
-        "calories": 386.38,
-        "fat": 23.96,
-        "carbs": 38.6,
-        "sugar": 27.95,
-        "protein": 5.33,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "9bade91489"
-       },
-       {
-        "name": "Tres Leches Cake",
-        "description": "Tres Leches Cake.",
-        "serving": "1.83 oz",
-        "serving_g": 51.9,
-        "calories": 143.19,
-        "fat": 6.65,
-        "carbs": 16.96,
-        "sugar": 9.98,
-        "protein": 3.33,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "85137922b1"
-       },
-       {
-        "name": "Chia Pudding",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 150.0,
-        "fat": 8.0,
-        "carbs": 17.0,
-        "sugar": 12.0,
-        "protein": 2.0,
-        "allergens": [
-         "Alcohol",
-         "Tree Nuts"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegan"
-        ],
-        "zone": "Pink",
-        "id": "be104639ec"
        }
       ]
      }
