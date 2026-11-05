@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T17:02-08:00",
+ "generated_at": "2026-11-04T17:26-08:00",
  "week_of": "2026-11-01",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -4644,7 +4644,7 @@
        },
        {
         "name": "Harvest Tortellini with Phesto Cream",
-        "description": "Creamy cheese tortellini mixed with squash and our house arugula \"phesto,\"topped with more cheese and parsley.",
+        "description": "Creamy cheese tortellini mixed with squash and our house arugula \"phesto,\"topped with more cheese.",
         "serving": "10.17 oz",
         "serving_g": 288.3,
         "calories": 412.12,
@@ -16967,6 +16967,30 @@
         ],
         "zone": "Green",
         "id": "d4f5523359"
+       },
+       {
+        "name": "Cream Puffs",
+        "description": "",
+        "serving": "1.33 oz",
+        "serving_g": 37.7,
+        "calories": 135.74,
+        "fat": 10.56,
+        "carbs": 8.04,
+        "sugar": 4.52,
+        "protein": 2.01,
+        "allergens": [
+         "Dairy",
+         "Egg",
+         "Soy Lecithin",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal",
+         "vegetarian"
+        ],
+        "zone": "Green",
+        "id": "4556012b8a"
        }
       ]
      }
