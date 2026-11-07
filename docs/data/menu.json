@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T21:51-08:00",
+ "generated_at": "2026-11-07T13:44-08:00",
  "week_of": "2026-11-01",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -23882,79 +23882,68 @@
      "meals": {
       "breakfast": [
        {
-        "name": "French Toast Bar",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 230.63,
-        "fat": 1.71,
-        "carbs": 55.22,
-        "sugar": 36.62,
-        "protein": 0.21,
+        "name": "2PM Open Grass-Fed Cheeseburger",
+        "description": "Grass-fed beef patty, grilled and served on a bun with melted American cheese.",
+        "serving": "6.41 oz",
+        "serving_g": 181.7,
+        "calories": 487.81,
+        "fat": 30.46,
+        "carbs": 25.33,
+        "sugar": 3.78,
+        "protein": 27.09,
         "allergens": [
-         "Alcohol",
          "Dairy",
          "Egg",
+         "Sesame",
+         "Soy Lecithin",
          "Soybean Oil",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
         "tags": [
-         "vegetarian"
+         "halal"
         ],
         "zone": "Red",
-        "id": "b7978b2d9f"
+        "id": "b81b47b96b"
        },
        {
-        "name": "Scrambled Egg",
-        "description": "Softly scrambled cage-free eggs.",
-        "serving": "3.05 oz",
-        "serving_g": 86.5,
-        "calories": 138.75,
-        "fat": 9.54,
-        "carbs": 1.82,
-        "sugar": 0.0,
-        "protein": 10.86,
+        "name": "2 PM Open Malibu Burger",
+        "description": "",
+        "serving": "6.25 oz",
+        "serving_g": 177.2,
+        "calories": 456.46,
+        "fat": 26.97,
+        "carbs": 49.19,
+        "sugar": 7.12,
+        "protein": 8.66,
         "allergens": [
-         "Egg"
+         "Sesame",
+         "Soy",
+         "Soybean Oil",
+         "Vinegar",
+         "Wheat/Gluten"
         ],
         "shared_fryer": false,
         "tags": [
          "halal",
-         "vegetarian"
+         "vegan"
         ],
         "zone": "Red",
-        "id": "dbfa26ad02"
+        "id": "8386b40994"
        },
        {
-        "name": "Bacon",
-        "description": "Freshly-baked crispy bacon.",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 283.94,
-        "fat": 20.28,
-        "carbs": 0.0,
+        "name": "2pm Open Curly Fries",
+        "description": "Crispy deep-fried seasoned curly cut potato fries.",
+        "serving": "4.4 oz",
+        "serving_g": 124.7,
+        "calories": 313.17,
+        "fat": 20.78,
+        "carbs": 28.35,
         "sugar": 0.0,
-        "protein": 24.34,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Red",
-        "id": "8af69be3e0"
-       },
-       {
-        "name": "Diced Hash Browns",
-        "description": "Crispy hash brown potatoes.",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 259.58,
-        "fat": 16.07,
-        "carbs": 25.74,
-        "sugar": 0.02,
-        "protein": 2.71,
+        "protein": 2.69,
         "allergens": [
-         "Soybean Oil"
+         "Soybean Oil",
+         "Wheat/Gluten"
         ],
         "shared_fryer": true,
         "tags": [
@@ -23962,7 +23951,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "e2d8933521"
+        "id": "c585a09a68"
        },
        {
         "name": "Omelette",
@@ -24327,8 +24316,8 @@
       ],
       "lunch": [
        {
-        "name": "2PM Open Grass-Fed Cheeseburger",
-        "description": "Grass-fed beef patty, grilled and served on a sesame bun with melted American cheese.",
+        "name": "Grass-Fed Cheeseburger",
+        "description": "Grass-fed beef patty, grilled and served on a bun with melted American cheese.",
         "serving": "6.41 oz",
         "serving_g": 181.7,
         "calories": 487.81,
@@ -24338,6 +24327,7 @@
         "protein": 27.09,
         "allergens": [
          "Dairy",
+         "Egg",
          "Sesame",
          "Soy Lecithin",
          "Soybean Oil",
@@ -24348,10 +24338,10 @@
          "halal"
         ],
         "zone": "Red",
-        "id": "b81b47b96b"
+        "id": "bd5e4187d0"
        },
        {
-        "name": "2 PM Open Malibu Burger",
+        "name": "Malibu Burger",
         "description": "",
         "serving": "6.25 oz",
         "serving_g": 177.2,
@@ -24373,7 +24363,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "8386b40994"
+        "id": "1048fdd2d2"
        },
        {
         "name": "Curly Fries",
@@ -24447,6 +24437,49 @@
         "id": "c376a811bb"
        },
        {
+        "name": "Scrambled Tofu",
+        "description": "Scrambled Locally made Organic Hodo Tofu cooked with onions, bell peppers and soy sauce.",
+        "serving": "3 oz",
+        "serving_g": 85.0,
+        "calories": 130.84,
+        "fat": 8.14,
+        "carbs": 4.2,
+        "sugar": 0.75,
+        "protein": 12.93,
+        "allergens": [
+         "Soy",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal",
+         "vegan"
+        ],
+        "zone": "Yellow",
+        "id": "6d122a4e0f"
+       },
+       {
+        "name": "Diced Hash Browns",
+        "description": "Crispy hash brown potatoes.",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 259.58,
+        "fat": 16.07,
+        "carbs": 25.74,
+        "sugar": 0.02,
+        "protein": 2.71,
+        "allergens": [
+         "Soybean Oil"
+        ],
+        "shared_fryer": true,
+        "tags": [
+         "halal",
+         "vegan"
+        ],
+        "zone": "Yellow",
+        "id": "e2d8933521"
+       },
+       {
         "name": "Pepperoni Pizza",
         "description": "Pizza topped with pepperoni, Mozzarella, and Parmesan cheese.",
         "serving": "3.33 oz",
@@ -24469,15 +24502,15 @@
         "id": "2812e68ce6"
        },
        {
-        "name": "Mushroom and Olive Pizza",
-        "description": "Pizza topped with mushrooms, olives, garlic, and fresh basil",
-        "serving": "3.65 oz",
-        "serving_g": 103.5,
-        "calories": 216.98,
-        "fat": 7.73,
-        "carbs": 29.59,
-        "sugar": 1.62,
-        "protein": 8.15,
+        "name": "Cheese Pizza",
+        "description": "Topped with our house-made tomato sauce, Mozzarella, and Parmesan cheese.",
+        "serving": "3.2 oz",
+        "serving_g": 90.7,
+        "calories": 199.72,
+        "fat": 5.68,
+        "carbs": 28.57,
+        "sugar": 1.5,
+        "protein": 8.83,
         "allergens": [
          "Dairy",
          "Soybean Oil",
@@ -24489,7 +24522,7 @@
          "vegetarian"
         ],
         "zone": "Yellow",
-        "id": "11faedcab3"
+        "id": "f0f5aee0a3"
        },
        {
         "name": "Salad Selections",
