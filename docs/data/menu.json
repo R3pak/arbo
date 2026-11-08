@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T13:44-08:00",
+ "generated_at": "2026-11-07T17:18-08:00",
  "week_of": "2026-11-01",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -24388,98 +24388,6 @@
         "id": "aa5fbee302"
        },
        {
-        "name": "Omelette",
-        "description": "Eggs with Assorted Meats, Assorted Vegetables, Cheese, Salsas, and Vegan Options.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 68.08,
-        "fat": 3.48,
-        "carbs": 5.53,
-        "sugar": 2.95,
-        "protein": 4.73,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Yellow",
-        "id": "372ddc8b17"
-       },
-       {
-        "name": "Veggie Omelette",
-        "description": "Assorted Vegan Options, Assorted Vegetables, Cheese, Salsas",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 50.02,
-        "fat": 2.48,
-        "carbs": 5.71,
-        "sugar": 3.18,
-        "protein": 2.13,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "c376a811bb"
-       },
-       {
-        "name": "Scrambled Tofu",
-        "description": "Scrambled Locally made Organic Hodo Tofu cooked with onions, bell peppers and soy sauce.",
-        "serving": "3 oz",
-        "serving_g": 85.0,
-        "calories": 130.84,
-        "fat": 8.14,
-        "carbs": 4.2,
-        "sugar": 0.75,
-        "protein": 12.93,
-        "allergens": [
-         "Soy",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "6d122a4e0f"
-       },
-       {
-        "name": "Diced Hash Browns",
-        "description": "Crispy hash brown potatoes.",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 259.58,
-        "fat": 16.07,
-        "carbs": 25.74,
-        "sugar": 0.02,
-        "protein": 2.71,
-        "allergens": [
-         "Soybean Oil"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "e2d8933521"
-       },
-       {
         "name": "Pepperoni Pizza",
         "description": "Pizza topped with pepperoni, Mozzarella, and Parmesan cheese.",
         "serving": "3.33 oz",
@@ -24815,13 +24723,15 @@
         "sugar": 0.0,
         "protein": 3.68,
         "allergens": [
+         "Dairy",
+         "Sesame",
          "Soybean Oil",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
         "tags": [
          "halal",
-         "vegan"
+         "vegetarian"
         ],
         "zone": "Yellow",
         "id": "72c021d78d"
@@ -24849,15 +24759,15 @@
         "id": "2812e68ce6"
        },
        {
-        "name": "Mushroom and Olive Pizza",
-        "description": "Pizza topped with mushrooms, olives, garlic, and fresh basil",
-        "serving": "3.65 oz",
-        "serving_g": 103.5,
-        "calories": 216.98,
-        "fat": 7.73,
-        "carbs": 29.59,
-        "sugar": 1.62,
-        "protein": 8.15,
+        "name": "Cheese Pizza",
+        "description": "Topped with our house-made tomato sauce, Mozzarella, and Parmesan cheese.",
+        "serving": "3.2 oz",
+        "serving_g": 90.7,
+        "calories": 199.72,
+        "fat": 5.68,
+        "carbs": 28.57,
+        "sugar": 1.5,
+        "protein": 8.83,
         "allergens": [
          "Dairy",
          "Soybean Oil",
@@ -24869,7 +24779,7 @@
          "vegetarian"
         ],
         "zone": "Yellow",
-        "id": "11faedcab3"
+        "id": "f0f5aee0a3"
        },
        {
         "name": "Salad Bar",
@@ -24918,98 +24828,6 @@
         "pork": "options",
         "zone": "Green",
         "id": "9dd1508f22"
-       },
-       {
-        "name": "Tuna Salad",
-        "description": "Tuna with celery, onion, relish, and mayonnaise.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 264.59,
-        "fat": 19.73,
-        "carbs": 1.66,
-        "sugar": 0.89,
-        "protein": 20.8,
-        "allergens": [
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Green",
-        "id": "9c62d05855"
-       },
-       {
-        "name": "Traditional Hummus",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 249.99,
-        "fat": 16.07,
-        "carbs": 17.86,
-        "sugar": 3.57,
-        "protein": 7.14,
-        "allergens": [
-         "Sesame"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "1468908118"
-       },
-       {
-        "name": "Picnic Potato Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 143.0,
-        "fat": 9.29,
-        "carbs": 14.29,
-        "sugar": 1.43,
-        "protein": 1.43,
-        "allergens": [
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "f708162980"
-       },
-       {
-        "name": "Mediterranean Pesto Pasta Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 186.0,
-        "fat": 10.0,
-        "carbs": 18.57,
-        "sugar": 1.43,
-        "protein": 5.71,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "31ee764d33"
        },
        {
         "name": "Chicken Tikka Masala Soup",
