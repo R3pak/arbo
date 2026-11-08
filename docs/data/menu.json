@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T10:19-08:00",
+ "generated_at": "2026-11-08T14:47-08:00",
  "week_of": "2026-11-08",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -12373,228 +12373,6 @@
      "meals": {
       "breakfast": [
        {
-        "name": "Waffle Bar",
-        "description": "Belgian Waffles with a Delicious Assortment of Toppings",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 254.02,
-        "fat": 1.91,
-        "carbs": 60.84,
-        "sugar": 40.36,
-        "protein": 0.14,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Red",
-        "id": "f86e257c0e"
-       },
-       {
-        "name": "Scrambled Egg",
-        "description": "Softly scrambled cage-free eggs.",
-        "serving": "3.05 oz",
-        "serving_g": 86.5,
-        "calories": 138.75,
-        "fat": 9.54,
-        "carbs": 1.82,
-        "sugar": 0.0,
-        "protein": 10.86,
-        "allergens": [
-         "Egg"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Red",
-        "id": "dbfa26ad02"
-       },
-       {
-        "name": "Fried Tater Tots",
-        "description": "Crispy, deep fried tater tots",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 312.64,
-        "fat": 23.48,
-        "carbs": 25.65,
-        "sugar": 0.0,
-        "protein": 2.7,
-        "allergens": [
-         "Soybean Oil"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Red",
-        "id": "080a210058"
-       },
-       {
-        "name": "Omelette Bar",
-        "description": "Eggs with Assorted Meats, Assorted Vegetables, Cheese, Salsas, and Vegan Options.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 68.08,
-        "fat": 3.48,
-        "carbs": 5.53,
-        "sugar": 2.95,
-        "protein": 4.73,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "options",
-        "zone": "Yellow",
-        "id": "5d8732f428"
-       },
-       {
-        "name": "Veggie Omelette",
-        "description": "Assorted Vegan Options, Assorted Vegetables, Cheese, Salsas",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 50.02,
-        "fat": 2.48,
-        "carbs": 5.71,
-        "sugar": 3.18,
-        "protein": 2.13,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "c376a811bb"
-       },
-       {
-        "name": "Fried Tater Tots",
-        "description": "Crispy, deep fried tater tots",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 312.64,
-        "fat": 23.48,
-        "carbs": 25.65,
-        "sugar": 0.0,
-        "protein": 2.7,
-        "allergens": [
-         "Soybean Oil"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "080a210058"
-       },
-       {
-        "name": "Fried Eggs to Order",
-        "description": "Egg fried to your request. *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.",
-        "serving": "2.47 oz",
-        "serving_g": 70.0,
-        "calories": 196.04,
-        "fat": 18.8,
-        "carbs": 0.41,
-        "sugar": 0.21,
-        "protein": 7.11,
-        "allergens": [
-         "Egg"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "0feef75ef0"
-       },
-       {
-        "name": "Scrambled Egg Whites",
-        "description": "Light and fluffy egg whites with a variety of available toppings.",
-        "serving": "4.25 oz",
-        "serving_g": 120.5,
-        "calories": 121.32,
-        "fat": 7.0,
-        "carbs": 0.0,
-        "sugar": 0.0,
-        "protein": 12.34,
-        "allergens": [
-         "Egg"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Yellow",
-        "id": "f8bc2ad666"
-       },
-       {
-        "name": "Scrambled Tofu",
-        "description": "Scrambled Locally made Organic Hodo Tofu cooked with onions, bell peppers and soy sauce.",
-        "serving": "3 oz",
-        "serving_g": 85.0,
-        "calories": 130.84,
-        "fat": 8.14,
-        "carbs": 4.2,
-        "sugar": 0.75,
-        "protein": 12.93,
-        "allergens": [
-         "Soy",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "6d122a4e0f"
-       },
-       {
-        "name": "Just Egg - Plant Based Omlette Bar",
-        "description": "Plant based scrambled egg",
-        "serving": "3.17 oz",
-        "serving_g": 89.9,
-        "calories": 136.6,
-        "fat": 9.77,
-        "carbs": 1.95,
-        "sugar": 0.0,
-        "protein": 9.77,
-        "allergens": [
-         "Soy Lecithin"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "77ffacf48a"
-       },
-       {
         "name": "Overnight Oats",
         "description": "Overnight Oats house-made with Greek yogurt, coconut and soy milk.",
         "serving": "1.07 oz",
@@ -12797,7 +12575,7 @@
       ],
       "lunch": [
        {
-        "name": "Opening @ 2pm - Chicken Bacon Ranch Sandwich",
+        "name": "Chicken Bacon Ranch Sandwich",
         "description": "Grilled chicken sandwich with a tangy ranch sauce, sharp cheddar, and crispy bacon.",
         "serving": "13 oz",
         "serving_g": 368.5,
@@ -12819,10 +12597,10 @@
         "tags": [],
         "pork": "yes",
         "zone": "Red",
-        "id": "380f08e370"
+        "id": "e717c95c6b"
        },
        {
-        "name": "Opening @ 2pm - Cauliflower Potato Curry",
+        "name": "Cauliflower Potato Curry",
         "description": "Fresh cauliflower, potatoes and green beans in a fragrant vegan curry sauce.",
         "serving": "7.44 oz",
         "serving_g": 210.9,
@@ -12838,21 +12616,20 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "e82c144ec2"
+        "id": "adccba14ed"
        },
        {
-        "name": "Seasoned Waffle Fries",
-        "description": "Spicy waffle fries",
-        "serving": "4.4 oz",
-        "serving_g": 124.7,
-        "calories": 299.67,
-        "fat": 18.09,
-        "carbs": 31.05,
-        "sugar": 0.0,
-        "protein": 2.69,
+        "name": "Shoestring Potatoes",
+        "description": "Crispy thin-cut potato fries.",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 286.08,
+        "fat": 17.41,
+        "carbs": 31.06,
+        "sugar": 0.01,
+        "protein": 2.7,
         "allergens": [
-         "Soybean Oil",
-         "Wheat/Gluten"
+         "Soybean Oil"
         ],
         "shared_fryer": true,
         "tags": [
@@ -12860,7 +12637,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "dc9ce02127"
+        "id": "6e0f1222b6"
        },
        {
         "name": "Omelette",
