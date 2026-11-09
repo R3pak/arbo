@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T14:47-08:00",
+ "generated_at": "2026-11-08T18:35-08:00",
  "week_of": "2026-11-08",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -13015,18 +13015,17 @@
         "id": "adccba14ed"
        },
        {
-        "name": "Seasoned Waffle Fries",
-        "description": "Spicy waffle fries",
-        "serving": "4.4 oz",
-        "serving_g": 124.7,
-        "calories": 299.67,
-        "fat": 18.09,
-        "carbs": 31.05,
-        "sugar": 0.0,
-        "protein": 2.69,
+        "name": "Shoestring Potatoes",
+        "description": "Crispy thin-cut potato fries.",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 286.08,
+        "fat": 17.41,
+        "carbs": 31.06,
+        "sugar": 0.01,
+        "protein": 2.7,
         "allergens": [
-         "Soybean Oil",
-         "Wheat/Gluten"
+         "Soybean Oil"
         ],
         "shared_fryer": true,
         "tags": [
@@ -13034,7 +13033,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "dc9ce02127"
+        "id": "6e0f1222b6"
        },
        {
         "name": "Lazy Soup Dumpling",
@@ -13051,47 +13050,71 @@
          "Peanut Oil",
          "Sesame",
          "Soy",
+         "Soybean Oil",
          "Vinegar",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
         "tags": [],
-        "pork": "yes",
         "zone": "Yellow",
         "id": "ae3feddda0"
        },
        {
-        "name": "Sausage and Mushroom Pizza",
-        "description": "A savory slice made with our house-made tomato sauce and topped with Andouille pork sausage, mozzarella, and mushrooms.",
-        "serving": "3.71 oz",
-        "serving_g": 105.2,
-        "calories": 221.45,
-        "fat": 7.12,
-        "carbs": 28.9,
-        "sugar": 1.67,
-        "protein": 10.58,
+        "name": "Lazy Soup Dumpling",
+        "description": "Tender soup dumplings served in a bold, spicy broth infused with aromatic chili oil, garlic, and warming spices. A comforting, fiery dish that brings heat and depth with every bite.",
+        "serving": "0.78 lb",
+        "serving_g": 353.8,
+        "calories": 466.52,
+        "fat": 33.61,
+        "carbs": 32.44,
+        "sugar": 5.27,
+        "protein": 11.78,
         "allergens": [
          "Alcohol",
+         "Peanut Oil",
+         "Sesame",
+         "Soy",
+         "Soybean Oil",
+         "Vinegar",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [],
+        "zone": "Yellow",
+        "id": "ae3feddda0"
+       },
+       {
+        "name": "Pepperoni Pizza",
+        "description": "Pizza topped with pepperoni, Mozzarella, and Parmesan cheese.",
+        "serving": "3.33 oz",
+        "serving_g": 94.4,
+        "calories": 218.93,
+        "fat": 7.46,
+        "carbs": 28.61,
+        "sugar": 1.5,
+        "protein": 9.54,
+        "allergens": [
          "Dairy",
          "Soybean Oil",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
+        "tags": [
+         "halal"
+        ],
         "zone": "Yellow",
-        "id": "b3fcd2fa12"
+        "id": "2812e68ce6"
        },
        {
-        "name": "Veggie Phesto Pizza",
-        "description": "Savory artichokes, tomatoes, olives, and red onions drizzled with our house-made arugula \"phesto.\"",
-        "serving": "3.45 oz",
-        "serving_g": 97.8,
-        "calories": 221.45,
-        "fat": 8.07,
-        "carbs": 29.41,
-        "sugar": 1.58,
-        "protein": 8.52,
+        "name": "Cheese Pizza",
+        "description": "Topped with our house-made tomato sauce, Mozzarella, and Parmesan cheese.",
+        "serving": "3.2 oz",
+        "serving_g": 90.7,
+        "calories": 199.72,
+        "fat": 5.68,
+        "carbs": 28.57,
+        "sugar": 1.5,
+        "protein": 8.83,
         "allergens": [
          "Dairy",
          "Soybean Oil",
@@ -13103,7 +13126,7 @@
          "vegetarian"
         ],
         "zone": "Yellow",
-        "id": "4e7d1d3562"
+        "id": "f0f5aee0a3"
        },
        {
         "name": "Salad Bar",
@@ -13152,55 +13175,6 @@
         "pork": "options",
         "zone": "Green",
         "id": "9dd1508f22"
-       },
-       {
-        "name": "Smoked Cheddar & Bacon Potato Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 207.0,
-        "fat": 15.71,
-        "carbs": 12.86,
-        "sugar": 1.43,
-        "protein": 0.0,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "yes",
-        "zone": "Green",
-        "id": "e042c760da"
-       },
-       {
-        "name": "Cowboy Macaroni Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 171.0,
-        "fat": 7.86,
-        "carbs": 21.43,
-        "sugar": 2.14,
-        "protein": 3.57,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "8d81693218"
        },
        {
         "name": "Tuscan Mushroom Bean Soup",
