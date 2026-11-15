@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T14:56-08:00",
+ "generated_at": "2026-11-14T18:32-08:00",
  "week_of": "2026-11-08",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -16724,8 +16724,8 @@
         "id": "1e5ce200ba"
        },
        {
-        "name": "Mexican Rice",
-        "description": "Long grain rice cooked with tomatoes, onions, carrots, corn, and peppers.",
+        "name": "Mexican Rice & Refried Pinto Beans",
+        "description": "Long grain rice cooked with tomatoes, onions, carrots, corn, and peppers. Pinto beans simmered and mashed with garlic and spices",
         "serving": "2.13 oz",
         "serving_g": 60.4,
         "calories": 106.54,
@@ -16742,63 +16742,20 @@
          "vegan"
         ],
         "zone": "Yellow",
-        "id": "3cba524cf6"
+        "id": "a00a3e2f4d"
        },
        {
-        "name": "Refried Pinto Beans",
-        "description": "Pinto beans simmered and mashed with garlic and spices.",
-        "serving": "4.77 oz",
-        "serving_g": 135.2,
-        "calories": 175.48,
-        "fat": 6.72,
-        "carbs": 21.69,
-        "sugar": 0.99,
-        "protein": 6.88,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "c6c5d60c55"
-       },
-       {
-        "name": "Flour Tortilla",
-        "description": "",
-        "serving": "1.09 oz",
-        "serving_g": 30.9,
-        "calories": 89.71,
-        "fat": 1.99,
-        "carbs": 15.95,
-        "sugar": 0.0,
-        "protein": 1.99,
+        "name": "Chicken Fajitas",
+        "description": "Fajita-spiced Halal chicken, marinated and grilled with peppers and onions on flour tortillas.",
+        "serving": "7.68 oz",
+        "serving_g": 217.7,
+        "calories": 345.14,
+        "fat": 12.24,
+        "carbs": 37.47,
+        "sugar": 2.61,
+        "protein": 21.08,
         "allergens": [
          "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Yellow",
-        "id": "97da6294ca"
-       },
-       {
-        "name": "BBQ Chicken Pizza",
-        "description": "Cheese pizza with BBQ sauce and halal chicken breast.",
-        "serving": "3.62 oz",
-        "serving_g": 102.6,
-        "calories": 231.82,
-        "fat": 6.1,
-        "carbs": 32.91,
-        "sugar": 5.34,
-        "protein": 11.27,
-        "allergens": [
-         "Dairy",
-         "Soybean Oil",
-         "Vinegar",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
@@ -16806,24 +16763,43 @@
          "halal"
         ],
         "zone": "Yellow",
-        "id": "d5d356dd07"
+        "id": "1e5ce200ba"
        },
        {
-        "name": "California Veggie Pizza",
-        "description": "Pizza with veggies, artichokes and garlic ranch sauce.",
-        "serving": "3.45 oz",
-        "serving_g": 97.8,
-        "calories": 235.88,
-        "fat": 9.15,
-        "carbs": 29.25,
-        "sugar": 1.74,
-        "protein": 9.27,
+        "name": "Pepperoni Pizza",
+        "description": "Pizza topped with pepperoni, Mozzarella, and Parmesan cheese.",
+        "serving": "3.33 oz",
+        "serving_g": 94.4,
+        "calories": 218.93,
+        "fat": 7.46,
+        "carbs": 28.61,
+        "sugar": 1.5,
+        "protein": 9.54,
         "allergens": [
          "Dairy",
-         "Egg",
-         "Soy",
          "Soybean Oil",
-         "Vinegar",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal"
+        ],
+        "zone": "Yellow",
+        "id": "2812e68ce6"
+       },
+       {
+        "name": "Cheese Pizza",
+        "description": "Topped with our house-made tomato sauce, Mozzarella, and Parmesan cheese.",
+        "serving": "3.2 oz",
+        "serving_g": 90.7,
+        "calories": 199.72,
+        "fat": 5.68,
+        "carbs": 28.57,
+        "sugar": 1.5,
+        "protein": 8.83,
+        "allergens": [
+         "Dairy",
+         "Soybean Oil",
          "Wheat/Gluten"
         ],
         "shared_fryer": false,
@@ -16832,7 +16808,7 @@
          "vegetarian"
         ],
         "zone": "Yellow",
-        "id": "4a4a6d62b7"
+        "id": "f0f5aee0a3"
        },
        {
         "name": "Salad Bar",
@@ -16881,54 +16857,6 @@
         "pork": "options",
         "zone": "Green",
         "id": "9dd1508f22"
-       },
-       {
-        "name": "Picnic Potato Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 143.0,
-        "fat": 9.29,
-        "carbs": 14.29,
-        "sugar": 1.43,
-        "protein": 1.43,
-        "allergens": [
-         "Egg",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "f708162980"
-       },
-       {
-        "name": "Mediterranean Pesto Pasta Salad",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 186.0,
-        "fat": 10.0,
-        "carbs": 18.57,
-        "sugar": 1.43,
-        "protein": 5.71,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "31ee764d33"
        },
        {
         "name": "Chicken Tikka Masala Soup",
@@ -16986,25 +16914,6 @@
         "id": "b9a647f73d"
        },
        {
-        "name": "Roasted Broccoli",
-        "description": "Broccoli lightly seasoned and roasted",
-        "serving": "3.2 oz",
-        "serving_g": 90.7,
-        "calories": 66.58,
-        "fat": 4.54,
-        "carbs": 6.02,
-        "sugar": 1.54,
-        "protein": 2.56,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "5df2a5c25b"
-       },
-       {
         "name": "Roasted Marble Potatoes",
         "description": "Roasted marble potatoes seasoned with thyme and oregano",
         "serving": "3.28 oz",
@@ -17022,25 +16931,6 @@
         ],
         "zone": "Purple",
         "id": "b3e9f0b800"
-       },
-       {
-        "name": "Sautéed Mushrooms",
-        "description": "Sautéed sliced mushrooms",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 45.92,
-        "fat": 3.57,
-        "carbs": 3.05,
-        "sugar": 1.22,
-        "protein": 1.77,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "56558cc84b"
        }
       ]
      }
