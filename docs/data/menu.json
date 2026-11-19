@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T19:12-08:00",
+ "generated_at": "2026-11-18T19:49-08:00",
  "week_of": "2026-11-15",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -9157,31 +9157,6 @@
         "id": "42f89c9f72"
        },
        {
-        "name": "Tutokanula Kicken & Waffle Stacker",
-        "description": "Crispy Plant-Based \"Chicken\" on a Blueberry waffle with mashed Sweet Potatoes, peas and sweetened by a drizzle of syrup",
-        "serving": "12.84 oz",
-        "serving_g": 364.0,
-        "calories": 759.25,
-        "fat": 28.76,
-        "carbs": 108.22,
-        "sugar": 41.1,
-        "protein": 20.68,
-        "allergens": [
-         "Soy",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": true,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Red",
-        "id": "4bb0d436d7"
-       },
-       {
         "name": "Zion \"Cubano\" Pork Sandwich",
         "description": "Classic Cubano Sandwich, featuring Housemade Pulled Pork, Ham, Melted Swiss Cheese, and Tangy Dill Pickle, served on Crispy Bread with a Mustard Spread.",
         "serving": "3.86 oz",
@@ -9267,25 +9242,6 @@
         "tags": [],
         "zone": "Yellow",
         "id": "ce106d0389"
-       },
-       {
-        "name": "Green Chile Pozole with Squash",
-        "description": "",
-        "serving": "8.06 oz",
-        "serving_g": 228.5,
-        "calories": 103.76,
-        "fat": 3.15,
-        "carbs": 18.12,
-        "sugar": 4.27,
-        "protein": 3.02,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Blue",
-        "id": "f173d5c577"
        },
        {
         "name": "Spicy One Pot Shrimp Sausage Jambalaya",
@@ -9391,77 +9347,6 @@
         ],
         "zone": "Green",
         "id": "0644429dac"
-       },
-       {
-        "name": "Salad Selections",
-        "description": "Create your own customized bowl from proteins, roasted veggies, grains, greens and garnishes",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 208.87,
-        "fat": 16.19,
-        "carbs": 13.02,
-        "sugar": 5.83,
-        "protein": 4.03,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Fish",
-         "Sesame",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "zone": "Green",
-        "id": "e8219dd209"
-       },
-       {
-        "name": "Panini Deli Bar",
-        "description": "Carving board creations includes deli meats, cheeses, pickled condiments.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 326.32,
-        "fat": 22.54,
-        "carbs": 11.64,
-        "sugar": 0.84,
-        "protein": 21.81,
-        "allergens": [
-         "Dairy",
-         "Soy",
-         "Soybean Oil",
-         "Vinegar",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [],
-        "pork": "options",
-        "zone": "Green",
-        "id": "cfb0e6ec41"
-       },
-       {
-        "name": "Tuna Salad",
-        "description": "Tuna with celery, onion, relish, and mayonnaise.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 264.48,
-        "fat": 19.73,
-        "carbs": 1.63,
-        "sugar": 0.88,
-        "protein": 20.8,
-        "allergens": [
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Green",
-        "id": "9c62d05855"
        },
        {
         "name": "Logan Pass Ancho Crusted Flank Steak",
@@ -16957,18 +16842,17 @@
         "id": "c9f40a0ef2"
        },
        {
-        "name": "Seasoned Waffle Fries",
-        "description": "Spicy waffle fries",
-        "serving": "4.4 oz",
-        "serving_g": 124.7,
-        "calories": 299.67,
-        "fat": 18.09,
-        "carbs": 31.05,
-        "sugar": 0.0,
-        "protein": 2.69,
+        "name": "Shoestring Potatoes",
+        "description": "Crispy thin-cut potato fries.",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 286.08,
+        "fat": 17.41,
+        "carbs": 31.06,
+        "sugar": 0.01,
+        "protein": 2.7,
         "allergens": [
-         "Soybean Oil",
-         "Wheat/Gluten"
+         "Soybean Oil"
         ],
         "shared_fryer": true,
         "tags": [
@@ -16976,7 +16860,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "dc9ce02127"
+        "id": "6e0f1222b6"
        },
        {
         "name": "Shrimp Low Boil",
