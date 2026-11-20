@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T19:00-08:00",
+ "generated_at": "2026-11-19T19:42-08:00",
  "week_of": "2026-11-15",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -2180,30 +2180,6 @@
         ],
         "zone": "Green",
         "id": "9facff30d6"
-       },
-       {
-        "name": "Baklava",
-        "description": "Pistachio Baklava",
-        "serving": "2.96 oz",
-        "serving_g": 83.9,
-        "calories": 365.03,
-        "fat": 14.59,
-        "carbs": 51.08,
-        "sugar": 19.46,
-        "protein": 6.08,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Tree Nuts",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Green",
-        "id": "2dbc0f2a7a"
        },
        {
         "name": "Tuxedo Truffle Mousse Cake",
@@ -24723,28 +24699,6 @@
         ],
         "zone": "Green",
         "id": "5c733f5c21"
-       },
-       {
-        "name": "Classic Road Trip Apple Cobbler",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 113.12,
-        "fat": 3.15,
-        "carbs": 18.79,
-        "sugar": 14.74,
-        "protein": 3.27,
-        "allergens": [
-         "Dairy",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "47bcc08c22"
        },
        {
         "name": "Dark Chocolate Cranberry Cookie",
