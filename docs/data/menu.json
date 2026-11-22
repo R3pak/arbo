@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T00:44-08:00",
+ "generated_at": "2026-11-22T12:17-08:00",
  "week_of": "2026-11-22",
  "source": "UC Davis Student Housing and Dining Services online menus",
  "pork_checked": true,
@@ -60,20 +60,21 @@
         "id": "dbfa26ad02"
        },
        {
-        "name": "Turkey Sausage Patty",
-        "description": "Freshly-baked turkey patties.",
-        "serving": "1.6 oz",
-        "serving_g": 45.4,
-        "calories": 80.64,
-        "fat": 5.04,
+        "name": "Bacon",
+        "description": "Freshly-baked crispy bacon.",
+        "serving": "2 oz",
+        "serving_g": 56.7,
+        "calories": 283.94,
+        "fat": 20.28,
         "carbs": 0.0,
         "sugar": 0.0,
-        "protein": 7.06,
+        "protein": 24.34,
         "allergens": [],
         "shared_fryer": false,
         "tags": [],
+        "pork": "yes",
         "zone": "Red",
-        "id": "40c749b970"
+        "id": "8af69be3e0"
        },
        {
         "name": "Fried Tater Tots",
@@ -311,28 +312,6 @@
         "id": "9facff30d6"
        },
        {
-        "name": "Congee Rice Porridge",
-        "description": "A hot, Asian-inspired rice porridge made with organic firm tofu and gluten-free vegetable broth",
-        "serving": "1.31 oz",
-        "serving_g": 37.1,
-        "calories": 19.22,
-        "fat": 0.36,
-        "carbs": 3.12,
-        "sugar": 0.1,
-        "protein": 0.85,
-        "allergens": [
-         "Sesame",
-         "Soy"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "75e1d218e9"
-       },
-       {
         "name": "BYO Parfait",
         "description": "A variety of Yogurts, Fruits, and Assorted Toppings",
         "serving": "100 g",
@@ -479,7 +458,7 @@
       ],
       "lunch": [
        {
-        "name": "Spicy Fried Fish Po Boy",
+        "name": "Opening @ 2pm - Spicy Fried Fish Po Boy",
         "description": "Beer-Battered Cod with Chipotle Coleslaw and house made Remoulade",
         "serving": "12.48 oz",
         "serving_g": 353.8,
@@ -501,10 +480,10 @@
         "shared_fryer": true,
         "tags": [],
         "zone": "Red",
-        "id": "97dea1cc1d"
+        "id": "922460caa9"
        },
        {
-        "name": "Falafel Burger",
+        "name": "Opening @ 2pm - Falafel Burger",
         "description": "Deep-fried chickpea patties dressed with cucumber mint spread and harissa pickled onions, served on a toasted bun.",
         "serving": "10.44 oz",
         "serving_g": 296.0,
@@ -526,21 +505,20 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "50b2311be6"
+        "id": "94acbca487"
        },
        {
-        "name": "Seasoned Waffle Fries",
-        "description": "Spicy waffle fries",
-        "serving": "4.4 oz",
-        "serving_g": 124.7,
-        "calories": 299.67,
-        "fat": 18.09,
-        "carbs": 31.05,
-        "sugar": 0.0,
-        "protein": 2.69,
+        "name": "Shoestring Potatoes",
+        "description": "Crispy thin-cut potato fries.",
+        "serving": "4 oz",
+        "serving_g": 113.4,
+        "calories": 286.08,
+        "fat": 17.41,
+        "carbs": 31.06,
+        "sugar": 0.01,
+        "protein": 2.7,
         "allergens": [
-         "Soybean Oil",
-         "Wheat/Gluten"
+         "Soybean Oil"
         ],
         "shared_fryer": true,
         "tags": [
@@ -548,7 +526,7 @@
          "vegan"
         ],
         "zone": "Red",
-        "id": "dc9ce02127"
+        "id": "6e0f1222b6"
        },
        {
         "name": "Build Your Own Omelette",
@@ -600,6 +578,51 @@
         "id": "257d202559"
        },
        {
+        "name": "Pepperoni Pizza",
+        "description": "Pizza topped with pepperoni, Mozzarella, and Parmesan cheese.",
+        "serving": "3.33 oz",
+        "serving_g": 94.4,
+        "calories": 218.93,
+        "fat": 7.46,
+        "carbs": 28.61,
+        "sugar": 1.5,
+        "protein": 9.54,
+        "allergens": [
+         "Dairy",
+         "Soybean Oil",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal"
+        ],
+        "zone": "Yellow",
+        "id": "2812e68ce6"
+       },
+       {
+        "name": "Cheese Pizza",
+        "description": "Topped with our house-made tomato sauce, Mozzarella, and Parmesan cheese.",
+        "serving": "3.2 oz",
+        "serving_g": 90.7,
+        "calories": 199.72,
+        "fat": 5.68,
+        "carbs": 28.57,
+        "sugar": 1.5,
+        "protein": 8.83,
+        "allergens": [
+         "Dairy",
+         "Soybean Oil",
+         "Wheat/Gluten"
+        ],
+        "shared_fryer": false,
+        "tags": [
+         "halal",
+         "vegetarian"
+        ],
+        "zone": "Yellow",
+        "id": "f0f5aee0a3"
+       },
+       {
         "name": "Salad Bar",
         "description": "Build your own delicious Salad from a variety of Greens, Toppings, & Dressings",
         "serving": "100 g",
@@ -646,50 +669,6 @@
         "pork": "options",
         "zone": "Green",
         "id": "9dd1508f22"
-       },
-       {
-        "name": "Tuna Salad",
-        "description": "Tuna with celery, onion, relish, and mayonnaise.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 264.48,
-        "fat": 19.73,
-        "carbs": 1.63,
-        "sugar": 0.88,
-        "protein": 20.8,
-        "allergens": [
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Green",
-        "id": "9c62d05855"
-       },
-       {
-        "name": "Traditional Hummus",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 249.99,
-        "fat": 16.07,
-        "carbs": 17.86,
-        "sugar": 3.57,
-        "protein": 7.14,
-        "allergens": [
-         "Sesame"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "1468908118"
        },
        {
         "name": "Smoked Cheddar & Bacon Potato Salad",
@@ -814,203 +793,6 @@
         ],
         "zone": "Purple",
         "id": "5490c9f1d5"
-       },
-       {
-        "name": "Pinto Beans",
-        "description": "Pinto beans cooked with bell peppers, onions and spices",
-        "serving": "1.63 oz",
-        "serving_g": 46.2,
-        "calories": 42.91,
-        "fat": 0.42,
-        "carbs": 7.3,
-        "sugar": 0.47,
-        "protein": 2.26,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "304ec6958a"
-       },
-       {
-        "name": "Sautéed Collard Greens",
-        "description": "Sautéed collard greens with onions and garlic.",
-        "serving": "3.4 oz",
-        "serving_g": 96.4,
-        "calories": 94.11,
-        "fat": 7.31,
-        "carbs": 7.1,
-        "sugar": 1.88,
-        "protein": 1.94,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "069a0ed920"
-       },
-       {
-        "name": "Fresh Corn",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 102.68,
-        "fat": 1.42,
-        "carbs": 22.82,
-        "sugar": 3.86,
-        "protein": 3.86,
-        "allergens": [],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Purple",
-        "id": "168e0eea62"
-       },
-       {
-        "name": "Raspberry Brownie Cheesecake Bar",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 301.64,
-        "fat": 19.84,
-        "carbs": 26.65,
-        "sugar": 18.14,
-        "protein": 3.62,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "be9bfc6996"
-       },
-       {
-        "name": "Chocolate Chip Brownies",
-        "description": "",
-        "serving": "4 oz",
-        "serving_g": 113.4,
-        "calories": 441.12,
-        "fat": 21.07,
-        "carbs": 62.22,
-        "sugar": 39.13,
-        "protein": 4.01,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "d5117af890"
-       },
-       {
-        "name": "Double Chocolate Chip Mint Condition Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 242.67,
-        "fat": 11.94,
-        "carbs": 33.82,
-        "sugar": 20.89,
-        "protein": 2.98,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "fac51e9084"
-       },
-       {
-        "name": "Macadamias and White Chocolate Chips Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 241.54,
-        "fat": 11.94,
-        "carbs": 30.84,
-        "sugar": 18.9,
-        "protein": 2.98,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Tree Nuts",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "aada8beb28"
-       },
-       {
-        "name": "Chocolate Chip Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 188.81,
-        "fat": 10.94,
-        "carbs": 37.8,
-        "sugar": 24.87,
-        "protein": 2.29,
-        "allergens": [
-         "Alcohol",
-         "Soy",
-         "Soy Lecithin",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegan"
-        ],
-        "zone": "Pink",
-        "id": "001235d52c"
-       },
-       {
-        "name": "Lemon Drop Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 155.92,
-        "fat": 9.95,
-        "carbs": 36.8,
-        "sugar": 20.89,
-        "protein": 1.99,
-        "allergens": [
-         "Alcohol",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegan"
-        ],
-        "zone": "Pink",
-        "id": "149764c04a"
        }
       ],
       "dinner": [
@@ -1200,50 +982,6 @@
         "id": "9dd1508f22"
        },
        {
-        "name": "Tuna Salad",
-        "description": "Tuna with celery, onion, relish, and mayonnaise.",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 264.48,
-        "fat": 19.73,
-        "carbs": 1.63,
-        "sugar": 0.88,
-        "protein": 20.8,
-        "allergens": [
-         "Egg",
-         "Fish",
-         "Soybean Oil",
-         "Vinegar"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal"
-        ],
-        "zone": "Green",
-        "id": "9c62d05855"
-       },
-       {
-        "name": "Traditional Hummus",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 249.99,
-        "fat": 16.07,
-        "carbs": 17.86,
-        "sugar": 3.57,
-        "protein": 7.14,
-        "allergens": [
-         "Sesame"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "1468908118"
-       },
-       {
         "name": "Smoked Cheddar & Bacon Potato Salad",
         "description": "",
         "serving": "100 g",
@@ -1410,145 +1148,6 @@
         ],
         "zone": "Purple",
         "id": "4161728578"
-       },
-       {
-        "name": "Tiramisu",
-        "description": "",
-        "serving": "1.56 oz",
-        "serving_g": 44.2,
-        "calories": 141.85,
-        "fat": 7.09,
-        "carbs": 17.11,
-        "sugar": 13.35,
-        "protein": 1.67,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "c211886ddd"
-       },
-       {
-        "name": "Orange Cake",
-        "description": "",
-        "serving": "3.13 oz",
-        "serving_g": 88.7,
-        "calories": 299.03,
-        "fat": 8.97,
-        "carbs": 50.84,
-        "sugar": 32.9,
-        "protein": 3.98,
-        "allergens": [
-         "Dairy",
-         "Egg",
-         "Soy Lecithin",
-         "Soybean Oil",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "829cfaa7a2"
-       },
-       {
-        "name": "Double Chocolate Chip Mint Condition Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 242.67,
-        "fat": 11.94,
-        "carbs": 33.82,
-        "sugar": 20.89,
-        "protein": 2.98,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "fac51e9084"
-       },
-       {
-        "name": "Macadamias and White Chocolate Chips Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 241.54,
-        "fat": 11.94,
-        "carbs": 30.84,
-        "sugar": 18.9,
-        "protein": 2.98,
-        "allergens": [
-         "Alcohol",
-         "Dairy",
-         "Egg",
-         "Tree Nuts",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegetarian"
-        ],
-        "zone": "Pink",
-        "id": "aada8beb28"
-       },
-       {
-        "name": "Chocolate Chip Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 188.81,
-        "fat": 10.94,
-        "carbs": 37.8,
-        "sugar": 24.87,
-        "protein": 2.29,
-        "allergens": [
-         "Alcohol",
-         "Soy",
-         "Soy Lecithin",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegan"
-        ],
-        "zone": "Pink",
-        "id": "001235d52c"
-       },
-       {
-        "name": "Lemon Drop Cookie",
-        "description": "",
-        "serving": "2 oz",
-        "serving_g": 56.7,
-        "calories": 155.92,
-        "fat": 9.95,
-        "carbs": 36.8,
-        "sugar": 20.89,
-        "protein": 1.99,
-        "allergens": [
-         "Alcohol",
-         "Wheat/Gluten"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "vegan"
-        ],
-        "zone": "Pink",
-        "id": "149764c04a"
        }
       ]
      }
@@ -2261,7 +1860,7 @@
        },
        {
         "name": "BYO Mongolian BBQ",
-        "description": "Lo Mein Noodles with fresh toppings including: Garlic, Ginger, Chicken, Tofu, Green Cabbage, Carrots, Peppers, Onions, Celery, Broccoli, and Chicken. ***If you would like your dish cooked on a separate sauté pan, please ask!",
+        "description": "Lo Mein Noodles with fresh toppings including: Chicken, Plant Forward Beef, Tofu and assorted vegetables . ***If you would like your dish cooked on a separate sauté pan, please ask!",
         "serving": "100 g",
         "serving_g": 100.0,
         "calories": 105.24,
@@ -2438,27 +2037,6 @@
         ],
         "zone": "Green",
         "id": "9c62d05855"
-       },
-       {
-        "name": "Traditional Hummus",
-        "description": "",
-        "serving": "100 g",
-        "serving_g": 100.0,
-        "calories": 249.99,
-        "fat": 16.07,
-        "carbs": 17.86,
-        "sugar": 3.57,
-        "protein": 7.14,
-        "allergens": [
-         "Sesame"
-        ],
-        "shared_fryer": false,
-        "tags": [
-         "halal",
-         "vegan"
-        ],
-        "zone": "Green",
-        "id": "1468908118"
        },
        {
         "name": "Smoked Cheddar & Bacon Potato Salad",
